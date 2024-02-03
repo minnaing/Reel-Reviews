@@ -1,17 +1,87 @@
 # Reel-Reviews
 
-<!-- # Getting ReelReviews Started with React #
+## Description
 
 The Movie Search App is a web application designed to help users search for movies by their titles. What sets this app apart is its ability to categorize and rate movies based on genre and age group. Users can enter the name of a movie they are interested in, and the app will fetch and display a list of matching movie titles from a movie database. Additionally, it categorizes these movies into genres and age ratings, providing a comprehensive movie search experience.
 
--->
+## Technology Stack
 
-## API's
+- React for the front-end
+- Node.js for the back-end
+- Bootstrap for styling
+- The Movie Database (TMDb) API for movie data
 
-API_URL=`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`
+## Team Members
 
-API_IMG=`https://api.themoviedb.org/3/movie/movie_id/images`
+- Terrell D. Lemons (Developer Role)
+  - Email: `LemonsTerrell@csu.fullerton.edu`
 
-API_SEARCH=`https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1`
+- Leung Wang Chan (Developer Role)
+  - Email: `lchan2021@csu.fullerton.edu`
 
-API_REVIEWS=`https://api.themoviedb.org/3/account/20958317/rated/movies?language=en-US&page=1&sort_by=created_at.asc`
+- James D Owens (Developer Role)
+  - Email: `jamesowens@csu.fullerton`
+
+- Julian V Apparicio (Developer Role)
+  - Email: `Jvapparicio@csu.fullerton.edu`
+
+## Screenshots/Images
+
+![Screenshot 1](./screenshots/screenshot1.png)
+![Screenshot 2](./screenshots/screenshot2.png)
+
+## Getting Started
+
+To run the Movie Search App locally, follow these steps:
+
+1. Clone the repository:
+
+    ```bash
+      git clone https://github.com/LemonmadeDesigns/Reel-Reviews.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd movie-search-app
+    ```
+
+3. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+4. Configure environment variables (if any):
+
+    ```bash
+    # Create a .env file and add your environment variables
+    REACT_APP_API_KEY=your_api_key
+    ```
+
+5. Start the application:
+
+    ```bash
+      npm start
+    ```
+
+### Contributing
+
+Contributions to the Movie Search App are welcome! If you'd like to contribute, please follow our Contribution Guidelines.
+
+### License
+
+This project is licensed under the MIT License.
+
+### Acknowledgments
+
+The Movie Database (TMDb) for providing movie data
+Bootstrap for the styling framework
+
+### Contact
+
+For inquiries or collaboration opportunities, please contact us:
+
+- GitHub: [GitHub Profile](https://github.com/LemonmadeDesigns/Reel-Reviews)
+
+Please replace the placeholder `your-username` with your actual GitHub username and `your_api_key` with your API key for TMDb. Additionally, you can further customize the README.md as needed for the project.
