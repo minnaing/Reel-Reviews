@@ -65,9 +65,31 @@ To run the Movie Search App locally, follow these steps:
       npm start
     ```
 
-### Contributing
+### Pushing Changes to the Repository
 
-Contributions to the Movie Search App are welcome! If you'd like to contribute, please follow our Contribution Guidelines.
+This section, titled "<span style="color: red">Pushing Changes to the Repository</span>," provides instructions on how to stage, commit, and push changes to your repository. Make sure to replace `'main'` with the appropriate branch name if you're working on a different branch.
+
+To push new changes to the repository, follow these steps:
+
+1. Make changes to the code as needed.
+
+2. Stage your changes for commit:
+
+    ```bash
+    git add .
+    ```
+
+3. Commit your changes with a meaningful message:
+
+    ```bash
+    git commit -m "Add new feature" # Replace with your message
+    ```
+
+4. Push your changes to the remote repository (GitHub, GitLab, etc.):
+
+    ```bash
+    git push origin main # Replace 'main' with your branch name
+    ```
 
 ### License
 
