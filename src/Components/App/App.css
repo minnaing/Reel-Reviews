@@ -37,6 +37,7 @@
   height: 480px;
   color: blue;
 }
+
 .loader:before,
 .loader:after {
   content: "";
