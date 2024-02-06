@@ -27,8 +27,8 @@ The Movie Search App is a web application designed to help users search for movi
 
 ## Screenshots/Images
 
-![Screenshot 1](./screenshots/screenshot1.png)
-![Screenshot 2](./screenshots/screenshot2.png)
+![Screenshot 1](./src/Components/Placeholders/pl_images/Screenshot-1.png)
+![Screenshot 2](./src/Components/Placeholders/pl_images/Screenshot-2.png)
 
 ## Getting Started
 
