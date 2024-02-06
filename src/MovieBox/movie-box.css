@@ -1,3 +1,29 @@
+/* /////////////// CARD STYLING ///////////////// */
+.card {
+  /* min-width: %; */
+  margin: 1em auto;
+}
+
+#movie-desc.card-text {
+  max-height: 150px;
+  height: 150px;
+  overflow-y: scroll;
+}
+
+img {
+  height: 428px;
+  /* width: 285px !important; */
+  background: rgb(221, 221, 221);
+}
+
+.card-body {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* /////////////// STAR RATING ///////////////// */
 .star-rating {
   font-size: 24px; /* Adjust the font size as needed */
 }
@@ -8,4 +34,23 @@
 
 .star-empty {
   color: gray; /* Color for empty stars */
+}
+
+/* /////////////// MODAL BOX ///////////////// */
+div.modal-dialog {
+  /* padding: 5rem;
+  top: -4em; */
+}
+
+#modal-img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 400px) {
+  .card {
+    width: 20rem;
+  }
 }
