@@ -21,6 +21,7 @@ import "./App.css";
 // DEFINE COMPONENTS FOR EACH PAGE
 const Contact = () => <h2>Contact Page</h2>;
 
+//
 // const API_IMG = "http://image.tmdb.org/t/p/w500";
 
 // FIRST HOOK

@@ -43,7 +43,7 @@ To run the Movie Search App locally, follow these steps:
 2. Navigate to the project directory:
 
     ```bash
-    cd movie-search-app
+    cd Reel-Reviews-main
     ```
 
 3. Install dependencies:
