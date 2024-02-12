@@ -10,9 +10,9 @@
   overflow-y: scroll;
 }
 
-img {
+.popular-movies .movie-card img {
   height: 428px;
-  /* width: 285px !important; */
+  width: 285px !important;
   background: rgb(221, 221, 221);
 }
 
@@ -21,6 +21,13 @@ img {
   flex-flow: column;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 555.56px) {
+  img {
+    height: 100%;
+    width: 100% !important;
+  }
 }
 
 /* /////////////// STAR RATING ///////////////// */
