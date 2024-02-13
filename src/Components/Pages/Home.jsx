@@ -76,7 +76,7 @@ const Home = () => {
         });
     };
 
-    if (searchQuery) {
+    if (!searchQuery) {
 
       // Fetch a default movie trailer on initial load
       // Example: Fetch trailer for a predefined movie ID
