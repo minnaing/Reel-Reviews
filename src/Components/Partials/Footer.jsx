@@ -35,7 +35,7 @@ const Footer = () => {
             <MDBIcon fab icon='linkedin-in' />
           </MDBBtn>
 
-          <MDBBtn floating className='m-1' style={{ backgroundColor: '#333333' }} href='#'>
+          <MDBBtn floating className='m-1' style={{ backgroundColor: '#333333' }} href='https://github.com/LemonmadeDesigns/Reel-Reviews'>
             <MDBIcon fab icon='github' />
           </MDBBtn>
         </section>
@@ -48,8 +48,8 @@ const Footer = () => {
       MDBootstrap.com
     </a>
     &nbsp;| Powered by&nbsp;
-    <a className='text-white' href='https://your-innercode-link.com'>
-      InnerCode 2024
+    <a className='text-white' href='https://github.com/LemonmadeDesigns/Reel-Reviews'>
+      Digit Coders 2024
     </a>
   </div>
 </div>
