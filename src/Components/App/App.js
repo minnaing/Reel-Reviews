@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavbarBar from "./../Navbar/NavbarBar"; // Update path as needed
 import Home from "./../Pages/Home";
 import About from './../Pages/About';
-// import Contact from './../Pages/Contact';
+import Contact from './../Pages/Contact';
 import Reviews from "./../Pages/Reviews";
 import MovieChart from "../Partials/MovieChart"
 
@@ -17,9 +17,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 // IMPORT CUSTOM CSS FOR STYLING THE APPLICATION
 import "./App.css";
-
-// DEFINE COMPONENTS FOR EACH PAGE
-const Contact = () => <h2>Contact Page</h2>;
 
 //
 // const API_IMG = "http://image.tmdb.org/t/p/w500";
