@@ -1,0 +1,14 @@
+#search-input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid grey; /* Assuming you want a bottom border, adjust as needed */
+  width: 100%;
+  background: transparent;
+  outline: none; /* Optionally remove the outline on focus */
+}
+
+#search-input:focus-visible {
+  border-color: black; /* Example: Change border color on focus, adjust as needed */
+  /* Keep the other properties if they change upon focus, otherwise, they can be omitted if unchanged */
+}

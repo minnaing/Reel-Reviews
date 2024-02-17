@@ -96,7 +96,7 @@ const Reviews = () => {
   // DEPENDENCY ARRAY WITH searchQuery MEANS THIS EFFECT RUNS WHENEVER searchQuery CHANGES
 
   return (
-    <div>
+    <div id="review-wrapper">
       <div className="search-wrapper">
         <SearchBox onSearch={handleSearch} />
 

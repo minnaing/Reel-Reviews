@@ -4,6 +4,8 @@
 
 The Movie Search App is a web application designed to help users search for movies by their titles. What sets this app apart is its ability to categorize and rate movies based on genre and age group. Users can enter the name of a movie they are interested in, and the app will fetch and display a list of matching movie titles from a movie database. Additionally, it categorizes these movies into genres and age ratings, providing a comprehensive movie search experience.
 
+This integration will filter movies based on their release years corresponding to the generational age brackets you've provided. This approach assumes a simplistic correlation between a user's age (and thus generation) and the movies' release years that might appeal to them.
+
 ## Technology Stack
 
 - React for the front-end

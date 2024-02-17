@@ -20,8 +20,11 @@ export const options = {
 function MovieChart() {
   return (
     <div id="chart">
-      <Chart chartType="PieChart" data={data} options={options} width={"100%"} height={"500px"} />
-      <div id="aside-para-1" className="rainbow-box">
+      <div id="chart-aside-0" className="rainbow-box">
+        <Chart chartType="PieChart" data={data} options={options} width={"100%"} height={"500px"} />
+      </div>
+      
+      <div id="chart-aside-1" className="rainbow-box">
         <h1> REEL REVIEWS </h1>
         <aside>
           <h3>Children (Under 13)</h3>
@@ -58,7 +61,7 @@ function MovieChart() {
         </aside>
       </div>
 
-      <div id="aside-para-2" className="rainbow-box">
+      <div id="chart-aside-2" className="rainbow-box">
         <h2> ASIDE NOTE </h2>
         <aside>
           <h3>More Infor (Relate to Chart)</h3>

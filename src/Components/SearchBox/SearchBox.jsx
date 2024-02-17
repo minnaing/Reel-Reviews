@@ -1,5 +1,8 @@
 // IMPORT REACT AND THE useState HOOK FROM THE 'react' PACKAGE
-import React, { useState } from 'react';
+import { useState } from 'react';
+
+// STYLING FOR SEARC BOX
+import "./search-box.css"
 
 // DEFINE A FUNCTIONAL COMPONENT NAMED SearchBox THAT ACCEPTS AN onSearch PROP
 const SearchBox = ({ onSearch }) => {
@@ -8,29 +11,22 @@ const SearchBox = ({ onSearch }) => {
   const [query, setQuery] = useState('');
 
   // DEFINE A FUNCTION TO HANDLE THE SEARCH OPERATION
-  const handleSearch = () => {
+  const handleInputChange = (e) => {
     
-    // CALL THE onSearch FUNCTION PASSED AS A PROP WITH THE CURRENT query VALUE
-    onSearch(query);
-  };
-
-  // DEFINE A FUNCTION TO HANDLE KEY PRESS EVENTS IN THE INPUT FIELD
-  const handleKeyPress = (e) => {
-    
-    // CHECK IF THE PRESSED KEY IS THE ENTER KEY
-    if (e.key === 'Enter') {
-      
-      // CALL THE handleSearch FUNCTION WHEN ENTER KEY IS PRESSED
-      handleSearch();
-    }
+    // CALL THE onSearch FUNCTION PASSED AS A PROP WITH THE CURRENT ("query") VALUE
+    const newQuery = e.target.value;
+    setQuery(newQuery);
+    onSearch(newQuery); // Perform search as you type
   };
 
   // RENDER THE COMPONENT
   return (
-    <div>
+    <div id="search-container">
       
       {/* RENDER AN INPUT FIELD FOR THE SEARCH QUERY */}
       <input
+
+        id="search-input"
         
         // SET THE INPUT TYPE TO TEXT
         type="text" 
@@ -42,13 +38,12 @@ const SearchBox = ({ onSearch }) => {
         value={query} 
         
         // UPDATE THE query STATE WHEN THE INPUT CHANGES
-        onChange={(e) => setQuery(e.target.value)}
-        
-        // ADD AN EVENT LISTENER FOR KEY PRESS EVENTS
-        onKeyPress={handleKeyPress} 
+        // onChange={(e) => setQuery(e.target.value)}
+        onChange={handleInputChange} // Updated to use handleInputChange
       />
+      
       {/* RENDER A BUTTON TO TRIGGER THE SEARCH OPERATION */}
-      <button onClick={handleSearch}>Search</button> 
+      {/* <button onClick={handleSearch}>Search</button>  */}
       {/* // CALL handleSearch WHEN THE BUTTON IS CLICKED */}
     </div>
   );

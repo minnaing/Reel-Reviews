@@ -121,7 +121,7 @@ const Home = () => {
 
       {/* DISPLAY THE PAGE TITLE */}
       {/* Update the heading to dynamically display the movie title */}
-      <h2 style={{ textAlign: "center" }}>Name Of Search: 
+      <h2 className="name-of-search-wrapper" style={{ textAlign: "center" }}>Name Of Search: 
         <p className="rainbow-brite">{movieTitle || "Movie Home"}</p>
       </h2>
       

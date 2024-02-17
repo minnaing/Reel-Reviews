@@ -10,7 +10,7 @@
   overflow-y: scroll;
 }
 
-.popular-movies .movie-card img {
+.popular-movies .movie-card img, .card-img-top {
   height: 428px;
   width: 285px !important;
   background: rgb(221, 221, 221);
@@ -45,15 +45,23 @@
 
 /* /////////////// MODAL BOX ///////////////// */
 div.modal-dialog {
-  /* padding: 5rem;
-  top: -4em; */
+  padding: 5rem;
+  top: -4em;
 }
+
+/* .modal-content {
+  width: 75%;
+} */
 
 #modal-img {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-bottom: 1em;
+}
+
+img {
+  width: 100%;
 }
 
 @media (max-width: 400px) {
