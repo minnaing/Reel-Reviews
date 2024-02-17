@@ -1,6 +1,6 @@
 import { Chart } from "react-google-charts";
 
-import "./movie-chart.css";
+import "./_movie-chart.css";
 
 export const data = [
   ["Ages", "percentage"],

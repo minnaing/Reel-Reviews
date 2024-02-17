@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import './pages.css'; // IMPORT STYLESHEET FOR STYLING THE PAGE COMPONENTS
+import './_pages.css'; // IMPORT STYLESHEET FOR STYLING THE PAGE COMPONENTS
 
 const ContactUs = () => {
     // State for storing input values

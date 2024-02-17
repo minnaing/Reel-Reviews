@@ -1,7 +1,7 @@
 import React from "react";
 
 // IMPORT STYLESHEET FOR STYLING THE PAGE COMPONENTS
-import "./partials.css";
+import "./_partials.css";
 
 const ReelSpinner = () => {
   return (

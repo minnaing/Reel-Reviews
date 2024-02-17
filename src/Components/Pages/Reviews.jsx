@@ -5,7 +5,7 @@ import SearchBox from "./../SearchBox/SearchBox";
 
 import ReelSpinner from "../Partials/ReelSpinner";
 
-import "./pages.css";
+import "./_pages.css";
 
 // API URL FOR FIRST HOOK
 const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=ff0abd9e4de81e5a3e858b6b617453fa&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;

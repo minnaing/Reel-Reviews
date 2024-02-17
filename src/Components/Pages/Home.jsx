@@ -17,7 +17,7 @@ import ReelSpinner from "../Partials/ReelSpinner";
 import Footer from "../Partials/Footer";
 
 // IMPORT STYLESHEET FOR STYLING THE PAGE COMPONENTS
-import "./pages.css";
+import "./_pages.css";
 
 // // DEFINE API URL FOR FETCHING POPULAR MOVIES FROM THE MOVIE DATABASE API
 const BASE_URL = "https://api.themoviedb.org/3";
