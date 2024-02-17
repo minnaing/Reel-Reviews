@@ -1,19 +1,19 @@
-// IMPORT useState AND useEffect HOOKS FROM REACT FOR STATE MANAGEMENT AND PERFORMING SIDE EFFECTS
+// IMPORT (useState) AND (useEffect) HOOKS FROM REACT FOR STATE MANAGEMENT AND PERFORMING SIDE EFFECTS
 import { useState, useEffect } from "react";
 
 // IMPORT THE SearchBox COMPONENT TO ALLOW USERS TO SEARCH FOR MOVIES
 import SearchBox from "./../SearchBox/SearchBox";
 
-// IMPORT THE MovieChart COMPONENT TO ALLOW USERS TO SEARCH FOR MOVIES
+// IMPORT THE (MovieChart) COMPONENT TO ALLOW USERS TO SEARCH FOR MOVIES
 import MovieChart from "../Partials/MovieChart";
 
-// IMPORT THE PopMovies COMPONENT TO ALLOW USERS TO SEARCH FOR MOVIES
+// IMPORT THE (PopMovies) COMPONENT TO ALLOW USERS TO SEARCH FOR MOVIES
 import PopMovies from "../Partials/PopMovies";
 
-// IMPORT THE ReelSpinner COMPONENT TO DISPLAY FOR NO MOVIES
+// IMPORT THE (ReelSpinner) COMPONENT TO DISPLAY FOR NO MOVIES
 import ReelSpinner from "../Partials/ReelSpinner";
 
-// IMPORT THE ReelSpinner COMPONENT TO DISPLAY FOR NO MOVIES
+// IMPORT THE (ReelSpinner) COMPONENT TO DISPLAY FOR NO MOVIES
 import Footer from "../Partials/Footer";
 
 // IMPORT STYLESHEET FOR STYLING THE PAGE COMPONENTS
@@ -27,6 +27,7 @@ const API_KEY = "ff0abd9e4de81e5a3e858b6b617453fa";
 
 // DEFINE THE Home COMPONENT
 const Home = () => {
+
   // INITIALIZE STATE FOR STORING THE CURRENT SEARCH QUERY
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -52,7 +53,7 @@ const Home = () => {
 
   useEffect(() => {
 
-    // Define fetchTrailer within useEffect to avoid missing dependencies
+    // DEFINED ( fetchTrailer ) WITHIN ( useEffect ) TO AVOID MISSING DEPENDENCIES
     const fetchTrailer = (movieId) => {
       fetch(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`)
         .then((response) => response.json())
@@ -61,7 +62,7 @@ const Home = () => {
           if (trailer) {
             setVideoKey(trailer.key);
 
-            // Data loaded, loading complete
+            // DATA LOADED, LOADING COMPLETE
             setIsLoading(false);
 
           } else {
@@ -79,8 +80,8 @@ const Home = () => {
     if (!searchQuery) {
 
       // Fetch a default movie trailer on initial load
-      // Example: Fetch trailer for a predefined movie ID
-      const defaultMovieId = "550"; // Replace with a default movie ID
+      // Replace with a default movie ID
+      const defaultMovieId = "550"; 
       fetchTrailer(defaultMovieId);
 
     } else {

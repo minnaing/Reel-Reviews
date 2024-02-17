@@ -54,14 +54,22 @@
 
 @media (max-width: 768px) {
   #chart {
+    
     /* Adjust the ratio based on your design preference */
-    /* grid-template-columns: 1fr; */
     grid-template-areas:
-    "chart-aside-0"
-    "chart-aside-1"
-    "chart-aside-2";
+    "aside-0"
+    "aside-1"
+    "aside-2";
   }
 }
 
 @media (max-width: 555.56px) {
+  #chart {
+
+    /* Adjust the ratio based on your design preference */
+    grid-template-areas:
+    "aside-0"
+    "aside-1"
+    "aside-2";
+  }
 }
