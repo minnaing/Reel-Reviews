@@ -13,9 +13,6 @@ import PopMovies from "../Partials/PopMovies";
 // IMPORT THE (ReelSpinner) COMPONENT TO DISPLAY FOR NO MOVIES
 import ReelSpinner from "../Partials/ReelSpinner";
 
-// IMPORT THE (ReelSpinner) COMPONENT TO DISPLAY FOR NO MOVIES
-import Footer from "../Partials/Footer";
-
 // IMPORT STYLESHEET FOR STYLING THE PAGE COMPONENTS
 import "./_pages.css";
 
@@ -154,7 +151,6 @@ const Home = () => {
       {/* PARTIALS OF PAGE */}
       <MovieChart />
       <PopMovies />
-      <Footer />
     </div>
   );
 };

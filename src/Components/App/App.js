@@ -10,7 +10,10 @@ import Home from "./../Pages/Home";
 import About from './../Pages/About';
 import Contact from './../Pages/Contact';
 import Reviews from "./../Pages/Reviews";
-import MovieChart from "../Partials/MovieChart"
+import MovieChart from "../Partials/MovieChart";
+
+// IMPORT THE (ReelSpinner) COMPONENT TO DISPLAY FOR NO MOVIES
+import Footer from "../Partials/Footer";
 
 // IMPORT BOOTSTRAP'S STYLESHEET FOR STYLING COMPONENTS ACCORDING TO THE BOOTSTRAP FRAMEWORK
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -78,6 +81,7 @@ const App = () => {
           <Route path="/reviews" element={<Reviews movies={movies} />} />
           {/* Add other routes */}
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

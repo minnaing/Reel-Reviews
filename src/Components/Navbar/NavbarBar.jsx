@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 // IMPORT { Container, Nav, Navbar } COMPONENT FROM REACT-BOOTSTRAP FOR NAVIGATION HEADER/LINKS
 import { Container, Nav, Navbar } from "react-bootstrap";
 
+import "./navbar-bar.css"
+
 // CREATE NAVBAR COMPONENT
 const NavbarBar = () => {
 
@@ -16,7 +18,10 @@ const NavbarBar = () => {
         <Container>
           
           {/* // BRAND NAME OR LOGO IN THE NAVBAR */}
-          <Navbar.Brand as={Link} to="/">Reel Reviews</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">
+            
+            Reel Reviews
+          </Navbar.Brand>
 
           {/* // TOGGLE BUTTON FOR COLLAPSIBLE NAVBAR IN SMALLER SCREENS */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

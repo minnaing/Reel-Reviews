@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import Select from 'react-select'; // Import react-select
 
 import MovieBox from "../MovieBox/MovieBox";
 import SearchBox from "./../SearchBox/SearchBox";
-
 import ReelSpinner from "../Partials/ReelSpinner";
 
 import "./_pages.css";
@@ -35,16 +35,26 @@ const Reviews = () => {
     "Silent Generation": { startYear: 1928, endYear: 1945 },
   };
 
-  // Filter movies based on the selected generation's year range
-  // const filteredMovies = movies.filter((movie) => {
-  //   // No filter applied
-  //   if (!generationFilter) return true;
+  // ||||||||||||||||||| CHANGED CODE |||||||||||||||||||||||||
+  const generationOptions = Object.keys(generationCategories).map((generation) => ({
+    value: generation,
+    label: generation,
+  }));
 
-  //   // Assuming movie.release_date is in "YYYY-MM-DD" format
-  //   const releaseYear = parseInt(movie.release_date.split("-")[0]);
-  //   const { startYear, endYear } = generationCategories[generationFilter] || {};
-  //   return releaseYear >= startYear && releaseYear <= endYear;
-  // });
+  const ratingOptions = [
+    { value: 'good', label: 'Good (> 3 stars)' },
+    { value: 'bad', label: 'Bad (≤ 3 stars)' },
+  ];
+
+  const handleGenerationChange = (selectedOption) => {
+    setGenerationFilter(selectedOption ? selectedOption.value : '');
+  };
+
+  const handleRatingChange = (selectedOption) => {
+    setRatingFilter(selectedOption ? selectedOption.value : '');
+  };
+
+  // ||||||||||||||||||| CHANGED CODE END |||||||||||||||||||||||
 
   // Implement the Rating Filter Logic
   const filteredMovies = movies.filter((movie) => {
@@ -102,32 +112,46 @@ const Reviews = () => {
 
         {/* Add UI Elements for Generation Filter */}
         <div className="filter-container">
-          <select value={generationFilter} onChange={(e) => setGenerationFilter(e.target.value)}>
+          {/* <select value={generationFilter} onChange={(e) => setGenerationFilter(e.target.value)}>
             <option value="">Select Generation</option>
             {Object.keys(generationCategories).map((generation) => (
               <option key={generation} value={generation}>
                 {generation}
               </option>
             ))}
-          </select>
+          </select> */}
 
           {/* Add UI for Rating Filter */}
-          <select value={ratingFilter} onChange={(e) => setRatingFilter(e.target.value)}>
+          {/* <select value={ratingFilter} onChange={(e) => setRatingFilter(e.target.value)}>
             <option value="">Select Rating</option>
             <option value="good">Good (&gt; 3 stars)</option>
             <option value="bad">Bad (≤ 3 stars)</option>
-          </select>
+          </select> */}
+
+
+          {/* GENERATION FILTER */}
+          <Select
+            value={generationOptions.find(option => option.value === generationFilter)}
+            onChange={handleGenerationChange}
+            options={generationOptions}
+            placeholder="Select Generation"
+            isClearable={true}
+            className="react-select-container"
+            classNamePrefix="react-select"
+          />
+          {/* RATING FILTER */}
+          <Select
+            value={ratingOptions.find(option => option.value === ratingFilter)}
+            onChange={handleRatingChange}
+            options={ratingOptions}
+            placeholder="Select Rating"
+            isClearable={true}
+            className="react-select-container"
+            classNamePrefix="react-select"
+          />
         </div>
       </div>
       <h2 style={{ textAlign: "center" }}>Movie Reviews</h2>
-
-      {/* <div className="wrapper">
-        {movies && movies.length > 0 ? (
-          movies.map((movieRev) => <MovieBox key={movieRev.id} {...movieRev} />)
-        ) : (
-          <span className="loader"></span> // SHOW LOADER IF NO MOVIES ARE LOADED
-        )}
-      </div> */}
 
       <div className="wrapper">
         {filteredMovies.length > 0 ? (

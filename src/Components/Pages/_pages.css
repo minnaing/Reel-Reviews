@@ -55,8 +55,9 @@
   width: 75%;
 }
 
-select {
+.react-select-container {
   padding: 0.5em;
+  width: 250px;
 }
 
 @media (max-width: 555.56px) {
@@ -72,7 +73,7 @@ select {
   }
 
   .filter-container {
-    width: 75%;
+    width: 90%;
   }
 }
 
