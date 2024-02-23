@@ -13,7 +13,7 @@ This will list all files, including hidden files, and will tell us if we have a 
 In our React app's `package.json`, add a `homepage` field. Replace `ourusername` with our GitHub username, and `our-app-name` with the name of our GitHub repository.
 
 ```json
-"homepage": "https://ourusername.github.io/our-app-name",
+"homepage": "https://lemonmadedesigns.github.io/Reel-Reviews/#/",
 ```
 
 ## Step 2: Install `gh-pages`
