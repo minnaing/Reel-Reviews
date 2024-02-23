@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 // IMPORT { Container, Nav, Navbar } COMPONENT FROM REACT-BOOTSTRAP FOR NAVIGATION HEADER/LINKS
 import { Container, Nav, Navbar } from "react-bootstrap";
 
+import ReelLogo from "../Partials/ReelLogo";
+
 import "./navbar-bar.css"
 
 // CREATE NAVBAR COMPONENT
@@ -19,7 +21,7 @@ const NavbarBar = () => {
           
           {/* // BRAND NAME OR LOGO IN THE NAVBAR */}
           <Navbar.Brand as={Link} to="/">
-            
+            <ReelLogo />
             Reel Reviews
           </Navbar.Brand>
 

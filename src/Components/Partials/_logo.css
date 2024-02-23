@@ -1,0 +1,52 @@
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+
+/* html{ height: 100%; }
+
+body { 
+  background: linear-gradient(#fff, #bbb); 
+  font-family: 'Fjalla One';
+} */
+
+.container {
+  text-align: center;
+  position: relative; /* Add this line */
+}
+
+.reel-logo-1 {
+  display: inline-block;
+  width: 53px;
+  height: 53px;
+  line-height: 100%;
+  vertical-align: middle;
+  background: url(https://pixabay.com/static/uploads/photo/2013/07/12/14/09/film-reel-147850_960_720.png);
+  background-size: 53px 53px;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  text-align: center;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: spin;
+}
+
+div i {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+
+/* STRAP FOR LINE CONNECTING THE REEL  */
+.strap-1 {
+  width: 150px;
+  height: 3px;
+  position: absolute;
+  bottom: 4px;
+  left: 49px;
+  background: lightgrey;
+  transform: rotateX(40deg);
+}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import { Container, Form, Button, Row, Col, Stack } from "react-bootstrap";
 
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "./_pages.css"; // IMPORT STYLESHEET FOR STYLING THE PAGE COMPONENTS
@@ -36,17 +36,21 @@ const ContactUs = () => {
         <Col md={6}>
           <h2>Get in Touch</h2>
 
-          <Container className="mt-5" fluid>
-            <p>
-              Your journey through cinema is unique, and at the Age Group Review App, we're dedicated to making movie discovery personalized for every age. Your insights and feedback are crucial to us—helping bridge the gap between generations and enhance your viewing experience.
-            </p>
-            <p>
-              Questions or suggestions? We want to hear from all corners of our diverse audience. Your input drives our mission forward, enabling us to refine and improve continuously.
-            </p>
-            <p>
-              Use the form below to share your thoughts, ideas, or any inquiries. Let's shape the future of movie discovery together, making it more inclusive and tailored to every viewer.
-            </p>
-          </Container>
+          <Stack gap={2}>
+            <div className="p-2">
+              Your journey through cinema is unique, and at the Age Group Review App, we're dedicated to making movie
+              discovery personalized for every age. Your insights and feedback are crucial to us—helping bridge the gap
+              between generations and enhance your viewing experience.
+            </div>
+            <div className="p-2">
+              Questions or suggestions? We want to hear from all corners of our diverse audience. Your input drives our
+              mission forward, enabling us to refine and improve continuously.
+            </div>
+            <div className="p-2">
+              Use the form below to share your thoughts, ideas, or any inquiries. Let's shape the future of movie
+              discovery together, making it more inclusive and tailored to every viewer.
+            </div>
+          </Stack>
 
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="name">
