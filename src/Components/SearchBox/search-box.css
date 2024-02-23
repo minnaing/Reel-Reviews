@@ -2,6 +2,7 @@
   border-top: none;
   border-right: none;
   border-left: none;
+  text-align: center;
   border-bottom: 1px solid grey; /* Assuming you want a bottom border, adjust as needed */
   width: 100%;
   background: transparent;

@@ -7,8 +7,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // IMPORT SEARCHBOX COMPONENT THAT ALLOWS USERS TO SEARCH FOR MOVIES
 import NavbarBar from "./../Navbar/NavbarBar"; // Update path as needed
 import Home from "./../Pages/Home";
-import About from './../Pages/About';
-import Contact from './../Pages/Contact';
+import About from "./../Pages/About";
+import Contact from "./../Pages/Contact";
 import Reviews from "./../Pages/Reviews";
 import MovieChart from "../Partials/MovieChart";
 
@@ -53,34 +53,33 @@ const App = () => {
   // // USEEFFECT HOOK TO FETCH MOVIES BASED ON THE SEARCH QUERY WHENEVER THE SEARCHQUERY STATE CHANGES
   useEffect(() => {
     if (searchQuery) {
-
       // ONLY PERFORM SEARCH IF searchQuery IS NOT EMPTY
       fetch(`${API_KEY}&query=${searchQuery}`)
         .then((res) => res.json())
         .then((data) => {
-
           // UPDATE THE MOVIES STATE WITH SEARCH RESULTS
           setMovies(data.results);
         });
     }
-  }, [searchQuery]); 
-      // DEPENDENCY ARRAY WITH searchQuery MEANS THIS EFFECT RUNS WHENEVER searchQuery CHANGES
+  }, [searchQuery]);
+  // DEPENDENCY ARRAY WITH searchQuery MEANS THIS EFFECT RUNS WHENEVER searchQuery CHANGES
 
   // RENDER THE APPLICATION UI
   return (
     <Router>
       <div className="App">
         <NavbarBar />
-
-        {/* // WRAPPER FOR DISPLAYING MOVIE BOXES OR A LOADER IF MOVIES ARE NOT YET LOADED */}
-        <Routes>
-          <Route path="/" element={<Home movies={movies} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/chart" element={<MovieChart />} />
-          <Route path="/reviews" element={<Reviews movies={movies} />} />
-          {/* Add other routes */}
-        </Routes>
+        <div className="content-wrapper">
+          {/* // WRAPPER FOR DISPLAYING MOVIE BOXES OR A LOADER IF MOVIES ARE NOT YET LOADED */}
+          <Routes>
+            <Route path="/" element={<Home movies={movies} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/chart" element={<MovieChart />} />
+            <Route path="/reviews" element={<Reviews movies={movies} />} />
+            {/* Add other routes */}
+          </Routes>
+        </div>
         <Footer />
       </div>
     </Router>
