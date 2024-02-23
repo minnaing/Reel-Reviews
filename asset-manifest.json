@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/LemonmadeDesigns/Reel-Reviews/static/css/main.64e1e205.css",
-    "main.js": "/LemonmadeDesigns/Reel-Reviews/static/js/main.f7c1046f.js",
+    "main.js": "/LemonmadeDesigns/Reel-Reviews/static/js/main.f00f6c69.js",
     "static/media/fa-solid-900.ttf": "/LemonmadeDesigns/Reel-Reviews/static/media/fa-solid-900.45a265d0f07b31cde85f.ttf",
     "static/media/fa-brands-400.ttf": "/LemonmadeDesigns/Reel-Reviews/static/media/fa-brands-400.6205fd00fb1b573e9f0f.ttf",
     "static/media/fa-solid-900.woff2": "/LemonmadeDesigns/Reel-Reviews/static/media/fa-solid-900.fb8184add5a3101ad0a3.woff2",
@@ -12,10 +12,10 @@
     "static/media/fa-v4compatibility.woff2": "/LemonmadeDesigns/Reel-Reviews/static/media/fa-v4compatibility.b3049b13a93f07e026fc.woff2",
     "index.html": "/LemonmadeDesigns/Reel-Reviews/index.html",
     "main.64e1e205.css.map": "/LemonmadeDesigns/Reel-Reviews/static/css/main.64e1e205.css.map",
-    "main.f7c1046f.js.map": "/LemonmadeDesigns/Reel-Reviews/static/js/main.f7c1046f.js.map"
+    "main.f00f6c69.js.map": "/LemonmadeDesigns/Reel-Reviews/static/js/main.f00f6c69.js.map"
   },
   "entrypoints": [
     "static/css/main.64e1e205.css",
-    "static/js/main.f7c1046f.js"
+    "static/js/main.f00f6c69.js"
   ]
 }
