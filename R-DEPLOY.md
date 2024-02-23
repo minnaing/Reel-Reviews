@@ -64,11 +64,11 @@ This command builds the app, creates/updates the `gh-pages` branch, and pushes t
 - Scroll down to the "Pages" section.
 - Under "Source", select the `gh-pages` branch and save.
 
-Our app should now be live at `https://ourusername.github.io/our-app-name`.
+Our app should now be live at [Reel-Reviews](https://lemonmadedesigns.github.io/Reel-Reviews/).
 
 ## Step 7: Verify Deployment
 
-After the deployment, visit `https://ourusername.github.io/our-app-name` to see our deployed React app. It may take a few minutes for the changes to be visible.
+After the deployment, visit [Reel-Reviews](https://lemonmadedesigns.github.io/Reel-Reviews/) to see our deployed React app. It may take a few minutes for the changes to be visible.
 
 ### Notes
 

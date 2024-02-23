@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 // IMPORT BROWSERROUTER, ROUTES, AND ROUTE FROM REACT-ROUTER-DOM FOR ROUTING
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 // IMPORT SEARCHBOX COMPONENT THAT ALLOWS USERS TO SEARCH FOR MOVIES
 import NavbarBar from "./../Navbar/NavbarBar"; // Update path as needed
