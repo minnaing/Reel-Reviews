@@ -141,12 +141,13 @@ h4 {
 .moviesDisplay {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: space-around;
   gap: 20px;
 }
 
 .movieCard {
-  flex-basis: calc(33.333% - 20px);
+  flex-basis: 1 1 calc(33.33% - 10px);
+
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px;
   border-radius: 8px;
@@ -166,8 +167,13 @@ h4 {
 }
 
 @media (max-width: 768px) {
+
+  .moviesDisplay {
+    flex-wrap: wrap;
+  }
+
   .movieCard {
-    flex-basis: calc(50% - 20px);
+    flex-basis: calc(30% - 20px);
   }
 }
 
