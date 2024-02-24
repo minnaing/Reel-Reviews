@@ -27,31 +27,31 @@ function MovieChart() {
       <div id="chart-aside-1" className="rainbow-box">
         <h1> REEL REVIEWS </h1>
         <aside>
-          <h3>Children (Under 13)</h3>
+          <h3>Children (Under 13): <span style={{color: "#fd1892"}}>Gen Z</span></h3>
           <p>
             For children, the app would likely focus on movies rated G or PG, emphasizing themes of adventure, fantasy,
             and family-friendly content. The selections would avoid complex or mature themes, aligning with what is
             generally considered appropriate and enjoyable for this age group.
           </p>
-          <h3>Teenagers (13-19)</h3>
+          <h3>Teenagers (13-19): <span style={{color: "#2c90fc"}}>Millennials</span> </h3>
           <p>
             Teenagers often seek movies that resonate with their experiences or aspirations, including genres like young
             adult fiction, comedies, and action-packed adventures. The app can curate movies that tackle coming-of-age
             themes, first loves, or the challenges of growing up, which are particularly appealing to this demographic.
           </p>
-          <h3>Young Adults (20-35)</h3>
+          <h3>Young Adults (20-35); <span style={{color: "#b8fd33"}}>Gen X</span> </h3>
           <p>
             Young adults might appreciate a wider range of movies, including those that address more mature and complex
             themes. This age group might be drawn to genres like psychological thrillers, romantic comedies, indie
             films, and dramas that reflect their own life experiences or societal issues they care about.
           </p>
-          <h3>Adults (36-60)</h3>
+          <h3>Adults (36-60): <span style={{color: "#fec837"}}>Baby Boomers</span> </h3>
           <p>
             Adults may have more eclectic tastes, ranging from critically acclaimed dramas and documentaries to action
             and suspense. They might also appreciate films that delve into familial dynamics, career challenges, and
             personal growth, reflecting the broader range of life stages and experiences typical of this age group.
           </p>
-          <h3>Seniors (60+)</h3>
+          <h3>Seniors (60+): <span style={{color: "#b827fc"}}>Silent Generation</span> </h3>
           <p>
             Seniors might enjoy movies that offer nostalgia, historical perspectives, or thoughtful reflections on life
             and relationships. Films that feature characters in similar life stages or that revisit eras from their

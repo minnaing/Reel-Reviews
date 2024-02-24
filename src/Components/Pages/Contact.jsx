@@ -84,7 +84,7 @@ const ContactUs = () => {
                 required
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button id="contact-submit" variant="primary" type="submit">
               Submit
             </Button>
           </Form>

@@ -1,54 +1,65 @@
+import { useState } from "react";
+
 // IMPORT Link FROM REACT-ROUTER-DOM FOR ROUTING
 import { Link } from "react-router-dom";
 
 // IMPORT { Container, Nav, Navbar } COMPONENT FROM REACT-BOOTSTRAP FOR NAVIGATION HEADER/LINKS
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 
 import ReelLogo from "../Partials/ReelLogo";
 
-import "./navbar-bar.css"
+import "./navbar-bar.css";
 
 // CREATE NAVBAR COMPONENT
 const NavbarBar = () => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   // RETURN NAVBAR COMPONENT
   return (
-      
-      <Navbar bg="dark" expand="lg" variant="dark">
-      {/* // RENDER NAVBAR WITH DARK THEME AND CONTAINER TO ALIGN NAV ITEMS */}
-
-        <Container>
-          
-          {/* // BRAND NAME OR LOGO IN THE NAVBAR */}
-          <Navbar.Brand as={Link} to="/">
-            <ReelLogo />
-            Reel Reviews
-          </Navbar.Brand>
-
-          {/* // TOGGLE BUTTON FOR COLLAPSIBLE NAVBAR IN SMALLER SCREENS */}
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
-          {/* // COLLAPSIBLE NAVBAR CONTENT CONTAINING NAV LINKS */}
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              
-              {/* // NAVIGATION LINKS */}
-              <Nav.Link as={Link} to="/">
+    <Navbar expand="lg" className="bg-body-tertiary mb-3">
+      <Container fluid>
+        <Navbar.Brand href="#">
+          <ReelLogo />
+          Reel Reviews
+        </Navbar.Brand>
+        <Navbar.Toggle onClick={handleShow} aria-controls="offcanvasNavbar" />
+        <Navbar.Offcanvas
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+          placement="start"
+          show={show}
+          onHide={handleClose}
+        >
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title id="offcanvasNavbarLabel">
+              <Navbar.Brand href="#">
+                <ReelLogo />
+                Reel Reviews
+              </Navbar.Brand>
+            </Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <Nav className="justify-content-end flex-grow-1 pe-3">
+              {/* NAVIGATION LINKS */}
+              <Nav.Link as={Link} to="/" onClick={handleClose}>
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to="/reviews">
+              <Nav.Link as={Link} to="/reviews" onClick={handleClose}>
                 Reviews
               </Nav.Link>
-              <Nav.Link as={Link} to="/about">
+              <Nav.Link as={Link} to="/about" onClick={handleClose}>
                 About
               </Nav.Link>
-              <Nav.Link as={Link} to="/contact">
+              <Nav.Link as={Link} to="/contact" onClick={handleClose}>
                 Contact
               </Nav.Link>
             </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+          </Offcanvas.Body>
+        </Navbar.Offcanvas>
+      </Container>
+    </Navbar>
   );
 };
 

@@ -79,17 +79,27 @@ const About = () => {
       ))}
 
       <div className="newReleasesSection">
-        <h3>New Releases</h3>
+        <h2>New Releases</h2>
         <div className="moviesDisplay">
           {newReleases.map((movie) => (
-            <div key={movie.id} className="movieCard">
-              <h5>{movie.name}</h5>
-              <p>
-                Year Released: {movie.year}
-              </p>
-              {movie.posterPath && <img src={movie.posterPath} alt={movie.name} style={{ width: "100%", height: "auto" }} />}
-
-            </div>
+            <a
+              href={`https://www.youtube.com/results?search_query=${encodeURIComponent(movie.name)}`}
+              key={movie.id}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div className="movieCard">
+                <h3>{movie.name}</h3>
+                <p>Year Released: {movie.year}</p>
+                {movie.posterPath && (
+                  <img 
+                    src={movie.posterPath} 
+                    alt={movie.name} 
+                    style={{ width: "100%", height: "auto" }} />
+                )}
+              </div>
+            </a>
           ))}
         </div>
       </div>

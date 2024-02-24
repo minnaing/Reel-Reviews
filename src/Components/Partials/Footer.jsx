@@ -44,8 +44,8 @@ const Footer = () => {
       <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
         <div>
           © {new Date().getFullYear()} Copyright:
-          <a className="text-white" href="https://mdbootstrap.com/">
-            MDBootstrap.com
+          <a className="text-white" href="/">
+            CPSC 335
           </a>
           &nbsp;| Powered by&nbsp;
           <a className="text-white" href="https://github.com/LemonmadeDesigns/Reel-Reviews">
