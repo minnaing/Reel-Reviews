@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Reel-Reviews/static/css/main.7ef6420a.css",
+    "main.css": "/Reel-Reviews/static/css/main.4d4e4404.css",
     "main.js": "/Reel-Reviews/static/js/main.4dd0467b.js",
     "static/media/fa-solid-900.ttf": "/Reel-Reviews/static/media/fa-solid-900.45a265d0f07b31cde85f.ttf",
     "static/media/fa-brands-400.ttf": "/Reel-Reviews/static/media/fa-brands-400.6205fd00fb1b573e9f0f.ttf",
@@ -11,11 +11,11 @@
     "static/media/fa-v4compatibility.ttf": "/Reel-Reviews/static/media/fa-v4compatibility.2eb7b3ef25042305f3ff.ttf",
     "static/media/fa-v4compatibility.woff2": "/Reel-Reviews/static/media/fa-v4compatibility.b3049b13a93f07e026fc.woff2",
     "index.html": "/Reel-Reviews/index.html",
-    "main.7ef6420a.css.map": "/Reel-Reviews/static/css/main.7ef6420a.css.map",
+    "main.4d4e4404.css.map": "/Reel-Reviews/static/css/main.4d4e4404.css.map",
     "main.4dd0467b.js.map": "/Reel-Reviews/static/js/main.4dd0467b.js.map"
   },
   "entrypoints": [
-    "static/css/main.7ef6420a.css",
+    "static/css/main.4d4e4404.css",
     "static/js/main.4dd0467b.js"
   ]
 }
