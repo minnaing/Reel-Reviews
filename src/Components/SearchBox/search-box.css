@@ -4,7 +4,7 @@
   border-left: none;
   text-align: center;
   border-bottom: 1px solid grey; /* Assuming you want a bottom border, adjust as needed */
-  width: 100%;
+  width: 90%;
   background: transparent;
   outline: none; /* Optionally remove the outline on focus */
 }

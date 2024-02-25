@@ -5,13 +5,13 @@ import { useState, useEffect } from "react";
 import SearchBox from "../../SearchBox/SearchBox";
 
 // IMPORT THE (MovieChart) COMPONENT TO ALLOW USERS TO SEARCH FOR MOVIES
-import MovieChart from "../../Partials/MovieChart";
+import MovieChart from "../../Partials/MovieChart/MovieChart";
 
 // IMPORT THE (PopMovies) COMPONENT TO ALLOW USERS TO SEARCH FOR MOVIES
-import PopMovies from "../../Partials/PopMovies";
+import PopMovies from "../../Partials/PopMovies/PopMovies";
 
 // IMPORT THE (ReelSpinner) COMPONENT TO DISPLAY FOR NO MOVIES
-import ReelSpinner from "../../Partials/ReelSpinner";
+import ReelSpinner from "../../Partials/ReelLogo/ReelSpinner";
 
 // IMPORT STYLESHEET FOR STYLING THE PAGE COMPONENTS
 import "./home.css";

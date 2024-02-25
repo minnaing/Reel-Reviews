@@ -22,7 +22,7 @@ This integration will filter movies based on their release years corresponding t
   - Email: `lchan2021@csu.fullerton.edu`
 
 - James D Owens (Developer Role)
-  - Email: `jamesowens@csu.fullerton`
+  - Email: `jamesowens@csu.fullerton.edu`
 
 - Julian V Apparicio (Developer Role)
   - Email: `Jvapparicio@csu.fullerton.edu`

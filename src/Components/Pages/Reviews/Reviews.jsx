@@ -3,7 +3,7 @@ import Select from 'react-select'; // Import react-select
 
 import MovieBox from "../../MovieBox/MovieBox";
 import SearchBox from "../../SearchBox/SearchBox";
-import ReelSpinner from "../../Partials/ReelSpinner";
+import ReelSpinner from "../../Partials/ReelLogo/ReelSpinner";
 
 import "./reviews.css";
 

@@ -6,14 +6,14 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 // IMPORT SEARCHBOX COMPONENT THAT ALLOWS USERS TO SEARCH FOR MOVIES
 import NavbarBar from "./../Navbar/NavbarBar"; // Update path as needed
-import Home from "./../Pages/Home";
-import About from "./../Pages/About";
-import Contact from "./../Pages/Contact";
-import Reviews from "./../Pages/Reviews";
-import MovieChart from "../Partials/MovieChart";
+import Home from "./../Pages/Home/Home";
+import About from "./../Pages/About/About";
+import Contact from "./../Pages/Contact/Contact";
+import Reviews from "./../Pages/Reviews/Reviews";
+import MovieChart from "../Partials/MovieChart/MovieChart";
 
 // IMPORT THE (ReelSpinner) COMPONENT TO DISPLAY FOR NO MOVIES
-import Footer from "../Partials/Footer";
+import Footer from "../Partials/Footer/Footer";
 
 // IMPORT BOOTSTRAP'S STYLESHEET FOR STYLING COMPONENTS ACCORDING TO THE BOOTSTRAP FRAMEWORK
 import "bootstrap/dist/css/bootstrap.min.css";
