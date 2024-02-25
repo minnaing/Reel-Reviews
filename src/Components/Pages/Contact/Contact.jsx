@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container, Form, Button, Row, Col, Stack } from "react-bootstrap";
 
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
-import "./_pages.css"; // IMPORT STYLESHEET FOR STYLING THE PAGE COMPONENTS
+import "./contact.css"; // IMPORT STYLESHEET FOR STYLING THE PAGE COMPONENTS
 
 const ContactUs = () => {
   // State for storing input values

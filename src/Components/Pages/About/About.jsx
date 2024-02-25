@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import "./_pages.css";
+import "./about.css";
 
 // DEFINE API URL FOR FETCHING POPULAR MOVIES FROM THE MOVIE DATABASE API
 const BASE_URL = "https://api.themoviedb.org/3";
@@ -79,7 +79,7 @@ const About = () => {
       ))}
 
       <div className="newReleasesSection">
-        <h2>New Releases</h2>
+        <h2 id="newReleasesSection">New Releases</h2>
         <div className="moviesDisplay">
           {newReleases.map((movie) => (
             <a

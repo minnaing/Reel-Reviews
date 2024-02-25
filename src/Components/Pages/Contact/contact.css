@@ -1,0 +1,19 @@
+.form-label {
+  display: flex;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  color: rgb(51 45 45);
+}
+
+#contact-submit {
+  background: rgb(51 45 45);
+  margin: 1.5em;
+  width: 300px;
+}
+
+@media (min-width: 768px) {
+  .col-md-6 {
+    flex: 0 0 auto;
+    width: 60%;
+  }
+}

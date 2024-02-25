@@ -1,0 +1,74 @@
+.aboutUsWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2,
+h3,
+h4 {
+  color: #333;
+}
+
+#newReleasesSection {
+  margin: 2em 0 !important;
+}
+
+.contentSection,
+.newReleasesSection {
+  margin-bottom: 30px;
+}
+
+.newReleasesSection h3 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.moviesDisplay {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.movieCard {
+  flex-basis: 1 1 calc(33.33% - 10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.movieCard h3 {
+  margin: 0;
+  color: brown;
+  text-shadow: 1px 1px black;
+  height: 55px !important;
+}
+
+.movieCard p {
+  color: #666;
+  margin: 1em;  
+  height: 100% !important;
+}
+
+.movieCard img {
+
+}
+
+@media (max-width: 768px) {
+
+  .moviesDisplay {
+    flex-wrap: wrap;
+  }
+
+  .movieCard {
+    flex-basis: calc(30% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .movieCard {
+    flex-basis: 100%;
+  }
+}

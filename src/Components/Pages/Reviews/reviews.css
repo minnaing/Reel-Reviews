@@ -1,0 +1,39 @@
+/* Initial styling for react-select containers */
+.react-select-container {
+  width: 100%; /* Ensures select takes full width of its parent container */
+  max-width: 300px; /* Optional: Adjust based on your design needs */
+  margin: 0 auto; /* Centers the select in its container */
+}
+
+.filter-container,
+.react-select__control {
+  width: 90%;
+}
+
+@media (max-width: 768px) {
+  .react-select-container {
+    max-width: 100%; /* Allows select to expand to 100% of its container's width */
+    margin-bottom: 10px; /* Adds space between stacked selects */
+  }
+}
+
+
+@media (max-width: 555.56px) {
+/* 
+  input {
+    width: 40%;
+  }
+
+  .filter-container,
+  .react-select__control {
+    width: 90%;
+    height: 90px;
+  }
+
+  .react-select-container {
+    padding: 0.5em;
+    width: 200px;
+    height: 90px;
+    font-size: 0.85rem;
+  } */
+}

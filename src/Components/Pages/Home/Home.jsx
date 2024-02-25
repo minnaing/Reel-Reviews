@@ -2,19 +2,19 @@
 import { useState, useEffect } from "react";
 
 // IMPORT THE SearchBox COMPONENT TO ALLOW USERS TO SEARCH FOR MOVIES
-import SearchBox from "./../SearchBox/SearchBox";
+import SearchBox from "../../SearchBox/SearchBox";
 
 // IMPORT THE (MovieChart) COMPONENT TO ALLOW USERS TO SEARCH FOR MOVIES
-import MovieChart from "../Partials/MovieChart";
+import MovieChart from "../../Partials/MovieChart";
 
 // IMPORT THE (PopMovies) COMPONENT TO ALLOW USERS TO SEARCH FOR MOVIES
-import PopMovies from "../Partials/PopMovies";
+import PopMovies from "../../Partials/PopMovies";
 
 // IMPORT THE (ReelSpinner) COMPONENT TO DISPLAY FOR NO MOVIES
-import ReelSpinner from "../Partials/ReelSpinner";
+import ReelSpinner from "../../Partials/ReelSpinner";
 
 // IMPORT STYLESHEET FOR STYLING THE PAGE COMPONENTS
-import "./_pages.css";
+import "./home.css";
 
 // DEFINE API URL FOR FETCHING POPULAR MOVIES FROM THE MOVIE DATABASE API
 const BASE_URL = "https://api.themoviedb.org/3";
