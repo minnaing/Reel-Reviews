@@ -45,12 +45,13 @@
 }
 
 
-@media (min-width: 992px) {
+@media (max-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
     display: flex !important;
     flex-basis: auto;
     justify-content: flex-end;
     /* background-image: initial; */
+
   }
 
   .navbar-dark .navbar-toggler-icon {
@@ -59,7 +60,7 @@
   
 }
 
-@media (min-width: 555.56px) {
+@media (max-width: 991px) {
 
   .navbar-light .navbar-toggler-icon {
 
