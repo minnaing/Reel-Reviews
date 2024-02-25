@@ -87,7 +87,9 @@ const NavbarBar = () => {
           Reel Reviews
         </Navbar.Brand>
         {/* Reactivated Navbar.Toggle */}
-        <Navbar.Toggle aria-controls="offcanvasNavbar" onClick={handleShow} />
+        {/* <Navbar.Toggle aria-controls="offcanvasNavbar" onClick={handleShow} /> */}
+
+        <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleShow} />
 
         <Navbar.Offcanvas
           id="offcanvasNavbar"
