@@ -31,66 +31,68 @@ const ContactUs = () => {
   };
 
   return (
-    <Container className="mt-5">
-      <Row className="justify-content-md-center">
-        <Col md={6}>
-          <h2>Get in Touch</h2>
+    <div id="contact-wrapper">
+      <Container className="mt-5">
+        <Row className="justify-content-md-center">
+          <Col md={6}>
+            <h2>Get in Touch</h2>
 
-          <Stack gap={2}>
-            <div className="p-2">
-              Your journey through cinema is unique, and at the Age Group Review App, we're dedicated to making movie
-              discovery personalized for every age. Your insights and feedback are crucial to us—helping bridge the gap
-              between generations and enhance your viewing experience.
-            </div>
-            <div className="p-2">
-              Questions or suggestions? We want to hear from all corners of our diverse audience. Your input drives our
-              mission forward, enabling us to refine and improve continuously.
-            </div>
-            <div className="p-2">
-              Use the form below to share your thoughts, ideas, or any inquiries. Let's shape the future of movie
-              discovery together, making it more inclusive and tailored to every viewer.
-            </div>
-          </Stack>
+            <Stack gap={2}>
+              <div className="p-2">
+                Your journey through cinema is unique, and at the Age Group Review App, we're dedicated to making movie
+                discovery personalized for every age. Your insights and feedback are crucial to us—helping bridge the
+                gap between generations and enhance your viewing experience.
+              </div>
+              <div className="p-2">
+                Questions or suggestions? We want to hear from all corners of our diverse audience. Your input drives
+                our mission forward, enabling us to refine and improve continuously.
+              </div>
+              <div className="p-2">
+                Use the form below to share your thoughts, ideas, or any inquiries. Let's shape the future of movie
+                discovery together, making it more inclusive and tailored to every viewer.
+              </div>
+            </Stack>
 
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="name">
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter your name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="message">
-              <Form.Label>Message</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                placeholder="Enter your message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-              />
-            </Form.Group>
-            <Button id="contact-submit" variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="name">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="message">
+                <Form.Label>Message</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder="Enter your message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                />
+              </Form.Group>
+              <Button id="contact-submit" variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 
