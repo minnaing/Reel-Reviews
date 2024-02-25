@@ -44,6 +44,11 @@
   transform: translate(-50%, -50%);
 }
 
+.navbar-light .navbar-toggler-icon {
+
+  background-image: none;
+}
+
 
 @media (max-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
