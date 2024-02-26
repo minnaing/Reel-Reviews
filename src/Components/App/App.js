@@ -6,7 +6,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 // IMPORT SEARCHBOX COMPONENT THAT ALLOWS USERS TO SEARCH FOR MOVIES
 import NavbarBar from "./../Navbar/NavbarBar"; // Update path as needed
-import StickyNav from "./../Navbar/StickyNav"; // Update path as needed
+// import StickyNav from "./../Navbar/StickyNav"; // Update path as needed
 
 import Home from "./../Pages/Home/Home";
 import About from "./../Pages/About/About";
@@ -69,7 +69,7 @@ const App = () => {
   // RENDER THE APPLICATION UI
   return (
     <Router>
-      <StickyNav />
+      {/* <StickyNav /> */}
       <NavbarBar />
       <div className="content-wrapper">
         {/* // WRAPPER FOR DISPLAYING MOVIE BOXES OR A LOADER IF MOVIES ARE NOT YET LOADED */}

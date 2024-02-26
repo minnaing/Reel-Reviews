@@ -10,8 +10,8 @@ function StickyNav() {
 
   return (
     <div>
-      <div className="App">
-        <div class="header">
+      <div className="App-1">
+        <div className="sticky-header">
           <h1>Welcome to Movie Explorer</h1>
           <h2>Type in the Search Bar to find the Movies you Love.</h2>
           <p>
