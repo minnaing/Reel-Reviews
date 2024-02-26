@@ -1,0 +1,31 @@
+.popular-movies .movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.popular-movies .movie-card {
+  flex: 0 1 18%; /* Adjust the basis to manage the space */
+  box-sizing: border-box;
+  margin: 10px;
+  text-align: center;
+}
+
+.popular-movies .movie-card img {
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 555.56px) {
+  .popular-movies .movie-grid {
+    flex-direction: column;
+  }
+  
+  .popular-movies .movie-card {
+    flex: 0 1 18%; /* Adjust the basis to manage the space */
+    box-sizing: border-box;
+    margin: 10px;
+    text-align: center;
+  }
+}

@@ -1,4 +1,7 @@
-.no-trailer-wrapper {
+/* #video-iframe, */
+/* .trailer-container, */
+iframe
+ {
   display: flex;
   flex-direction: column;
   height: 43em;
@@ -25,7 +28,6 @@
   justify-content: space-evenly;
   width: 75%;
 }
-
 
 @media (max-width: 591px) {
   #video-iframe,
