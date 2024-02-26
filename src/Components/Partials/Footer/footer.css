@@ -1,3 +1,33 @@
 footer {
   width: 100%;
 }
+
+.m-1 {
+  border: none !important;
+  border-radius: 50% !important;
+}
+
+.mb-4 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.fab {
+  position: relative;
+  bottom: 10px;
+  right: 12px;
+}
+
+@media (max-width: 555.56px) {
+  .fab {
+    position: relative;
+    bottom: 10px;
+    right: 12px;
+  }
+
+  .m-1 {
+    border: none !important;
+    border-radius: 30% !important;
+  }
+}
