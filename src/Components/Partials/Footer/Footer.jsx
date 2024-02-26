@@ -4,6 +4,8 @@ import { MDBFooter, MDBContainer, MDBBtn, MDBIcon } from "mdb-react-ui-kit";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+import './footer.css'
+
 const Footer = () => {
   return (
     <MDBFooter className="bg-light text-center text-white">
