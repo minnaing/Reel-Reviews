@@ -39,7 +39,7 @@ h4 {
   text-align: center;
 }
 
-.movieCard h3 {
+.movieCard h3, h4 {
   margin: 0;
   color: brown;
   text-shadow: 1px 1px black;
