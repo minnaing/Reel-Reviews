@@ -5,21 +5,13 @@ html, body {
   margin: 0;
 }
 
-/* |||||||||||| NAVBAR CSS ||||||||||||| */
-/* Sticky Navbar CSS */
-.navbar {
-  position: -webkit-sticky; /* For Safari */
-  position: sticky;
-  top: 0;
-  z-index: 1020; /* Ensures navbar is above other content */
-}
-
 /* |||||||||||| CONTAINER CSS |||||||||| */
 /* Flexbox layout for .App to push the footer to the bottom */
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  max-height: 100vh;
+  min-height: 10vh;
 }
 
 /* Content wrapper to allow for flex growth */

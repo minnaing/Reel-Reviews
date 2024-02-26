@@ -2,6 +2,13 @@
   width: 100%;
 }
 
+.navbar {
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 0;
+  z-index: 1020; /* Ensures navbar is above other content */
+}
+
 .logo-wrapper {
   display: flex;
   align-items: center;
@@ -45,7 +52,6 @@
 }
 
 .navbar-light .navbar-toggler-icon {
-
   background-image: none;
 }
 
@@ -55,12 +61,6 @@
     display: flex !important;
     flex-basis: auto;
     justify-content: flex-end;
-    /* background-image: initial; */
-
-  }
-
-  .navbar-dark .navbar-toggler-icon {
-    /* background-image: --mdb-navbar-toggler-icon-bg; */
   }
   
 }
@@ -68,7 +68,6 @@
 @media (max-width: 991px) {
 
   .navbar-light .navbar-toggler-icon {
-
     background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%280, 0, 0, 0.55%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e") !important;
   }
 

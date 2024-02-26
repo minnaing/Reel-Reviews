@@ -6,6 +6,8 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 // IMPORT SEARCHBOX COMPONENT THAT ALLOWS USERS TO SEARCH FOR MOVIES
 import NavbarBar from "./../Navbar/NavbarBar"; // Update path as needed
+import StickyNav from "./../Navbar/StickyNav"; // Update path as needed
+
 import Home from "./../Pages/Home/Home";
 import About from "./../Pages/About/About";
 import Contact from "./../Pages/Contact/Contact";
@@ -67,21 +69,20 @@ const App = () => {
   // RENDER THE APPLICATION UI
   return (
     <Router>
-      <div className="App">
-        <NavbarBar />
-        <div className="content-wrapper">
-          {/* // WRAPPER FOR DISPLAYING MOVIE BOXES OR A LOADER IF MOVIES ARE NOT YET LOADED */}
-          <Routes>
-            <Route path="/" element={<Home movies={movies} />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/chart" element={<MovieChart />} />
-            <Route path="/reviews" element={<Reviews movies={movies} />} />
-            {/* Add other routes */}
-          </Routes>
-        </div>
-        <Footer />
+      <StickyNav />
+      <NavbarBar />
+      <div className="content-wrapper">
+        {/* // WRAPPER FOR DISPLAYING MOVIE BOXES OR A LOADER IF MOVIES ARE NOT YET LOADED */}
+        <Routes>
+          <Route path="/" element={<Home movies={movies} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/chart" element={<MovieChart />} />
+          <Route path="/reviews" element={<Reviews movies={movies} />} />
+          {/* Add other routes */}
+        </Routes>
       </div>
+      <Footer />
     </Router>
   );
 };

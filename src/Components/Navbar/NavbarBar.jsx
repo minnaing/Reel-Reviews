@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+
 import ReelLogo from "../Partials/ReelLogo/ReelLogo";
 
 import "./navbar-bar.css";
