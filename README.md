@@ -16,12 +16,15 @@ This integration will filter movies based on their release years corresponding t
 ## Team Members
 
 - Terrell D. Lemons (Developer Role)
+
   - Email: `LemonsTerrell@csu.fullerton.edu`
 
 - Leung Wang Chan (Developer Role)
+
   - Email: `lchan2021@csu.fullerton.edu`
 
 - James D Owens (Developer Role)
+
   - Email: `jamesowens@csu.fullerton.edu`
 
 - Julian V Apparicio (Developer Role)
@@ -38,34 +41,34 @@ To run the Movie Search App locally, follow these steps:
 
 1. Clone the repository:
 
-    ```bash
-      git clone https://github.com/LemonmadeDesigns/Reel-Reviews.git
-    ```
+   ```bash
+     git clone https://github.com/LemonmadeDesigns/Reel-Reviews.git
+   ```
 
 2. Navigate to the project directory:
 
-    ```bash
-    cd Reel-Reviews-main
-    ```
+   ```bash
+   cd Reel-Reviews-main
+   ```
 
 3. Install dependencies:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 4. Configure environment variables (if any):
 
-    ```bash
-    # Create a .env file and add your environment variables
-    REACT_APP_API_KEY=your_api_key
-    ```
+   ```bash
+   # Create a .env file and add your environment variables
+   REACT_APP_API_KEY=your_api_key
+   ```
 
 5. Start the application:
 
-    ```bash
-      npm start
-    ```
+   ```bash
+     npm run dev #start backend and frontend simultaneously
+   ```
 
 ### Pushing Changes to the Repository
 
@@ -77,21 +80,21 @@ To push new changes to the repository, follow these steps:
 
 2. Stage your changes for commit:
 
-    ```bash
-    git add .
-    ```
+   ```bash
+   git add .
+   ```
 
 3. Commit your changes with a meaningful message:
 
-    ```bash
-    git commit -m "Add new feature" # Replace with your message
-    ```
+   ```bash
+   git commit -m "Add new feature" # Replace with your message
+   ```
 
 4. Push your changes to the remote repository (GitHub, GitLab, etc.):
 
-    ```bash
-    git push origin main # Replace 'main' with your branch name
-    ```
+   ```bash
+   git push origin main # Replace 'main' with your branch name
+   ```
 
 ### License
 
