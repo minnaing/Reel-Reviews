@@ -1,77 +1,52 @@
-.navbar {
-  width: 100%;
-}
-
+/* Sticky Navbar Styling */
 .sticky-header {
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
+  z-index: 1000; /* Ensures navbar is above other content */
+  width: 100%;
+}
+
+/* Navbar Basic Styling */
+.navbar {
   background-color: #333; /* Fallback color */
-  padding: 50px 0;
-  z-index: 1000; /* Ensure the header is above other content */
   color: white;
 }
 
+.nav-link {
+  color: white;
+}
+
+/* Logo and Branding */
 .logo-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px; /* Adjust based on navbar height */
-  height: 50px; /* Adjust to maintain aspect ratio */
+  width: 50px;
+  height: 50px;
 }
 
 .reel-logo {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #fff; /* Change as needed */
-  border: 2px solid #000; /* Adjust for visibility */
+  background-color: #fff;
 }
 
-.reel-logo .pole {
-  position: absolute;
-  width: 2px; /* Adjust thickness */
-  height: 50%; /* Adjust length */
-  background-color: #000; /* Adjust color as needed */
-}
-
-.reel-logo .pole.--pole1 { transform: rotate(0deg) translateX(-50%); }
-.reel-logo .pole.--pole2 { transform: rotate(60deg) translateX(-50%); }
-.reel-logo .pole.--pole3 { transform: rotate(120deg) translateX(-50%); }
-.reel-logo .pole.--pole4 { transform: rotate(180deg) translateX(-50%); }
-.reel-logo .pole.--pole5 { transform: rotate(240deg) translateX(-50%); }
-.reel-logo .pole.--pole6 { transform: rotate(300deg) translateX(-50%); }
-
-.reel-logo .center {
-  position: absolute;
-  width: 20%; /* Adjust for inner circle size */
-  height: 20%; /* Keep proportional to width */
-  background-color: #000; /* Adjust color as needed */
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.navbar-light .navbar-toggler-icon {
-  background-image: none;
-}
-
-
+/* Adjustments for responsiveness */
 @media (max-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
     display: flex !important;
     flex-basis: auto;
     justify-content: flex-end;
   }
-  
 }
 
 @media (max-width: 991px) {
-
   .navbar-light .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%280, 0, 0, 0.55%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e") !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
   }
-
 }
