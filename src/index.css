@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: whitesmoke;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .App {
@@ -28,14 +29,14 @@ input {
 
 button, .btn {
   padding: 1em;
-  background: rgb(51 45 45);
+  background: rgb(51, 45, 45);
 }
 
 button:focus-visible, .btn-primary:focus-visible,
 button:focus, .btn-primary:focus,
 button:active, .btn-primary:active {
   padding: 1em;
-  background: rgb(51 45 45 0.6%) !important;
+  background: rgba(51, 45, 45, 0.6); /* Corrected for proper CSS syntax */
   color: white;
 }
 
@@ -44,10 +45,8 @@ button:active, .btn-primary:active {
 }
 
 /* MODAL BUTTON */
-.btn-secondary
- {
-  /* width: 250px; */
-  background: rgb(51 45 45) !important;
+.btn-secondary {
+  background: rgb(51, 45, 45);
   color: white;
 }
 
@@ -59,9 +58,7 @@ button:active, .btn-primary:active {
 .btn-secondary:focus-visible,
 .btn-secondary:focus,
 .btn-secondary:active,
-.btn-secondary:hover
- {
-  width: 250px;
-  background: rgb(51 45 45) !important;
+.btn-secondary:hover {
+  background: rgb(51, 45, 45);
   color: white;
 }
