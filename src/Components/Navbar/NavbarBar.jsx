@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import ReelLogo from "../Partials/ReelLogo/ReelLogo";
-import "./navbar-bar.css"; // Ensure this path is correct
+import "./navbar-bar.css"; 
 
 const NavbarBar = () => {
     const [show, setShow] = useState(false);
@@ -10,7 +10,7 @@ const NavbarBar = () => {
     const handleShow = () => setShow(true);
 
     return (
-        <Navbar expand="lg" className="bg-body-tertiary mb-3 sticky-header">
+        <Navbar expand="lg" style={{ position: 'sticky', top: 0, zIndex: 1000 }} className="bg-body-tertiary mb-3">
             <Container fluid>
                 <Navbar.Brand as={Link} to="/" href="#">
                     <ReelLogo />
