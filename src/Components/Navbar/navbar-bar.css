@@ -13,6 +13,12 @@
   color: white;
 }
 
+.navbar-toggler:focus-visible, 
+.navbar-toggler:focus, 
+.navbar-toggler:active {
+  background: transparent !important;
+}
+
 .nav-link {
   color: white;
 }
