@@ -2,6 +2,7 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
+const path = require("path")
 
 // Initialize the express application
 const app = express();
@@ -11,6 +12,9 @@ const PORT = process.env.PORT || 9999; // Use environment variable for port or d
 app.use(cors()); // Enable CORS for all origins (configure as needed for your environment)
 app.use(express.json()); // Parse JSON bodies (as sent by API clients)
 
+// Serve static files from the React app build directory
+app.use(express.static(path.join(__dirname, 'build')));
+
 // POST endpoint to send emails
 app.post("/send-email", async (req, res) => {
   // Extract data from request body
@@ -18,7 +22,7 @@ app.post("/send-email", async (req, res) => {
   console.log("Received request:", { name, email, message }); // Log received data for debugging
 
   // Setup Nodemailer transporter using Gmail (configure according to your email provider)
-  var transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: "reelreviewstest@gmail.com", // Your email
@@ -27,7 +31,7 @@ app.post("/send-email", async (req, res) => {
   });
 
   // Email options
-  var mailOptions = {
+  const mailOptions = {
     from: "reelreviewstest@gmail.com", // Fixed sender email address
     to: "lchan2021@csu.fullerton.edu", // Fixed recipient email address
     subject: `Message from ${name} (${email})`, // Combine sender's name and email in the subject
@@ -45,6 +49,11 @@ app.post("/send-email", async (req, res) => {
     console.error("Error sending email:", error.message); // Log detailed error information
     res.status(500).send("Failed to send email"); // Respond with error upon failure
   }
+});
+
+// Handles any requests that don't match the ones above
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/build/index.html'));
 });
 
 // Start the server
