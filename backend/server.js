@@ -6,7 +6,9 @@ const path = require("path")
 
 // Initialize the express application
 const app = express();
-const PORT = process.env.PORT || 9999; // Use environment variable for port or default to 9999
+
+// Use environment variable for port or default to 9999
+const PORT = process.env.PORT || 9999; 
 
 // Middleware setup
 app.use(cors()); // Enable CORS for all origins (configure as needed for your environment)
@@ -56,7 +58,7 @@ app.post("/send-email", async (req, res) => {
 
 // Handles any requests that don't match the ones above
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, ',..', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
 });
 
 // Start the server
