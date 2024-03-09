@@ -15,10 +15,8 @@ app.use(cors()); // Enable CORS for all origins (configure as needed for your en
 app.use(express.json()); // Parse JSON bodies (as sent by API clients)
 
 // // Serve static files from the React app build directory
-// app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-// For production, serve static files from 'build'
-app.use(express.static('build'));
 
 // POST endpoint to send emails
 app.post("/send-email", async (req, res) => {
@@ -58,7 +56,7 @@ app.post("/send-email", async (req, res) => {
 
 // Handles any requests that don't match the ones above
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 // Start the server
