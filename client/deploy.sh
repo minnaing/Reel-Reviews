@@ -1,29 +1,29 @@
 #!/bin/bash
 
 # Build the React app
-echo "Building the React app..."
+echo "\nBuilding the React app...\n"
 npm run build
 
 # Check if the build was successful
 if [ $? -eq 0 ]; then
-  echo "Build successful."
+  echo "\nBuild successful.\n"
 
   # Add build changes to git
   git add .
 
   # Commit changes
-  echo "Committing changes to Git..."
+  echo "\nCommitting changes to Git...\n"
   git commit -m "Deploying to Heroku"
 
   # Push to the main branch on GitHub
-  echo "Pushing to GitHub..."
-  git push origin development && 
+  echo "\nPushing to GitHub...\n"
+  git push origin development 
 
   # Push to Heroku
-  echo "Deploying to Heroku..."
-  git push origin main
+  echo "\nDeploying to Heroku...\n"
+  git push origin development:main
 
-  echo "Deployment successful."
+  echo "\nDeployment successful.\n"
 else
-  echo "Build failed. Fix the errors and try again."
+  echo "\nBuild failed. Fix the errors and try again.\n"
 fi
