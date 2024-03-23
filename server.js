@@ -3,7 +3,6 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const path = require("path")
-const favicon = require("serve-favicon"); // Import serve-favicon
 
 // In API routes or getServerSideProps
 // import { serialize } from 'cookie';
@@ -16,7 +15,7 @@ const favicon = require("serve-favicon"); // Import serve-favicon
 
 // Initialize the express application
 const app = express();
-
+// 
 // Use environment variable for port or default to 9999
 const PORT = process.env.PORT || 9999; 
 
@@ -24,11 +23,12 @@ const PORT = process.env.PORT || 9999;
 app.use(cors()); // Enable CORS for all origins (configure as needed for your environment)
 app.use(express.json()); // Parse JSON bodies (as sent by API clients)
 
-app.use(favicon(path.join(__dirname, 'path/to/your/favicon.ico'))); // Serve your favicon
+// Serve the favicon
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))); // Update the path according to your favicon's location
 
-
-// // Serve static files from the React app build directory
-app.use(express.static(path.join(__dirname, 'client/build', '')));
+// Serve static files from the React app build directory and any other static assets
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static('public')); // Serve static files from 'public' directory
 
 
 // POST endpoint to send emails
