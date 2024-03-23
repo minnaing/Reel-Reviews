@@ -79,12 +79,6 @@ const MovieBox = ({ title, poster_path, vote_average, release_date, overview, mo
 
           alt={poster_path ? "Movie Poster" : "Placeholder Image"}
           // ALTERNATIVE TEXT FOR THE IMAGE
-
-          // // ADD ONCLICK HANDLER HERE
-          // onClick={navigateToMovie}
-
-          // CHANGE THE CURSOR TO INDICATE THE IMAGE IS CLICKABLE
-          style={{ cursor: "pointer" }}
         />
 
         <Card.Body>
