@@ -2,6 +2,8 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
+import { useCallback } from 'react';
+
 // DEFINING THE MOVIEMODAL FUNCTIONAL COMPONENT WITH PROPS PASSED FOR MODAL DATA
 const MovieModal = ({
   show,
@@ -35,10 +37,16 @@ const MovieModal = ({
   };
 
   // DEFINING A PLACEHOLDER IMAGE URL FOR USE WHEN NO POSTER PATH IS PROVIDED
-  const placeholderImageUrl = "https://placehold.co/600x400?text=Hello\nWorld";
+  const placeholderImageUrl = "https://placehold.co/600x400?text=No Image Available";
 
   // DEFINING A FILLER TEXT FOR USE WHEN NO MOVIE OVERVIEW IS AVAILABLE
   const fillerText = "No description available."; // CUSTOMIZE AS NEEDED
+
+    // USE ( useCallback ) TO MEMORIZE THE FUNCTION AND PREVENT UNNECESSARY RE-RENDERS
+    const redirectToYouTubeSearch = useCallback(() => {
+      const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(title)}`;
+      window.open(searchUrl, '_blank');
+    }, [title]);
 
   // RENDERING THE MODAL COMPONENT, SHOWING OR HIDING BASED ON THE 'SHOW' PROP
   return (
@@ -48,7 +56,7 @@ const MovieModal = ({
       </Modal.Header>
 
       <Modal.Body>
-        <div id="modal-img">
+        <div id="modal-img" onClick={redirectToYouTubeSearch}>
         {/* DISPLAYING THE MOVIE POSTER OR A PLACEHOLDER IMAGE */}
         <img
           variant="top"
@@ -70,6 +78,12 @@ const MovieModal = ({
         
         {/* DISPLAYING THE MOVIE OVERVIEW OR A FILLER TEXT IF NOT AVAILABLE */}
         <h6 id="movie-desc">{overview ? overview : <p>{fillerText}</p>}</h6> 
+
+        <p style={{color: 'black'}}>
+          Click on the movie to see 
+          <span style={{color: 'green'}}> <em><b>{title}</b></em> </span>
+          trailer
+        </p>
       </Modal.Body>
       
       <Modal.Footer>

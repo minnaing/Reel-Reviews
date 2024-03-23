@@ -15,14 +15,15 @@ import "./movie-box.css";
 const API_IMG = "http://image.tmdb.org/t/p/w500";
 
 // DEFINING THE MOVIEBOX FUNCTIONAL COMPONENT WITH PROPS FOR MOVIE DETAILS
-const MovieBox = ({ title, poster_path, vote_average, release_date, overview }) => {
-  
+const MovieBox = ({ title, poster_path, vote_average, release_date, overview, movieUrl }) => {
+  console.log("Received props:", { title, poster_path, vote_average, release_date, overview, movieUrl });
+
   // DEFINING A STATE HOOK FOR CONTROLLING THE VISIBILITY OF THE MOVIE MODAL
   const [show, setShow] = useState(false);
 
   // FUNCTION TO OPEN THE MODAL BY SETTING THE 'SHOW' STATE TO TRUE
   const handleShow = () => setShow(true);
-  
+
   // FUNCTION TO CLOSE THE MODAL BY SETTING THE 'SHOW' STATE TO FALSE
   const handleClose = () => setShow(false);
 
@@ -31,10 +32,9 @@ const MovieBox = ({ title, poster_path, vote_average, release_date, overview }) 
 
   // FUNCTION TO RENDER STAR ICONS BASED ON THE CALCULATED NUMBER OF STARS
   const renderStars = () => {
-    
     // CREATE AN EMPTY ARRAY
     const starArray = [];
-    
+
     // LOOPING THROUGH A FIXED NUMBER OF STARS (5) AND PUSHING FILLED OR EMPTY STARS BASED ON THE RATING
     for (let i = 1; i <= 5; i++) {
       starArray.push(
@@ -47,10 +47,26 @@ const MovieBox = ({ title, poster_path, vote_average, release_date, overview }) 
   };
 
   // DEFINING A PLACEHOLDER IMAGE URL FOR USE WHEN NO POSTER PATH IS PROVIDED
-  const placeholderImageUrl = "https://placehold.co/600x400?text=Hello\nWorld";
+  const placeholderImageUrl = "https://placehold.co/600x400?text=No Image Available";
 
   // DEFINING A FILLER TEXT TO DISPLAY WHEN NO MOVIE OVERVIEW IS AVAILABLE
   const fillerText = "No Description available."; // THIS TEXT CAN BE CUSTOMIZED AS NEEDED
+
+  // // HANDLE CLICK ON THE IMAGE TO NAVIGATE TO THE MOVIE OR TRAILER URL
+  // const navigateToMovie = (event) => {
+  //   // PREVENT ANY PARENT EVENT HANDLERS FROM BEING EXECUTED
+  //   event.stopPropagation();
+
+  //   console.log(`Navigating to movie URL: ${movieUrl}`); // Debug log
+
+  //   // ENSURE MOVIEURL IS NOT EMPTY OR UNDEFINED
+  //   if (movieUrl) {
+  //     window.open(movieUrl, "_blank");
+  //   } else {
+  //     // ADDITIONAL DEBUG INFO IF ( movieUrl ) IS MISSING
+  //     console.error("No movie URL provided");
+  //   }
+  // };
 
   // RENDERING THE CARD COMPONENT TO DISPLAY MOVIE INFORMATION
   return (
@@ -58,11 +74,17 @@ const MovieBox = ({ title, poster_path, vote_average, release_date, overview }) 
       <Card style={{ width: "18rem" }}>
         <Card.Img
           variant="top"
-          src={poster_path ? `${API_IMG}${poster_path}` : placeholderImageUrl} 
+          src={poster_path ? `${API_IMG}${poster_path}` : placeholderImageUrl}
           // CONDITIONALLY DISPLAYING MOVIE POSTER OR PLACEHOLDER IMAGE
-          
-          alt={poster_path ? "Movie Poster" : "Placeholder Image"} 
+
+          alt={poster_path ? "Movie Poster" : "Placeholder Image"}
           // ALTERNATIVE TEXT FOR THE IMAGE
+
+          // // ADD ONCLICK HANDLER HERE
+          // onClick={navigateToMovie}
+
+          // CHANGE THE CURSOR TO INDICATE THE IMAGE IS CLICKABLE
+          style={{ cursor: "pointer" }}
         />
 
         <Card.Body>
@@ -78,7 +100,6 @@ const MovieBox = ({ title, poster_path, vote_average, release_date, overview }) 
           <Card.Text>
             <span className="star-rating">{renderStars()}</span>
             {/* // DISPLAYING THE STAR RATING */}
-            
           </Card.Text>
           <Button variant="primary" onClick={handleShow}>
             {/* // BUTTON TO OPEN THE MODAL */}

@@ -13,7 +13,9 @@ const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=ff0abd9e4de
 // API KEY FOR SECOND HOOK { searchQuery }
 const API_KEY = "https://api.themoviedb.org/3/search/movie?api_key=ff0abd9e4de81e5a3e858b6b617453fa";
 
-// const BASE_URL = "https://api.themoviedb.org/3";
+// const API_Key_Num = 'ff0abd9e4de81e5a3e858b6b617453fa'
+
+const BASE_URL = "https://api.themoviedb.org/3";
 
 const Reviews = () => {
   // INITIALIZE STATE FOR STORING THE MOVIES + CURRENT SEARCH QUERY
@@ -74,6 +76,9 @@ const Reviews = () => {
     return generationFilterPass && ratingFilterPass;
   });
 
+  console.log(filteredMovies); // Check if movieUrl is present and correct
+
+
   // FUNCTION TO HANDLE SEARCH OPERATION BY UPDATING THE SEARCHQUERY STATE
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -83,15 +88,22 @@ const Reviews = () => {
   useEffect(() => {
     fetch(API_URL)
       .then((res) => res.json())
-      .then((data) => {
+      .then(async (data) => {
         console.log(data);
 
+        const moviesWithUrls = await Promise.all(data.results.map(async (movie) => {
+          // Placeholder for fetching movie URLs
+          // You need to replace this with actual logic to fetch URLs
+          const movieUrl = `${BASE_URL}${movie.id}`;
+          return { ...movie, movieUrl };
+        }));
+
         // UPDATE THE MOVIES STATE WITH FETCHED DATA
-        setMovies(data.results);
+        // setMovies(data.results);
+        setMovies(moviesWithUrls);
       });
   }, []); // EMPTY DEPENDENCY ARRAY MEANS THIS EFFECT RUNS ONCE AFTER INITIAL RENDER
-
-  // // USEEFFECT HOOK TO FETCH MOVIES BASED ON THE SEARCH QUERY WHENEVER THE SEARCHQUERY STATE CHANGES
+  
   useEffect(() => {
     if (searchQuery) {
       // ONLY PERFORM SEARCH IF searchQuery IS NOT EMPTY
@@ -128,7 +140,6 @@ const Reviews = () => {
             <option value="bad">Bad (≤ 3 stars)</option>
           </select> */}
 
-
           {/* GENERATION FILTER */}
           <Select
             value={generationOptions.find(option => option.value === generationFilter)}
@@ -155,7 +166,8 @@ const Reviews = () => {
 
       <div className="wrapper">
         {filteredMovies.length > 0 ? (
-          filteredMovies.map((movieRev) => <MovieBox key={movieRev.id} {...movieRev} />)
+          filteredMovies.map((movieRev) => {
+            return <MovieBox key={movieRev.id} {...movieRev} movieUrl={movieRev.movieUrl} />})
         ) : (
           <div>
             {/* CALL REELSPINNER WHEN NO MOVIE IS FOUND */}
