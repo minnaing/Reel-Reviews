@@ -17,7 +17,7 @@ if [ $? -eq 0 ]; then
 
   # Push to the main branch on GitHub
   echo "Pushing to GitHub..."
-  git push origin development
+  git push origin development && 
 
   # Push to Heroku
   echo "Deploying to Heroku..."
