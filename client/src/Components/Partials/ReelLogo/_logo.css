@@ -18,7 +18,7 @@ body {
   height: 53px;
   line-height: 100%;
   vertical-align: middle;
-  background: url(https://pixabay.com/static/uploads/photo/2013/07/12/14/09/film-reel-147850_960_720.png);
+  background-image: url('./imgs/film-reel.png');
   background-size: 53px 53px;
   background-repeat: no-repeat;
   border-radius: 50%;
