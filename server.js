@@ -2,7 +2,10 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
-const path = require("path")
+const path = require("path");
+
+//Helmet.js use for Securing  Express HTTP Headers
+var helmet = require("helmet");
 
 // In API routes or getServerSideProps
 // import { serialize } from 'cookie';
@@ -15,9 +18,34 @@ const path = require("path")
 
 // Initialize the express application
 const app = express();
-// 
+//
 // Use environment variable for port or default to 9999
-const PORT = process.env.PORT || 9999; 
+const PORT = process.env.PORT || 9999;
+
+// Helmet Security Header Set Up. X-Content-Type-Options by default on
+app.use(
+  helmet({
+    strictTransportSecurity: {
+      maxAge: 15552000, // Set to one year in seconds
+      includeSubDomains: true, // Include subdomains
+    },
+    xFrameOptions: { action: "sameorigin" },
+    referrerPolicy: {
+      policy: "no-referrer",
+    },
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"], // Default fallback for most directives
+        scriptSrc: ["'self'"],
+        styleSrc: ["'self'"],
+        fontSrc: ["'self'"],
+        imgSrc: ["'self'"],
+        frameSrc: ["'self'"],
+        // You can add other directives here as needed
+      },
+    },
+  })
+);
 
 // Middleware setup
 app.use(cors()); // Enable CORS for all origins (configure as needed for your environment)
@@ -27,9 +55,8 @@ app.use(express.json()); // Parse JSON bodies (as sent by API clients)
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))); // Update the path according to your favicon's location
 
 // Serve static files from the React app build directory and any other static assets
-app.use(express.static(path.join(__dirname, 'client/build')));
-app.use(express.static('public')); // Serve static files from 'public' directory
-
+app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static("public")); // Serve static files from 'public' directory
 
 // POST endpoint to send emails
 app.post("/send-email", async (req, res) => {
@@ -68,9 +95,13 @@ app.post("/send-email", async (req, res) => {
 });
 
 // Handles any requests that don't match the ones above
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
 // Start the server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}\n App running on https://localhost:3000`));
+app.listen(PORT, () =>
+  console.log(
+    `Server running on port ${PORT}\n App running on https://localhost:3000`
+  )
+);
