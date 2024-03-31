@@ -35,13 +35,18 @@ app.use(
     },
     contentSecurityPolicy: {
       directives: {
-        defaultSrc: ["'self'"], // Default fallback for most directives
-        scriptSrc: ["'self'"],
-        styleSrc: ["'self'"],
-        fontSrc: ["'self'"],
-        imgSrc: ["'self'"],
-        frameSrc: ["'self'"],
-        // You can add other directives here as needed
+        defaultSrc: ["'self'"],
+        // Allows scripts from Google Charts and inline scripts
+        scriptSrc: ["'self'", "'unsafe-inline'", "https://www.gstatic.com"],
+        // Allows styles from self, inline styles, and Google Fonts
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        // Allows fonts from Google Fonts
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        // Allows images from self and data URLs
+        imgSrc: ["'self'", "data:"],
+        // Specifies the URLs that can be used to connect (fetch, XMLHttpRequest, WebSocket, etc.)
+        connectSrc: ["'self'", "https://api.themoviedb.org"],
+        // Add other directives as needed
       },
     },
   })
