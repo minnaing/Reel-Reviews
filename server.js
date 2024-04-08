@@ -57,7 +57,7 @@ app.use(cors()); // Enable CORS for all origins (configure as needed for your en
 app.use(express.json()); // Parse JSON bodies (as sent by API clients)
 
 // Serve the favicon
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))); // Update the path according to your favicon's location
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))); // Update the path according to your favicon's location
 
 // Serve static files from the React app build directory and any other static assets
 app.use(express.static(path.join(__dirname, "client/build")));
@@ -107,6 +107,6 @@ app.get("*", (req, res) => {
 // Start the server
 app.listen(PORT, () =>
   console.log(
-    `Server running on port ${PORT}\n App running on https://localhost:3000`
+    `App running on https://localhost:${PORT}`
   )
 );
