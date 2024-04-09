@@ -1,6 +1,28 @@
 
-> reelreviews@0.1.0 start
-> react-scripts start
+> reelreviews@0.1.0 dev
+> concurrently "npm run start" "npm run start-backend"
 
-Starting the development server...
-
+[0] 
+[0] > reelreviews@0.1.0 start
+[0] > react-scripts start
+[0] 
+[1] 
+[1] > reelreviews@0.1.0 start-backend
+[1] > node ../server.js
+[1] 
+[1] App running on https://localhost:9999
+[0] Starting the development server...
+[0] 
+[0] Compiled successfully!
+[0] 
+[0] You can now view reelreviews in the browser.
+[0] 
+[0]   Local:            http://localhost:3000
+[0]   On Your Network:  http://192.168.1.175:3000
+[0] 
+[0] Note that the development build is not optimized.
+[0] To create a production build, use npm run build.
+[0] 
+[0] webpack compiled successfully
+[1] npm run start-backend exited with code SIGINT
+[0] npm run start exited with code SIGINT
