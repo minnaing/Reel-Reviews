@@ -12,6 +12,7 @@ import Home from "../Pages/Home/Home";
 import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
 import Reviews from "../Pages/Reviews/Reviews";
+import Region_Reviews from "../Pages/Region_Reviews/Region_Reviews";
 import MovieChart from "../Partials/MovieChart/MovieChart";
 
 // IMPORT THE (ReelSpinner) COMPONENT TO DISPLAY FOR NO MOVIES
@@ -30,7 +31,8 @@ import "./App.css";
 const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=ff0abd9e4de81e5a3e858b6b617453fa&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
 
 // FIRST HOOK { searchQuery }
-const API_KEY = "https://api.themoviedb.org/3/search/movie?api_key=ff0abd9e4de81e5a3e858b6b617453fa";
+const API_KEY =
+  "https://api.themoviedb.org/3/search/movie?api_key=ff0abd9e4de81e5a3e858b6b617453fa";
 
 // DEFINE THE MAIN APP COMPONENT
 const App = () => {
@@ -79,6 +81,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/chart" element={<MovieChart />} />
           <Route path="/reviews" element={<Reviews movies={movies} />} />
+          <Route path="/region_reviews" element={<Region_Reviews />} />
           {/* Add other routes */}
         </Routes>
       </div>
