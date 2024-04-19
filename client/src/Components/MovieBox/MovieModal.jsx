@@ -6,17 +6,6 @@ import PropTypes from 'prop-types';
 
 import { useCallback } from 'react';
 
-MovieModal.propTypes = {
-  show: PropTypes.bool.isRequired,
-  handleClose: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
-  poster_path: PropTypes.string.isRequired,
-  release_date: PropTypes.string.isRequired,
-  overview: PropTypes.string.isRequired,
-  API_IMG: PropTypes.string.isRequired,
-  vote_average: PropTypes.number.isRequired
-};
-
 // DEFINING THE MOVIEMODAL FUNCTIONAL COMPONENT WITH PROPS PASSED FOR MODAL DATA
 const MovieModal = ({
   show,
@@ -108,6 +97,17 @@ const MovieModal = ({
       </Modal.Footer>
     </Modal>
   );
+};
+
+MovieModal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  poster_path: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  API_IMG: PropTypes.string.isRequired,
+  vote_average: PropTypes.number.isRequired
 };
 
 // EXPORTING MOVIEMODAL FOR USE IN OTHER PARTS OF THE APPLICATION
