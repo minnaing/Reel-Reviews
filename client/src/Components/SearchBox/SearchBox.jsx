@@ -1,6 +1,8 @@
 // IMPORT REACT AND THE useState HOOK FROM THE 'react' PACKAGE
 import { useState } from 'react';
 
+import PropTypes from 'prop-types';
+
 // STYLING FOR SEARC BOX
 import "./search-box.css"
 
@@ -47,6 +49,10 @@ const SearchBox = ({ onSearch }) => {
       {/* // CALL handleSearch WHEN THE BUTTON IS CLICKED */}
     </div>
   );
+};
+
+SearchBox.propTypes = {
+  onSearch: PropTypes.func.isRequired
 };
 
 // EXPORT THE SearchBox COMPONENT FOR USE IN OTHER PARTS OF THE APPLICATION

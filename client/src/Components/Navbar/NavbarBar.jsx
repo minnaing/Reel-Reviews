@@ -41,6 +41,9 @@ const NavbarBar = () => {
                             <Nav.Link as={Link} to="/reviews" onClick={handleClose}>
                                 Reviews
                             </Nav.Link>
+                            <Nav.Link as={Link} to="/geo-loc" onClick={handleClose}>
+                                Geo Location
+                            </Nav.Link>
                             <Nav.Link as={Link} to="/about" onClick={handleClose}>
                                 About
                             </Nav.Link>

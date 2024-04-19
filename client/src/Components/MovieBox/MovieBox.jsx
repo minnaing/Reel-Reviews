@@ -1,6 +1,8 @@
 // IMPORTING USESTATE HOOK FROM REACT FOR COMPONENT STATE MANAGEMENT
 import { useState } from "react";
 
+import PropTypes from 'prop-types';
+
 // IMPORTING BUTTON AND CARD COMPONENTS FROM REACT-BOOTSTRAP FOR UI DESIGN
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -17,6 +19,15 @@ const API_IMG = "http://image.tmdb.org/t/p/w500";
 // DEFINING THE MOVIEBOX FUNCTIONAL COMPONENT WITH PROPS FOR MOVIE DETAILS
 const MovieBox = ({ title, poster_path, vote_average, release_date, overview, movieUrl }) => {
   console.log("Received props:", { title, poster_path, vote_average, release_date, overview, movieUrl });
+
+  MovieBox.propTypes = {
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    release_date: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    movieUrl: PropTypes.string.isRequired
+};
 
   // DEFINING A STATE HOOK FOR CONTROLLING THE VISIBILITY OF THE MOVIE MODAL
   const [show, setShow] = useState(false);

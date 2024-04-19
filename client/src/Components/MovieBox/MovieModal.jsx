@@ -2,7 +2,20 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
+import PropTypes from 'prop-types';
+
 import { useCallback } from 'react';
+
+MovieModal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  poster_path: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  API_IMG: PropTypes.string.isRequired,
+  vote_average: PropTypes.number.isRequired
+};
 
 // DEFINING THE MOVIEMODAL FUNCTIONAL COMPONENT WITH PROPS PASSED FOR MODAL DATA
 const MovieModal = ({
@@ -15,6 +28,7 @@ const MovieModal = ({
   API_IMG,
   vote_average,
 }) => {
+  
 
   // CALCULATING THE NUMBER OF STARS TO DISPLAY BASED ON THE MOVIE'S VOTE AVERAGE, ASSUMING IT'S ON A 0-10 SCALE
   const stars = Math.round(vote_average / 2);
@@ -59,7 +73,7 @@ const MovieModal = ({
         <div id="modal-img" onClick={redirectToYouTubeSearch}>
         {/* DISPLAYING THE MOVIE POSTER OR A PLACEHOLDER IMAGE */}
         <img
-          variant="top"
+          // variant="top"
           src={poster_path ? `${API_IMG}${poster_path}` : placeholderImageUrl}
           alt={poster_path ? "Movie Poster" : "Placeholder Image"}
         />

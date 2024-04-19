@@ -11,6 +11,7 @@ import NavbarBar from "../Navbar/NavbarBar"; // Update path as needed
 import Home from "../Pages/Home/Home";
 import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
+import MovieLocMap from "../Pages/MovieLocMap/MovieLocMap";
 import Reviews from "../Pages/Reviews/Reviews";
 import MovieChart from "../Partials/MovieChart/MovieChart";
 
@@ -77,6 +78,7 @@ const App = () => {
           <Route path="/" element={<Home movies={movies} />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/geo-loc" element={<MovieLocMap />} />
           <Route path="/chart" element={<MovieChart />} />
           <Route path="/reviews" element={<Reviews movies={movies} />} />
           {/* Add other routes */}
