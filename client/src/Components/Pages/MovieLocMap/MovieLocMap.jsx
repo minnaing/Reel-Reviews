@@ -1,31 +1,169 @@
-import React, { useState, useCallback } from 'react';
-import { GoogleMap, Marker, useJsApiLoader, StandaloneSearchBox } from '@react-google-maps/api';
+// import React, { useState, useCallback } from 'react';
+// import { GoogleMap, Marker, useJsApiLoader, StandaloneSearchBox } from '@react-google-maps/api';
+
+// const libraries = ["places"];
+
+// const containerStyle = {
+//   width: '800px',
+//   height: '400px',
+// };
+
+// const center = { lat: -3.745, lng: -38.523 };
+
+// function MyComponent() {
+//   const [map, setMap] = useState(null);
+//   const [markers, setMarkers] = useState([]);
+//   const [searchBox, setSearchBox] = useState(null);
+
+//   const { isLoaded, loadError } = useJsApiLoader({
+//     id: 'reel-reviews-info',
+//     googleMapsApiKey: "AIzaSyBbO3mBbGJltG9Znw0iZzll4vMEclyGCCo",
+//     libraries: libraries
+//   });
+
+//   const onLoad = useCallback(function callback(map) {
+//     setMap(map);
+//   }, []);
+
+//   const onUnmount = useCallback(function callback() {
+//     setMap(null);
+//   }, []);
+
+//   const onLoadSearchBox = useCallback((ref) => {
+//     setSearchBox(ref);
+//   }, []);
+
+//   const onPlacesChanged = useCallback(() => {
+//     if (searchBox && searchBox.getPlaces) {
+//       const places = searchBox.getPlaces();
+//       if (places.length) {
+//         const bounds = new window.google.maps.LatLngBounds();
+//         places.forEach(place => {
+//           if (!place.geometry || !place.geometry.location) return;
+//           if (place.geometry.viewport) {
+//             bounds.union(place.geometry.viewport);
+//           } else {
+//             bounds.extend(place.geometry.location);
+//           }
+//         });
+//         map.fitBounds(bounds);
+//         setMarkers(places.map(place => ({
+//           position: place.geometry.location,
+//         })));
+//       }
+//     }
+//   }, [searchBox, map]); // Correctly use dependencies here
+
+//   if (loadError) {
+//     return <div>Map cannot be loaded right now, sorry.</div>;
+//   }
+
+//   return isLoaded ? (
+//     <div >
+//       <StandaloneSearchBox
+//         onLoad={onLoadSearchBox}
+//         onPlacesChanged={onPlacesChanged}
+//       >
+//         <input
+//           type="text"
+//           placeholder="Search for the nearest movie theater"
+//           style={{
+//             boxSizing: 'border-box',
+//             border: '1px solid transparent',
+//             width: '320px',
+//             height: '32px',
+//             padding: '0 12px',
+//             borderRadius: '3px',
+//             boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)',
+//             fontSize: '14px',
+//             outline: 'none',
+//             textOverflow: 'ellipses',
+//             position: 'absolute',
+//             left: '75%',
+//             marginLeft: '-120px'
+//           }}
+//         />
+//       </StandaloneSearchBox>
+//       <GoogleMap
+//         mapContainerStyle={containerStyle}
+//         center={center}
+//         zoom={10}
+//         onLoad={onLoad}
+//         onUnmount={onUnmount}
+//       >
+//         {markers.map((marker, index) => (
+//           <Marker key={index} position={marker.position} />
+//         ))}
+//       </GoogleMap>
+//     </div>
+//   ) : <></>;
+// }
+
+// export default React.memo(MyComponent);
+
+
+import React, { useState, useCallback, useEffect } from 'react';
+import { GoogleMap, InfoWindow, Marker, useJsApiLoader, StandaloneSearchBox } from '@react-google-maps/api';
+
+import './MovieLocMap.css';
 
 const libraries = ["places"];
 
 const containerStyle = {
-  width: '800px',
-  height: '400px',
+  width: "800px",
+  height: "400px",
 };
 
-const center = { lat: -3.745, lng: -38.523 };
+const defaultCenter = { lat: -3.745, lng: -38.523 };
 
-function MyComponent() {
+const MovieLocMap = () => {
+  const [center, setCenter] = useState(defaultCenter);
+  const [inputAddress, setInputAddress] = useState('');
   const [map, setMap] = useState(null);
   const [markers, setMarkers] = useState([]);
+  const [photos, setPhotos] = useState([]);
+  const [selectedMarker, setSelectedMarker] = useState(null);
   const [searchBox, setSearchBox] = useState(null);
 
   const { isLoaded, loadError } = useJsApiLoader({
     id: 'reel-reviews-info',
-    googleMapsApiKey: "AIzaSyBbO3mBbGJltG9Znw0iZzll4vMEclyGCCo",
-    libraries: libraries
+    googleMapsApiKey: 'AIzaSyBbO3mBbGJltG9Znw0iZzll4vMEclyGCCo',
+    libraries,
   });
 
-  const onLoad = useCallback(function callback(map) {
+  const addMarkerWithAddress = useCallback(
+    (location) => {
+      const geocoder = new window.google.maps.Geocoder();
+      geocoder.geocode({ location }, (results, status) => {
+        if (status === 'OK' && results[0]) {
+          const address = results[0].formatted_address; // Get the formatted address
+          setMarkers((prevMarkers) => [
+            ...prevMarkers,
+            {
+              position: location,
+              address: address,
+              label: {
+                // Setup label object
+                text: address, // Use the address as the label text
+                color: 'black', // Set text color
+                fontSize: '12px', // Set text size
+                fontWeight: 'bold', // Make it bold
+              },
+            },
+          ]);
+        } else {
+          console.error('Geocoding failed: ' + status);
+        }
+      });
+    },
+    [setMarkers]
+  );
+
+  const onLoad = useCallback(function callback (map) {
     setMap(map);
   }, []);
 
-  const onUnmount = useCallback(function callback() {
+  const onUnmount = useCallback(function callback () {
     setMap(null);
   }, []);
 
@@ -34,69 +172,99 @@ function MyComponent() {
   }, []);
 
   const onPlacesChanged = useCallback(() => {
-    if (searchBox && searchBox.getPlaces) {
+    if (searchBox && searchBox.getPlaces()) {
       const places = searchBox.getPlaces();
-      if (places.length) {
-        const bounds = new window.google.maps.LatLngBounds();
-        places.forEach(place => {
-          if (!place.geometry || !place.geometry.location) return;
-          if (place.geometry.viewport) {
-            bounds.union(place.geometry.viewport);
-          } else {
-            bounds.extend(place.geometry.location);
-          }
-        });
-        map.fitBounds(bounds);
-        setMarkers(places.map(place => ({
-          position: place.geometry.location,
-        })));
-      }
+      const bounds = new window.google.maps.LatLngBounds();
+      let newPhotos = [];
+
+      places.forEach((place) => {
+        if (!place.geometry || !place.geometry.location) return;
+
+        if (place.geometry.viewport) {
+          bounds.union(place.geometry.viewport);
+        } else {
+          bounds.extend(place.geometry.location);
+        }
+
+        if (place.photos && place.photos.length) {
+          newPhotos.push(place.photos[0].getUrl({ maxWidth: 500, maxHeight: 500 }));
+        }
+
+        addMarkerWithAddress(place.geometry.location); // Add marker for searched places
+      });
+
+      setPhotos(newPhotos); // Update state with new photos
+      map.fitBounds(bounds);
     }
-  }, [searchBox, map]); // Correctly use dependencies here
+  }, [searchBox, map, addMarkerWithAddress, setPhotos]);
+
+  useEffect(() => {
+    if (navigator.geolocation && isLoaded) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          setCenter(pos);
+          addMarkerWithAddress(pos); // Set marker at user's location with address
+        },
+        () => {
+          console.error('Geolocation failed or permission denied');
+        }
+      );
+    }
+  }, [isLoaded, addMarkerWithAddress]); // Ensure isLoaded and addMarkerWithAddress are included as dependencies
 
   if (loadError) {
     return <div>Map cannot be loaded right now, sorry.</div>;
   }
 
   return isLoaded ? (
-    <div >
-      <StandaloneSearchBox
-        onLoad={onLoadSearchBox}
-        onPlacesChanged={onPlacesChanged}
-      >
+    <div id="movie_location">
+      <StandaloneSearchBox onLoad={onLoadSearchBox} onPlacesChanged={onPlacesChanged}>
         <input
           type="text"
           placeholder="Search for the nearest movie theater"
+          value={inputAddress}
+          onChange={(e) => setInputAddress(e.target.value)}
           style={{
-            boxSizing: 'border-box',
-            border: '1px solid transparent',
-            width: '320px',
-            height: '32px',
-            padding: '0 12px',
-            borderRadius: '3px',
-            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)',
-            fontSize: '14px',
-            outline: 'none',
-            textOverflow: 'ellipses',
-            position: 'absolute',
-            left: '75%',
-            marginLeft: '-120px'
+            boxSizing: "border-box",
+            border: "1px solid transparent",
+            width: "320px",
+            height: "32px",
+            padding: "0 12px",
+            borderRadius: "3px",
+            boxShadow: "0 2px 6px rgba(0, 0, 0, 0.3)",
+            fontSize: "14px",
+            outline: "none",
+            textOverflow: "ellipses",
+            position: "absolute",
+            left: "75%",
+            marginLeft: "-120px",
           }}
         />
       </StandaloneSearchBox>
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
+      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10} onLoad={onLoad} onUnmount={onUnmount}>
         {markers.map((marker, index) => (
-          <Marker key={index} position={marker.position} />
+          <Marker key={index} position={marker.position} onClick={() => setSelectedMarker(marker)} />
         ))}
+        {selectedMarker && (
+          <InfoWindow position={selectedMarker.position} onCloseClick={() => setSelectedMarker(null)}>
+            <div>
+              <h2>{inputAddress}</h2>
+              <p>{selectedMarker.address}</p>
+            </div>
+          </InfoWindow>
+        )}
       </GoogleMap>
+      <div id="location-photos">
+        {photos.map((photoUrl, index) => (
+          <img key={index} src={photoUrl} alt="Location" style={{ width: "100px", height: "100px" }} />
+        ))}
+      </div>
     </div>
-  ) : <></>;
-}
+  ) : null;
+};
 
-export default React.memo(MyComponent);
+export default React.memo(MovieLocMap);
