@@ -38,6 +38,7 @@ if [ $? -eq 0 ]; then
     # Check if push to Development was successful
      if [ $? -ne 0 ]; then
         echo -e "\nError pushing changes to Development\n"
+        git reset --soft HEAD~1
         exit 1
     fi
     # Push to Heroku
@@ -45,11 +46,12 @@ if [ $? -eq 0 ]; then
     echo -e "Commit: $1 \n"
     git push origin developmentw:main
 if [ $? -ne 0 ]; then
-        echo -e "\nError pushing Development to Heroku after Development was deployed successfully. Please perform a manual deployment to Heroku.\n"
+        echo -e "\nError pushing Development to Heroku after Development was deployed successfully.\nPlease perform a manual deployment to Heroku.\n"
         echo -e "Please run the following command to perform a manual deployment of Development to Heroku.\n
         \t git push origin development:main\n"
 
         echo -e "If push fails try adding --force to the end of the command\n"
+        git reset --soft HEAD~1
         exit 1
     fi
     echo -e "\nDeployment successful.\n"
