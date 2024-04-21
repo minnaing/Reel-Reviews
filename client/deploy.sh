@@ -27,16 +27,15 @@ if [ $? -eq 0 ]; then
 
     # Commit changes with the provided commit message
     echo -e "\nCommitting changes to Git...\n"
-    echo -e "$1"
     git commit -m "$1"
 
     # Push to the main branch on GitHub
     echo -e "\nPushing to GitHub...\n"
-    git push origin fakebranch
+    git push origin development
 
     # Push to Heroku
     echo -e "\nDeploying to Heroku...\n"
-    git push origin fakebranch:main
+    git push origin development:main
 
     echo -e "\nDeployment successful.\n"
 else
