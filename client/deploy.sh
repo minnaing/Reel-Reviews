@@ -51,6 +51,7 @@ if [ $? -ne 0 ]; then
         \t git push origin development:main\n"
 
         echo -e "If push fails try adding --force to the end of the command\n"
+        echo -e "Soft resetting commit: \n $1\n"
         git reset --soft HEAD~1
         exit 1
     fi
