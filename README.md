@@ -32,8 +32,8 @@ This integration will filter movies based on their release years corresponding t
 
 ## Screenshots/Images
 
-![Screenshot 1](../Reel-Reviews/client/src/Components/Placeholders/pl_images/Screenshot-1.png)
-![Screenshot 2](../Reel-Reviews/client/src/Components/Placeholders/pl_images/Screenshot-2.png)
+![Screenshot 1](./client/src/Components/Placeholders/pl_images/Screenshot-1.png)
+![Screenshot 2](./client/src/Components/Placeholders/pl_images/Screenshot-2.png)
 
 ## Getting Started
 
