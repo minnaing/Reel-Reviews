@@ -1,3 +1,15 @@
+.offcanvas {
+  background-color: #31525B !important;
+}
+
+.btn-close {
+  background-color: transparent url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23FFF%27%3e%3cpath d=%27M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z%27/%3e%3c/svg%3e") center/1em auto no-repeat !important;
+}
+
+.navbar-brand {
+  color: white !important;
+}
+
 /* Sticky Navbar Styling */
 .sticky-header {
   position: -webkit-sticky; /* Safari */
@@ -7,9 +19,12 @@
   width: 100%;
 }
 
-/* Navbar Basic Styling */
-.navbar {
-  background-color: #333; /* Fallback color */
+/* More specific selector for navbar */
+.bg-body-tertiary.navbar {
+  background: #31525B !important; /* Overrides with higher specificity */
+}
+
+.justify-content-end.flex-grow-1.pe-3.navbar-nav > a {
   color: white;
 }
 
@@ -18,7 +33,6 @@
 .navbar-toggler:active {
   background: transparent !important;
 }
-
 
 .nav-link {
   color: white;
@@ -54,8 +68,6 @@
 
 @media (max-width: 991px) {
   .navbar-light .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
   }
-
-
 }

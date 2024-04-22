@@ -32,28 +32,33 @@ h4 {
 }
 
 .movieCard {
-  flex-basis: 1 1 calc(33.33% - 10px);
+  flex: 1 1 calc(33.33% - 10px);
+  margin: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px;
   border-radius: 8px;
   text-align: center;
+  background-color: #31525B;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px !important;
 }
 
 .movieCard h3, h4 {
-  margin: 0;
-  color: brown;
+  margin: 1em;
+  color: rgb(232, 17, 17);
   text-shadow: 1px 1px black;
-  height: 55px !important;
+  height: 45px !important;
 }
 
 .movieCard p {
-  color: #666;
+  color: white;
   margin: 1em;  
   height: 100% !important;
 }
 
 .movieCard img {
-
+  border: 1px solid white;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px !important;
 }
 
 @media (max-width: 768px) {

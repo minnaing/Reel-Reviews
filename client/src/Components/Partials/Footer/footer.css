@@ -21,6 +21,10 @@ footer {
   right: 12px;
 }
 
+.text-center {
+  background-color: #31525B;
+}
+
 @media (max-width: 555.56px) {
   .fab {
     position: relative;

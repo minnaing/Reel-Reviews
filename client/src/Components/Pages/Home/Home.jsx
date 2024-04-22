@@ -24,7 +24,6 @@ const API_KEY = "ff0abd9e4de81e5a3e858b6b617453fa";
 
 // DEFINE THE Home COMPONENT
 const Home = () => {
-
   // INITIALIZE STATE FOR STORING THE CURRENT SEARCH QUERY
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -49,7 +48,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-
     // DEFINED ( fetchTrailer ) WITHIN ( useEffect ) TO AVOID MISSING DEPENDENCIES
     const fetchTrailer = (movieId) => {
       fetch(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`)
@@ -61,9 +59,7 @@ const Home = () => {
 
             // DATA LOADED, LOADING COMPLETE
             setIsLoading(false);
-
           } else {
-
             // Handle no trailer available
             setVideoKey("");
             setMovieTitle("Trailer Not Available");
@@ -75,14 +71,11 @@ const Home = () => {
     };
 
     if (!searchQuery) {
-
       // Fetch a default movie trailer on initial load
       // Replace with a default movie ID
-      const defaultMovieId = "550"; 
+      const defaultMovieId = "550";
       fetchTrailer(defaultMovieId);
-
     } else {
-
       // Fetch movies based on the search query
       fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${searchQuery}`)
         .then((res) => res.json())
@@ -95,9 +88,7 @@ const Home = () => {
 
             // Fetch trailer of the first movie
             fetchTrailer(firstMovie.id);
-
           } else {
-
             // Handle no search results
             setVideoKey("");
             setMovieTitle("Trailer Not Available");
@@ -105,6 +96,12 @@ const Home = () => {
             // No search results, loading complete
             setIsLoading(false);
           }
+        })
+        .catch((error) => {
+          console.error("Failed to fetch movies", error);
+          setVideoKey("");
+          setMovieTitle("Failed to load data");
+          setIsLoading(false);
         });
     }
   }, [searchQuery]); // No need to add fetchTrailer to the dependencies array as it's defined within useEffect
@@ -119,16 +116,16 @@ const Home = () => {
 
       {/* DISPLAY THE PAGE TITLE */}
       {/* Update the heading to dynamically display the movie title */}
-      <h2 className="name-of-search-wrapper" style={{ textAlign: "center" }}>Name Of Search: 
+      <h2 className="name-of-search-wrapper" style={{ textAlign: "center" }}>
+        Name Of Search:
         <p className="rainbow-brite">{movieTitle || "Movie Home"}</p>
       </h2>
-      
 
       {/* CONTAINER FOR DISPLAYING MOVIE BOXES OR A LOADING INDICATOR */}
       <div className="trailer-container">
         {isLoading ? (
           <ReelSpinner />
-        ) :videoKey ? (
+        ) : videoKey ? (
           <div id="video-iframe" style={{ overflow: "hidden" }}>
             <iframe
               style={{ width: "100%", height: "100%" }}
@@ -141,7 +138,7 @@ const Home = () => {
           </div>
         ) : (
           <div>
-            {/* CALL REELSPINNER WHEN NO MOVIE IS FOUND */}
+            {/* This is displayed if there is no video key and loading is done */}
             <ReelSpinner />
           </div>
         )}

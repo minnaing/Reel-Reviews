@@ -43,9 +43,9 @@ const Footer = () => {
         </section>
       </MDBContainer>
 
-      <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
+      <div className="text-center p-3">
         <div>
-          © {new Date().getFullYear()} Copyright:
+          © {new Date().getFullYear()} Copyright: 
           <a className="text-white" href="/">
             CPSC 335
           </a>

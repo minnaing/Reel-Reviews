@@ -15,7 +15,7 @@
   height: 428px;
   width: 285px !important;
   border: 1px solid transparent;
-  background: rgb(51 45 45);
+  background: #31525B;
   /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important; */
 
   box-shadow: 0 10px 30px rgba(0,0,0,0.60), 0 5px 26px rgba(0,0,0,0.30);
@@ -23,7 +23,7 @@
 
 .card-img-top {
   height: 428px;
-  background: rgb(51 45 45);
+  background: #31525B;
 }
 
 .card-body {
@@ -31,6 +31,13 @@
   flex-flow: column;
   justify-content: space-between;
   align-items: center;
+}
+
+.card-title.h5 {
+  color: #31525B;
+  font-weight: bold;
+  text-align: center;
+  /* text-shadow: 1px 1px 0px black; */
 }
 
 @media (max-width: 555.56px) {

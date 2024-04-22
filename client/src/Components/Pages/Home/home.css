@@ -1,5 +1,7 @@
-/* #video-iframe, */
-/* .trailer-container, */
+.wrapper {
+  width: 100%;
+}
+
 iframe
  {
   display: flex;
@@ -29,6 +31,12 @@ iframe
   width: 75%;
 }
 
+#chart-aside-1 > h1, aside > h3, aside > p, .movie-card > h3 {
+  color: white;
+  text-shadow: 0 1px 2px black;
+}
+
+
 @media (max-width: 591px) {
   #video-iframe,
   .trailer-container,
@@ -45,9 +53,6 @@ iframe
     height: 400px !important;
   }
 
-  input {
-    width: 50%;
-  }
 }
 
 
@@ -69,8 +74,8 @@ iframe
     #f9a825,
     #ff5722
   );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 

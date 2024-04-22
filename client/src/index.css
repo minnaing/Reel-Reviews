@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: whitesmoke;
+  background-color: #b2e0df;
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
@@ -23,20 +24,36 @@ code {
     monospace;
 }
 
+h2, p, .p-2 {
+  color: #31525B;
+  /* text-shadow: 0px 2px 3px black; */
+}
+
+h4 {
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
 input {
   padding: 0.5em;
 }
 
+*:focus, button:focus, input:focus {
+  outline: none;
+  /* box-shadow: 0 0 0 2px blue; */
+}
+
 button, .btn {
   padding: 1em;
-  background: rgb(51, 45, 45);
+  /* box-shadow: 0 45px 65px rgba(0, 0, 0, 0.50), 0 35px 22px rgba(0, 0, 0, 0.16); */
+  background: #31525B;
 }
 
 button:focus-visible, .btn-primary:focus-visible,
 button:focus, .btn-primary:focus,
 button:active, .btn-primary:active {
   padding: 1em;
-  background: rgba(51, 45, 45, 0.6); /* Corrected for proper CSS syntax */
+  background: #31525B;
   color: white;
 }
 
@@ -46,7 +63,7 @@ button:active, .btn-primary:active {
 
 /* MODAL BUTTON */
 .btn-secondary {
-  background: rgb(51, 45, 45);
+  background: #31525B;
   color: white;
 }
 
@@ -59,6 +76,6 @@ button:active, .btn-primary:active {
 .btn-secondary:focus,
 .btn-secondary:active,
 .btn-secondary:hover {
-  background: rgb(51, 45, 45);
+  background: #31525B;
   color: white;
 }

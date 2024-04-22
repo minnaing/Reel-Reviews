@@ -24,25 +24,27 @@
   grid-area: aside-2;
 }
 
-
-
 .rainbow-box {
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+#chart-aside-0 {
+  box-shadow: 0 45px 65px rgba(0, 0, 0, 0.50), 0 35px 22px rgba(0, 0, 0, 0.16);
+}
+
 #chart-aside-1,
 #chart-aside-2 {
-  /* RAINBOW BACKGROUND */
-  /* background-color: #302244; */
-  background-color: rgb(51 45 45);
+  background: #31525B;
   border: 5px solid transparent;
+  /* RAINBOW BACKGROUND */
   border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
   border-image-slice: 1;
   margin: 10px 20px;
   color: white;
   padding: 1em 2em;
+  box-shadow: 0 45px 65px rgba(0, 0, 0, 0.50), 0 35px 22px rgba(0, 0, 0, 0.16);
 }
 
 #chart-aside-2 {
@@ -66,7 +68,6 @@
 
 @media (max-width: 555.56px) {
   #chart {
-
     /* Adjust the ratio based on your design preference */
     grid-template-areas:
     "aside-0"

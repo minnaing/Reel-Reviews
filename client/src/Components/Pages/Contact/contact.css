@@ -11,11 +11,11 @@
   display: flex;
   margin-bottom: 0.5rem;
   width: 100%;
-  color: rgb(51 45 45);
+  color: #31525B;
 }
 
 #contact-submit {
-  background: rgb(51 45 45);
+  background: #31525B;
   margin: 1.5em;
   width: 300px;
 }
