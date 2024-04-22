@@ -1,21 +1,120 @@
 #movie_location {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
+  height: auto;
+  padding: 1em;
+  margin: 1rem;
+}
 
+#movie_location > div:nth-child(1) {
+  /* width: 70%; */
 }
 
 #search_location {
   box-sizing: border-box;
   border: 1px solid transparent;
-  width: 320px;
+  width: 320px; /* Full width on smaller screens */
+  max-width: 320px; /* Max width to maintain design */
   height: 32px;
   padding: 0 12px;
   border-radius: 3px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   font-size: 14px;
   outline: none;
-  text-overflow: ellipsis; /* Corrected from 'ellipses' to 'ellipsis' */
-  /* margin-left: -120px; */
+  text-overflow: ellipsis;
+  margin: 1rem auto 2rem;
+}
+
+#map-container {
+  width: 100%; /* Ensures the map is full width */
+  height: 400px;
+  margin: 2rem auto;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  box-shadow: 0 45px 65px rgba(0,0,0,0.50), 0 35px 22px rgba(0,0,0,0.16);
+  /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4), 0px 7px 13px -3px rgba(0, 0, 0, 0.3),
+    0px -3px 0px rgba(0, 0, 0, 0.2) inset; */
 }
 
 #location-photos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  padding: 10px 0;
+}
 
+#location-photos > img {
+  width: 100%; /* Full width to make images responsive */
+  max-width: 100px; /* Control maximum size */
+  height: auto; /* Maintain aspect ratio */
+  margin: 5px; /* Adjust margin for better spacing */
+  box-shadow: 0 45px 65px rgba(0,0,0,0.50), 0 35px 22px rgba(0,0,0,0.16);
+  border: 2px solid transparent;
+  /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4), 0px 7px 13px -3px rgba(0, 0, 0, 0.3),
+    0px -3px 0px rgba(0, 0, 0, 0.2) inset; */
+}
+
+#non-displayed {
+  margin: 2rem auto 1rem;
+  text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+  #movie_location {
+    flex-direction: column; /* Stack elements vertically on small screens */
+  }
+
+  #search_location {
+    padding: 0 10px;
+  }
+
+  #location-photos {
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; */
+  }
+
+  #location-photos > img {
+    width: 100%;
+    max-width: 400px;
+    max-height: 400px;
+    height: 100% !important;
+    margin: 5px;
+    box-shadow: 0 45px 65px rgba(0, 0, 0, 0.50), 0 35px 22px rgba(0, 0, 0, 0.16);
+    border: 2px solid transparent;
+    /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4), 0px 7px 13px -3px rgba(0, 0, 0, 0.3), 0px -3px 0px rgba(0, 0, 0, 0.2) inset; */
+  }
+
+  #non-displayed {
+    margin: 1rem auto
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  #location-photos > img {
+    max-width: 150px; /* Larger images on tablets */
+  }
+}
+
+@media (min-width: 1025px) {
+  #movie_location {
+    padding: 1em 3em; /* Increased padding on large screens */
+  }
+
+  #search_location {
+    width: 320px; /* Restore original fixed width on larger screens */
+  }
+
+  #location-photos > img {
+    max-width: 200px; /* Larger images for desktop */
+  }
 }
