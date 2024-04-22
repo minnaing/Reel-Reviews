@@ -27,6 +27,26 @@ const MovieLocMap = () => {
     libraries,
   });
 
+  const determineLabel = (place) => {
+    // Check if the place has a name and use it as the primary label regardless of the type
+    if (place.name) {
+      return place.name;
+    }
+
+    // Fallback based on types if no name is provided
+    if (!place.types) {
+      return "Unknown Place"; // Fallback if no types are available
+    }
+
+    if (place.types.includes("movie_theater")) {
+      return "Movie Theater"; // Specific label for movie theaters
+    } else if (place.types.includes("store")) {
+      return "Store"; // Specific label for stores, even if no name is given
+    } else {
+      return "General Location"; // Default label for other types
+    }
+  };
+
   const addMarkerWithAddress = useCallback(
     (place) => {
       if (!place || !place.geometry || !place.geometry.location) {
@@ -40,32 +60,19 @@ const MovieLocMap = () => {
       geocoder.geocode({ location }, (results, status) => {
         if (status === "OK" && results[0]) {
           const address = results[0].formatted_address; // Get the formatted address
-
-          // Determine the label based on place types
-          let label = "Residence"; // Default to Residence
-
-          if (place.types && place.types.length > 0) {
-            // More robust check for types
-            if (place.types.includes("movie_theater")) {
-              label = "Movie Theater";
-            } else if (place.types.includes("store")) {
-              label = place.name; // Use the place name for stores
-            }
-          }
+          const label = determineLabel(place);
 
           setMarkers((prevMarkers) => [
             ...prevMarkers,
             {
               position: location,
               address: address,
-              label: label,
-              // {
-              //   // Setup label object
-              //   text: label, // Use the address as the label text
-              //   color: "black", // Set text color
-              //   fontSize: "12px", // Set text size
-              //   fontWeight: "bold", // Make it bold
-              // },
+              label: {
+                text: label,
+                color: "black", // Set text color
+                fontSize: "12px", // Set text size
+                fontWeight: "bold", // Make it bold
+              },
             },
           ]);
         } else {
@@ -90,47 +97,50 @@ const MovieLocMap = () => {
   }, []);
 
   const onPlacesChanged = useCallback(() => {
-    if (!searchBox) {
-      console.warn("SearchBox not loaded");
-      return;
-    }
-
-    const places = searchBox.getPlaces();
-
-    if (!places || places.length === 0) {
-      console.error("No places found");
-      return;
-    }
-
-    const bounds = new window.google.maps.LatLngBounds();
-    let newPhotos = [];
-
-    places.forEach((place) => {
-      if (!place.geometry || !place.geometry.location) {
-        console.error("Place has no geometry", place);
+    if (searchBox && searchBox.getPlaces()) {
+      const places = searchBox.getPlaces();
+      if (places.length === 0) {
+        console.error("No places found");
         return;
       }
 
-      if (place.geometry.viewport) {
-        bounds.union(place.geometry.viewport);
-      } else {
-        bounds.extend(place.geometry.location);
-      }
+      // Clear existing markers before setting new ones
+      setMarkers([]);
 
-      if (place.photos && place.photos.length) {
-        newPhotos.push(place.photos[0].getUrl({ maxWidth: 500, maxHeight: 500 }));
-      }
+      const bounds = new window.google.maps.LatLngBounds();
+      let newPhotos = [];
 
-      addMarkerWithAddress(place);
-    });
+      places.forEach((place) => {
+        if (!place.geometry || !place.geometry.location) {
+          console.error("Place has no geometry", place);
+          return;
+        }
 
-    setPhotos(newPhotos); // Update state with new photos
-    map.fitBounds(bounds);
+        if (place.geometry.viewport) {
+          bounds.union(place.geometry.viewport);
+        } else {
+          bounds.extend(place.geometry.location);
+        }
+
+        if (place.photos && place.photos.length) {
+          newPhotos.push(place.photos[0].getUrl({ maxWidth: 500, maxHeight: 500 }));
+        }
+
+        addMarkerWithAddress(place);
+      });
+
+      setPhotos(newPhotos); // Update state with new photos
+      map.fitBounds(bounds);
+    }
   }, [addMarkerWithAddress, map, searchBox, setPhotos]);
 
   useEffect(() => {
     console.log("SearchBox Loaded:", searchBox !== null);
   }, [searchBox]);
+
+  useEffect(() => {
+    console.log("Current markers count:", markers.length);
+  }, [markers]);
 
   useEffect(() => {
     console.log("Map Loaded: ", isLoaded);
@@ -184,7 +194,7 @@ const MovieLocMap = () => {
         {selectedMarker && (
           <InfoWindow position={selectedMarker.position} onCloseClick={() => setSelectedMarker(null)}>
             <div>
-              <h2>{inputAddress}</h2>
+              <h2>{selectedMarker.label.text}</h2>
               <p>{selectedMarker.address}</p>
             </div>
           </InfoWindow>
