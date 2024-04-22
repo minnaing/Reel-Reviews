@@ -42,7 +42,7 @@ const NavbarBar = () => {
                                 Reviews
                             </Nav.Link>
                             <Nav.Link as={Link} to="/geo-loc" onClick={handleClose}>
-                                Geo Location
+                                Movie Location
                             </Nav.Link>
                             <Nav.Link as={Link} to="/about" onClick={handleClose}>
                                 About
