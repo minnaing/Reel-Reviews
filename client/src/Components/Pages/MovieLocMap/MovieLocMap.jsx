@@ -28,27 +28,48 @@ const MovieLocMap = () => {
   });
 
   const addMarkerWithAddress = useCallback(
-    (location) => {
+    (place) => {
+      if (!place || !place.geometry || !place.geometry.location) {
+        console.error(`Invalid place data received ${place}`);
+        return;
+      }
+
+      const location = place.geometry.location;
       const geocoder = new window.google.maps.Geocoder();
+
       geocoder.geocode({ location }, (results, status) => {
         if (status === "OK" && results[0]) {
           const address = results[0].formatted_address; // Get the formatted address
+
+          // Determine the label based on place types
+          let label = "Residence"; // Default to Residence
+
+          if (place.types && place.types.length > 0) {
+            // More robust check for types
+            if (place.types.includes("movie_theater")) {
+              label = "Movie Theater";
+            } else if (place.types.includes("store")) {
+              label = place.name; // Use the place name for stores
+            }
+          }
+
           setMarkers((prevMarkers) => [
             ...prevMarkers,
             {
               position: location,
               address: address,
-              label: {
-                // Setup label object
-                text: address, // Use the address as the label text
-                color: "black", // Set text color
-                fontSize: "12px", // Set text size
-                fontWeight: "bold", // Make it bold
-              },
+              label: label,
+              // {
+              //   // Setup label object
+              //   text: label, // Use the address as the label text
+              //   color: "black", // Set text color
+              //   fontSize: "12px", // Set text size
+              //   fontWeight: "bold", // Make it bold
+              // },
             },
           ]);
         } else {
-          console.error("Geocoding failed: " + status);
+          console.error(`Geocoding failed: ${status}`);
         }
       });
     },
@@ -64,37 +85,57 @@ const MovieLocMap = () => {
   }, []);
 
   const onLoadSearchBox = useCallback((ref) => {
+    console.log("SearchBox onLoad called", ref);
     setSearchBox(ref);
   }, []);
 
   const onPlacesChanged = useCallback(() => {
-    if (searchBox && searchBox.getPlaces()) {
-      const places = searchBox.getPlaces();
-      const bounds = new window.google.maps.LatLngBounds();
-      let newPhotos = [];
-
-      places.forEach((place) => {
-        if (!place.geometry || !place.geometry.location) return;
-
-        if (place.geometry.viewport) {
-          bounds.union(place.geometry.viewport);
-        } else {
-          bounds.extend(place.geometry.location);
-        }
-
-        if (place.photos && place.photos.length) {
-          newPhotos.push(place.photos[0].getUrl({ maxWidth: 500, maxHeight: 500 }));
-        }
-
-        addMarkerWithAddress(place.geometry.location); // Add marker for searched places
-      });
-
-      setPhotos(newPhotos); // Update state with new photos
-      map.fitBounds(bounds);
+    if (!searchBox) {
+      console.warn("SearchBox not loaded");
+      return;
     }
-  }, [searchBox, map, addMarkerWithAddress, setPhotos]);
+
+    const places = searchBox.getPlaces();
+
+    if (!places || places.length === 0) {
+      console.error("No places found");
+      return;
+    }
+
+    const bounds = new window.google.maps.LatLngBounds();
+    let newPhotos = [];
+
+    places.forEach((place) => {
+      if (!place.geometry || !place.geometry.location) {
+        console.error("Place has no geometry", place);
+        return;
+      }
+
+      if (place.geometry.viewport) {
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+
+      if (place.photos && place.photos.length) {
+        newPhotos.push(place.photos[0].getUrl({ maxWidth: 500, maxHeight: 500 }));
+      }
+
+      addMarkerWithAddress(place);
+    });
+
+    setPhotos(newPhotos); // Update state with new photos
+    map.fitBounds(bounds);
+  }, [addMarkerWithAddress, map, searchBox, setPhotos]);
 
   useEffect(() => {
+    console.log("SearchBox Loaded:", searchBox !== null);
+  }, [searchBox]);
+
+  useEffect(() => {
+    console.log("Map Loaded: ", isLoaded);
+    console.log("Current Center: ", center);
+
     if (navigator.geolocation && isLoaded) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -102,11 +143,20 @@ const MovieLocMap = () => {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
+          const mockPlace = {
+            geometry: {
+              location: pos,
+            },
+            types: ["point_of_interest"], // Assuming default types
+            name: "Current Location",
+          };
           setCenter(pos);
-          addMarkerWithAddress(pos); // Set marker at user's location with address
+          addMarkerWithAddress(mockPlace);
+
+          // addMarkerWithAddress(pos); // Set marker at user's location with address
         },
-        () => {
-          console.error("Geolocation failed or permission denied");
+        (error) => {
+          console.error(`Geolocation failed ${error.message}`);
         }
       );
     }
@@ -118,11 +168,7 @@ const MovieLocMap = () => {
 
   return isLoaded ? (
     <div id="movie_location">
-      <StandaloneSearchBox 
-        id="searchBox"
-        onLoad={onLoadSearchBox} 
-        onPlacesChanged={onPlacesChanged}
-      >
+      <StandaloneSearchBox id="searchBox" onLoad={onLoadSearchBox} onPlacesChanged={onPlacesChanged}>
         <input
           id="search_location"
           type="text"
