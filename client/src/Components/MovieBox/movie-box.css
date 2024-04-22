@@ -2,6 +2,7 @@
 .card {
   /* min-width: %; */
   margin: 1em auto;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px !important;
 }
 
 #movie-desc.card-text {
@@ -10,9 +11,18 @@
   overflow-y: scroll;
 }
 
-.popular-movies .movie-card img, .card-img-top {
+.popular-movies .movie-card img {
   height: 428px;
   width: 285px !important;
+  border: 1px solid transparent;
+  background: rgb(51 45 45);
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important; */
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.60), 0 5px 26px rgba(0,0,0,0.30);
+}
+
+.card-img-top {
+  height: 428px;
   background: rgb(51 45 45);
 }
 
@@ -48,10 +58,6 @@ div.modal-dialog {
   padding: 1rem;
   top: -4em;
 }
-
-/* .modal-content {
-  width: 75%;
-} */
 
 #modal-img {
   width: 100%;

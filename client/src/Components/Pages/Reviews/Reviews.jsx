@@ -78,7 +78,6 @@ const Reviews = () => {
 
   console.log(filteredMovies); // Check if movieUrl is present and correct
 
-
   // FUNCTION TO HANDLE SEARCH OPERATION BY UPDATING THE SEARCHQUERY STATE
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -167,7 +166,7 @@ const Reviews = () => {
       <div className="wrapper">
         {filteredMovies.length > 0 ? (
           filteredMovies.map((movieRev) => {
-            return <MovieBox key={movieRev.id} {...movieRev} movieUrl={movieRev.movieUrl} />})
+            return <MovieBox className="cards" key={movieRev.id} {...movieRev} movieUrl={movieRev.movieUrl} />})
         ) : (
           <div>
             {/* CALL REELSPINNER WHEN NO MOVIE IS FOUND */}

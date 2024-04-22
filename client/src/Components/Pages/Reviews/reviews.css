@@ -2,7 +2,6 @@
   padding: 1em;
 }
 
-
 /* Initial styling for react-select containers */
 .react-select-container {
   width: 100%; /* Ensures select takes full width of its parent container */
@@ -21,7 +20,6 @@
     margin-bottom: 10px; /* Adds space between stacked selects */
   }
 }
-
 
 @media (max-width: 768px) {
 /* @media (max-width: 555.56px) { */

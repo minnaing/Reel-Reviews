@@ -63,26 +63,10 @@ const MovieBox = ({ title, poster_path, vote_average, release_date, overview, mo
   // DEFINING A FILLER TEXT TO DISPLAY WHEN NO MOVIE OVERVIEW IS AVAILABLE
   const fillerText = "No Description available."; // THIS TEXT CAN BE CUSTOMIZED AS NEEDED
 
-  // // HANDLE CLICK ON THE IMAGE TO NAVIGATE TO THE MOVIE OR TRAILER URL
-  // const navigateToMovie = (event) => {
-  //   // PREVENT ANY PARENT EVENT HANDLERS FROM BEING EXECUTED
-  //   event.stopPropagation();
-
-  //   console.log(`Navigating to movie URL: ${movieUrl}`); // Debug log
-
-  //   // ENSURE MOVIEURL IS NOT EMPTY OR UNDEFINED
-  //   if (movieUrl) {
-  //     window.open(movieUrl, "_blank");
-  //   } else {
-  //     // ADDITIONAL DEBUG INFO IF ( movieUrl ) IS MISSING
-  //     console.error("No movie URL provided");
-  //   }
-  // };
-
   // RENDERING THE CARD COMPONENT TO DISPLAY MOVIE INFORMATION
   return (
     <>
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "20rem" }}>
         <Card.Img
           variant="top"
           src={poster_path ? `${API_IMG}${poster_path}` : placeholderImageUrl}
