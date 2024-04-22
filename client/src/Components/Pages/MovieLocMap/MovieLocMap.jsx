@@ -202,9 +202,7 @@ const MovieLocMap = () => {
       </GoogleMap>
       <div id="location-photos">
         {photos.length > 0 ? (
-          photos.map((photoUrl, index) => (
-            <img key={index} src={photoUrl} alt="Location" style={{ width: "100px", height: "100px" }} />
-          ))
+          photos.map((photoUrl, index) => <img key={index} src={photoUrl} alt="Location" />)
         ) : (
           <p id="non-displayed">Amazing photos will be displayed once search is executed.</p>
         )}

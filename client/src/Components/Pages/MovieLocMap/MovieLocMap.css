@@ -51,15 +51,25 @@
 }
 
 #location-photos > img {
-  width: 100%; /* Full width to make images responsive */
-  max-width: 100px; /* Control maximum size */
-  height: auto; /* Maintain aspect ratio */
+  width: 200px; /* Full width to make images responsive */
+  max-width: 200px; /* Control maximum size */
+  max-height: 200px;
+  height: 200px; /* Maintain aspect ratio */
   margin: 5px; /* Adjust margin for better spacing */
   box-shadow: 0 45px 65px rgba(0,0,0,0.50), 0 35px 22px rgba(0,0,0,0.16);
   border: 2px solid transparent;
   /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4), 0px 7px 13px -3px rgba(0, 0, 0, 0.3),
     0px -3px 0px rgba(0, 0, 0, 0.2) inset; */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for zoom effect */
+  cursor: pointer; /* Indicates that the image is interactive */
 }
+
+#location-photos img:hover {
+  transform: scale(1.5); /* Scale the image up to 150% of its original size */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Adds shadow for 3D effect */
+  border: 2px solid #fff; /* Optional: adds a white border around the image */
+}
+
 
 #non-displayed {
   margin: 2rem auto 1rem;
@@ -79,14 +89,15 @@
   #location-photos {
     display: flex;
     flex-direction: column;
-    /* width: 100%; */
+    width: 100%;
   }
 
   #location-photos > img {
-    width: 100%;
+    width: 100% !important;
     max-width: 400px;
     max-height: 400px;
     height: 100% !important;
+    margin: 1em auto;
   }
 
   #non-displayed {
@@ -112,5 +123,6 @@
 
   #location-photos > img {
     max-width: 200px; /* Larger images for desktop */
+    max-height: 200px;
   }
 }
