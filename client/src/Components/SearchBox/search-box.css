@@ -44,6 +44,7 @@ box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
   font-weight: 500;
   font-size: 16px;
   transition: 0.8s;
+  padding: 0 !important;
 }
 
 .search-container .search-btn .fas {
