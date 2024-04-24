@@ -138,5 +138,6 @@ Bootstrap for the styling framework
 For inquiries or collaboration opportunities, please contact us:
 
 - GitHub: [GitHub Profile](https://github.com/LemonmadeDesigns/Reel-Reviews)
+- Heroku: [Reel Review](https://reel-reviews-f48354ff4a5a.herokuapp.com/#/Region_Reviews)
 
 Please replace the placeholder `your-username` with your actual GitHub username and `your_api_key` with your API key for TMDb. Additionally, you can further customize the README.md as needed for the project.
