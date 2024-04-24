@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Select from 'react-select'; // Import react-select
+import Select from "react-select"; // Import react-select
 
 import MovieBox from "../../MovieBox/MovieBox";
 import SearchBox from "../../SearchBox/SearchBox";
@@ -11,7 +11,8 @@ import "./reviews.css";
 const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=ff0abd9e4de81e5a3e858b6b617453fa&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
 
 // API KEY FOR SECOND HOOK { searchQuery }
-const API_KEY = "https://api.themoviedb.org/3/search/movie?api_key=ff0abd9e4de81e5a3e858b6b617453fa";
+const API_KEY =
+  "https://api.themoviedb.org/3/search/movie?api_key=ff0abd9e4de81e5a3e858b6b617453fa";
 
 // const API_Key_Num = 'ff0abd9e4de81e5a3e858b6b617453fa'
 
@@ -38,29 +39,33 @@ const Reviews = () => {
   };
 
   // ||||||||||||||||||| CHANGED CODE |||||||||||||||||||||||||
-  const generationOptions = Object.keys(generationCategories).map((generation) => ({
-    value: generation,
-    label: generation,
-  }));
+  const generationOptions = Object.keys(generationCategories).map(
+    (generation) => ({
+      value: generation,
+      label: generation,
+    })
+  );
 
   const ratingOptions = [
-    { value: 'good', label: 'Good (> 3 stars)' },
-    { value: 'bad', label: 'Bad (≤ 3 stars)' },
+    { value: "good", label: "Good (> 3 stars)" },
+    { value: "bad", label: "Bad (≤ 3 stars)" },
   ];
 
   const handleGenerationChange = (selectedOption) => {
-    setGenerationFilter(selectedOption ? selectedOption.value : '');
+    setGenerationFilter(selectedOption ? selectedOption.value : "");
   };
 
   const handleRatingChange = (selectedOption) => {
-    setRatingFilter(selectedOption ? selectedOption.value : '');
+    setRatingFilter(selectedOption ? selectedOption.value : "");
   };
 
   // ||||||||||||||||||| CHANGED CODE END |||||||||||||||||||||||
 
   // Implement the Rating Filter Logic
   const filteredMovies = movies.filter((movie) => {
-    const releaseYear = movie.release_date ? parseInt(movie.release_date.split("-")[0]) : 0;
+    const releaseYear = movie.release_date
+      ? parseInt(movie.release_date.split("-")[0])
+      : 0;
     const generationFilterPass =
       !generationFilter ||
       (releaseYear >= generationCategories[generationFilter]?.startYear &&
@@ -90,19 +95,21 @@ const Reviews = () => {
       .then(async (data) => {
         console.log(data);
 
-        const moviesWithUrls = await Promise.all(data.results.map(async (movie) => {
-          // Placeholder for fetching movie URLs
-          // You need to replace this with actual logic to fetch URLs
-          const movieUrl = `${BASE_URL}${movie.id}`;
-          return { ...movie, movieUrl };
-        }));
+        const moviesWithUrls = await Promise.all(
+          data.results.map(async (movie) => {
+            // Placeholder for fetching movie URLs
+            // You need to replace this with actual logic to fetch URLs
+            const movieUrl = `${BASE_URL}${movie.id}`;
+            return { ...movie, movieUrl };
+          })
+        );
 
         // UPDATE THE MOVIES STATE WITH FETCHED DATA
         // setMovies(data.results);
         setMovies(moviesWithUrls);
       });
   }, []); // EMPTY DEPENDENCY ARRAY MEANS THIS EFFECT RUNS ONCE AFTER INITIAL RENDER
-  
+
   useEffect(() => {
     if (searchQuery) {
       // ONLY PERFORM SEARCH IF searchQuery IS NOT EMPTY
@@ -141,7 +148,9 @@ const Reviews = () => {
 
           {/* GENERATION FILTER */}
           <Select
-            value={generationOptions.find(option => option.value === generationFilter)}
+            value={generationOptions.find(
+              (option) => option.value === generationFilter
+            )}
             onChange={handleGenerationChange}
             options={generationOptions}
             placeholder="Select Generation"
@@ -151,7 +160,9 @@ const Reviews = () => {
           />
           {/* RATING FILTER */}
           <Select
-            value={ratingOptions.find(option => option.value === ratingFilter)}
+            value={ratingOptions.find(
+              (option) => option.value === ratingFilter
+            )}
             onChange={handleRatingChange}
             options={ratingOptions}
             placeholder="Select Rating"
@@ -166,7 +177,15 @@ const Reviews = () => {
       <div className="wrapper">
         {filteredMovies.length > 0 ? (
           filteredMovies.map((movieRev) => {
-            return <MovieBox className="cards" key={movieRev.id} {...movieRev} movieUrl={movieRev.movieUrl} />})
+            return (
+              <MovieBox
+                className="cards"
+                key={movieRev.id}
+                {...movieRev}
+                movieUrl={movieRev.movieUrl}
+              />
+            );
+          })
         ) : (
           <div>
             {/* CALL REELSPINNER WHEN NO MOVIE IS FOUND */}

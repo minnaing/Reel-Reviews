@@ -23,6 +23,33 @@ const app = express();
 // Use environment variable for port or default to 9999
 const PORT = process.env.PORT || 9999;
 
+const helmet = require("helmet");
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"], // Default policy for loading content such as JavaScript, Images, CSS, Fonts, AJAX requests, Frames, HTML5 Media
+        scriptSrc: ["'self'", "'unsafe-inline'", "https://www.gstatic.com"], // Allows scripts from these locations
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"], // Allows styles from these locations
+        fontSrc: ["'self'", "https://fonts.gstatic.com"], // Allows fonts from these locations
+        imgSrc: ["'self'", "data:", "https://www.gstatic.com"], // Allows images from these locations
+        connectSrc: ["'self'", "https://api.themoviedb.org"], // Allows connections to these locations
+        frameSrc: ["'self'", "https://www.google.com"], // Allow iFrames from Google (for reCAPTCHA, Maps, etc.)
+        // Add other directives as necessary
+      },
+    },
+    // You can enable or disable other middlewares below:
+    xssFilter: true, // Enables X-XSS-Protection header
+    frameguard: { action: "sameorigin" }, // Sets X-Frame-Options header to sameorigin
+    hsts: {
+      maxAge: 15552000, // 180 days in seconds
+      includeSubDomains: true,
+    },
+    // Other Helmet settings...
+  })
+);
+
 // Helmet Security Header Set Up. X-Content-Type-Options by default on
 // app.use(
 //   helmet({

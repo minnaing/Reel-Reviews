@@ -14,6 +14,7 @@ import Contact from "../Pages/Contact/Contact";
 import MovieLocMap from "../Pages/MovieLocMap/MovieLocMap";
 import Reviews from "../Pages/Reviews/Reviews";
 import Region_Reviews from "../Pages/Region_Reviews/Region_Reviews";
+import TrendBySeason from "../Pages/TrendBySeason/TrendBySeason";
 import MovieChart from "../Partials/MovieChart/MovieChart";
 
 // IMPORT THE (ReelSpinner) COMPONENT TO DISPLAY FOR NO MOVIES
@@ -84,6 +85,7 @@ const App = () => {
           <Route path="/chart" element={<MovieChart />} />
           <Route path="/reviews" element={<Reviews movies={movies} />} />
           <Route path="/region_reviews" element={<Region_Reviews />} />
+          <Route path="/TrendBySeason" element={<TrendBySeason />} />
           {/* Add other routes */}
         </Routes>
       </div>
