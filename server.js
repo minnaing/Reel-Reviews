@@ -5,6 +5,12 @@ const cors = require("cors");
 const favicon = require("serve-favicon");
 const path = require("path");
 
+const cors = require('cors');
+
+app.use(cors({
+  origin: 'https://reelreviews.info'
+}));
+
 //Helmet.js use for Securing  Express HTTP Headers
 // const helmet = require('helmet');
 
