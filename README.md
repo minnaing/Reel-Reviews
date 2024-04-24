@@ -41,34 +41,40 @@ To run the Movie Search App locally, follow these steps:
 
 1. Clone the repository:
 
-   ```bash
-     git clone https://github.com/LemonmadeDesigns/Reel-Reviews.git
-   ```
+    ```bash
+      git clone https://github.com/LemonmadeDesigns/Reel-Reviews.git
+    ```
 
 2. Navigate to the project directory:
 
-   ```bash
-   cd Reel-Reviews-main
-   ```
+    ```bash
+      cd Reel-Reviews
+    ```
 
 3. Install dependencies:
 
-   ```bash
-   npm install
-   ```
+    ```bash
+      npm install
+    ```
 
 4. Configure environment variables (if any):
 
-   ```bash
-   # Create a .env file and add your environment variables
-   REACT_APP_API_KEY=your_api_key
-   ```
+    ```bash
+      # Create a .env file and add your environment variables
+      REACT_APP_API_KEY=your_api_key
+    ```
 
 5. Start the application:
 
-   ```bash
-     npm run dev #start backend and frontend simultaneously
-   ```
+    ```bash
+      npm run dev #start backend and frontend simultaneously
+    ```
+
+6. Deploy the application with a single command:
+
+    ```bash
+      npm run deploy "Your commit message here"
+    ```
 
 ### Pushing Changes to the Repository
 
@@ -80,20 +86,30 @@ To push new changes to the repository, follow these steps:
 
 2. Stage your changes for commit:
 
-   ```bash
-   git add .
-   ```
+    ```bash
+      git add .
+    ```
 
 3. Commit your changes with a meaningful message:
 
-   ```bash
-   git commit -m "Add new feature" # Replace with your message
-   ```
+    ```bash
+    git commit -m "Add new feature" # Replace with your message
+    ```
 
 4. Push your changes to the remote repository (GitHub, GitLab, etc.):
 
-   ```bash
-   git push origin main # Replace 'main' with your branch name
+    ```bash
+    git push origin main # Replace 'main' with your branch name
+    ```
+
+### Integrating `npm run deploy` into your project
+
+To implement the `npm run deploy` command, modify the `scripts` section of your project's `package.json` file by adding the following line:
+
+   ```json
+  "scripts": {
+  "deploy": "bash deploy.sh"
+  }
    ```
 
 ### License
