@@ -203,7 +203,8 @@ app.use(helmet({
         "https://api.themoviedb.org", 
         "https://image.tmdb.org",  // For images from TMDb
         "https://maps.googleapis.com",  // Adding Google Maps images source
-        "https://maps.gstatic.com"  // Added this for images from Google Maps
+        "https://maps.gstatic.com",  // Added this for images from Google Maps
+        "https://lh3.googleusercontent.com"  // Allow images from Google user content
       ],
       connectSrc: [
         "'self'", 
