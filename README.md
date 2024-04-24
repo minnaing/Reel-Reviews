@@ -45,32 +45,44 @@ To run the Movie Search App locally, follow these steps:
       git clone https://github.com/LemonmadeDesigns/Reel-Reviews.git
     ```
 
-2. Navigate to the project directory:
+2. Navigate to the project root directory:
 
     ```bash
       cd Reel-Reviews
     ```
 
-3. Install dependencies:
+3. Install dependencies in root directory:
 
     ```bash
       npm install
     ```
 
-4. Configure environment variables (if any):
+4. Navigate to the project client directory:
+
+    ```bash
+      cd client
+    ```
+
+5. Install dependencies in client directory:
+
+    ```bash
+      npm install
+    ```
+
+6. Configure environment variables (if any):
 
     ```bash
       # Create a .env file and add your environment variables
       REACT_APP_API_KEY=your_api_key
     ```
 
-5. Start the application:
+7. Start the application in your client directory:
 
     ```bash
       npm run dev #start backend and frontend simultaneously
     ```
 
-6. Deploy the application with a single command:
+8. Deploy the application with a single command, in your client directory:
 
     ```bash
       npm run deploy "Your commit message here"
