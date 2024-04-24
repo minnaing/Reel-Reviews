@@ -137,7 +137,7 @@ const Home = () => {
             ></iframe>
           </div>
         ) : (
-          <div>
+          <div className="reel-wrapper">
             {/* This is displayed if there is no video key and loading is done */}
             <ReelSpinner />
           </div>

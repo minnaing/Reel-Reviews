@@ -225,7 +225,7 @@
 //             );
 //           })
 //         ) : (
-//           <div>
+//           <div className="reel-wrapper">
 //             {/* CALL REELSPINNER WHEN NO MOVIE IS FOUND */}
 //             <ReelSpinner />
 //           </div>
@@ -313,7 +313,9 @@ const Region_Reviews = () => {
         {movies.length > 0 ? (
           movies.map((movie) => <MovieBox key={movie.id} {...movie} />)
         ) : (
-          <ReelSpinner />
+          <div className="reel-wrapper">
+            <ReelSpinner />
+          </div>
         )}
       </div>
     </div>

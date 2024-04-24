@@ -24,7 +24,8 @@
   background: #31525B !important; /* Overrides with higher specificity */
 }
 
-.justify-content-end.flex-grow-1.pe-3.navbar-nav > a {
+.justify-content-end.flex-grow-1.pe-3.navbar-nav > a, 
+#reviews-dropdown {
   color: white;
 }
 

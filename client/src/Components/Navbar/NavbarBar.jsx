@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Container, Nav, Navbar, NavDropdown, Offcanvas } from "react-bootstrap";
 
 import ReelLogo from "../Partials/ReelLogo/ReelLogo";
 import "./navbar-bar.css";
@@ -11,11 +11,7 @@ const NavbarBar = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <Navbar
-      expand="lg"
-      style={{ position: "sticky", top: 0, zIndex: 1000 }}
-      className="bg-body-tertiary mb-3"
-    >
+    <Navbar expand="lg" style={{ position: "sticky", top: 0, zIndex: 1000 }} className="bg-body-tertiary mb-3">
       <Container fluid>
         <Navbar.Brand as={Link} to="/" href="#">
           <ReelLogo />
@@ -42,9 +38,18 @@ const NavbarBar = () => {
               <Nav.Link as={Link} to="/" onClick={handleClose}>
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to="/reviews" onClick={handleClose}>
-                Reviews
-              </Nav.Link>
+              <NavDropdown title="Reviews" id="reviews-dropdown">
+                <NavDropdown.Item as={Link} to="/reviews" onClick={handleClose}>
+                  Reviews
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/region_reviews" onClick={handleClose}>
+                  Region Reviews
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/TrendBySeason" onClick={handleClose}>
+                  Trend By Season
+                </NavDropdown.Item>
+              </NavDropdown>
+
               <Nav.Link as={Link} to="/geo-loc" onClick={handleClose}>
                 Movie Location
               </Nav.Link>

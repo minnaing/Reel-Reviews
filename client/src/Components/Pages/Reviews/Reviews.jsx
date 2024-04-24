@@ -187,7 +187,7 @@ const Reviews = () => {
             );
           })
         ) : (
-          <div>
+          <div className="reel-wrapper">
             {/* CALL REELSPINNER WHEN NO MOVIE IS FOUND */}
             <ReelSpinner />
           </div>
