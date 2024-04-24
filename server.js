@@ -202,7 +202,8 @@ app.use(helmet({
         "https://www.gstatic.com",  // For Google Charts or other Google services
         "https://api.themoviedb.org", 
         "https://image.tmdb.org",  // For images from TMDb
-        "https://maps.googleapis.com"  // Adding Google Maps images source
+        "https://maps.googleapis.com",  // Adding Google Maps images source
+        "https://maps.gstatic.com"  // Added this for images from Google Maps
       ],
       connectSrc: [
         "'self'", 
