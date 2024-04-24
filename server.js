@@ -5,6 +5,9 @@ const cors = require("cors");
 const favicon = require("serve-favicon");
 const path = require("path");
 
+// Initialize the express application
+const app = express();
+
 app.use(cors({
   origin: 'https://reelreviews.info'
 }));
@@ -30,8 +33,7 @@ app.use((req, res, next) => {
 //   res.status(200).json({ message: 'Cookie set' });
 // }
 
-// Initialize the express application
-const app = express();
+
 //
 // Use environment variable for port or default to 9999
 const PORT = process.env.PORT || 9999;
