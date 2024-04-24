@@ -178,15 +178,48 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "https://www.gstatic.com"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com"],
-      imgSrc: ["'self'", "data:", "https://www.gstatic.com", "https://api.themoviedb.org", "https://*.youtube.com"],
-      connectSrc: ["'self'", "https://api.themoviedb.org"],
-      frameSrc: ["'self'", "https://www.google.com", "https://*.youtube.com"]
+      scriptSrc: [
+        "'self'", 
+        "'unsafe-inline'", 
+        "https://www.gstatic.com", 
+        "https://apis.google.com",  // Required for Google API Loader and other Google scripts
+        "https://www.google.com"  // For Google Charts and potentially Google Maps
+      ],
+      styleSrc: [
+        "'self'", 
+        "'unsafe-inline'", 
+        "https://fonts.googleapis.com",
+        "https://www.gstatic.com",  // For styles loaded by Google Charts
+      ],
+      fontSrc: [
+        "'self'", 
+        "https://fonts.gstatic.com"
+      ],
+      imgSrc: [
+        "'self'", 
+        "data:", 
+        "https://www.gstatic.com",  // For Google Charts or other Google services
+        "https://api.themoviedb.org", 
+        "https://image.tmdb.org"  // For images from TMDb
+      ],
+      connectSrc: [
+        "'self'", 
+        "https://api.themoviedb.org",
+        "https://*.googleapis.com",  // Include this for Google Maps and other API services
+      ],
+      frameSrc: [
+        "'self'", 
+        "https://www.google.com",  // If you are using iframes for Google services
+        "https://*.youtube.com"
+      ],
+      objectSrc: ["'none'"],  // Generally a good idea to lock down object sources
+      baseUri: ["'self'"]  // Lock down the base URI for document bases
     }
-  }
+  },
+  // This will disable CSP for browsers that still use CSP 1.0
+  contentSecurityPolicyReportOnly: false
 }));
+
 
 // Middleware to enforce HTTPS redirect
 app.use((req, res, next) => {
