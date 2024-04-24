@@ -183,7 +183,8 @@ app.use(helmet({
         "'unsafe-inline'", 
         "https://www.gstatic.com", 
         "https://apis.google.com",  // Required for Google API Loader and other Google scripts
-        "https://www.google.com"  // For Google Charts and potentially Google Maps
+        "https://www.google.com",  // For Google Charts and potentially Google Maps
+        "https://maps.googleapis.com"  // To allow Google Maps scripts
       ],
       styleSrc: [
         "'self'", 
