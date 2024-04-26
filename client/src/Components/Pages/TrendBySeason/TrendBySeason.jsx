@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
+import CreatableSelect from "react-select/creatable";
 import Select from "react-select";
+import makeAnimated from "react-select/animated";
+
+const animatedComponents = makeAnimated();
+
 import MovieBox from "../../MovieBox/MovieBox";
 import ReelSpinner from "../../Partials/ReelLogo/ReelSpinner";
 
@@ -8,11 +13,18 @@ import "./TrendBySeason.css";
 const API_KEY = "ff0abd9e4de81e5a3e858b6b617453fa";
 const BASE_URL = "https://api.themoviedb.org/3";
 
-const years = [
-  { value: 2022, label: "2022" },
-  { value: 2023, label: "2023" },
-  { value: 2024, label: "2024" },
-];
+// const years = [
+//   { value: 2022, label: "2022" },
+//   { value: 2023, label: "2023" },
+//   { value: 2024, label: "2024" },
+// ];
+
+// Generate years array dynamically
+const currentYear = new Date().getFullYear();
+const years = Array.from({ length: 10 }, (_, i) => ({
+  value: currentYear - i,
+  label: `${currentYear - i}`,
+}));
 
 const seasons = [
   { value: "spring", label: "Spring (Mar 1 - May 31)" },
@@ -33,10 +45,17 @@ const TrendBySeason = () => {
   const [selectedTrend, setSelectedTrend] = useState("trending");
 
   useEffect(() => {
-    let url = `${BASE_URL}/movie/${selectedTrend}?api_key=${API_KEY}&language=en-US&page=1`;
+    // let url = `${BASE_URL}/movie/${selectedTrend}?api_key=${API_KEY}&language=en-US&page=1&year=${selectedYear}`;
 
-    if (selectedTrend === "trending") {
-      url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
+    // if (selectedTrend === "trending") {
+    //   // Trending might not support year filtering directly, check your API docs.
+    //   url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
+    // }
+
+    let url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${selectedTrend}.desc&include_adult=false&include_video=false&page=1`;
+
+    if (selectedYear) {
+      url += `&primary_release_year=${selectedYear}`;
     }
 
     fetch(url)
@@ -45,19 +64,20 @@ const TrendBySeason = () => {
         setMovies(data.results);
       })
       .catch((err) => console.error("error:" + err));
-  }, [selectedTrend]);
+  }, [selectedYear, selectedTrend]);
 
   return (
     <div id="review-wrapper">
       <div className="search-wrapper">
         <div className="filter-container">
-          <Select
+          <CreatableSelect
+            isClearable
+            components={animatedComponents}
             options={years}
             onChange={(option) =>
               setSelectedYear(option ? option.value : new Date().getFullYear())
             }
-            placeholder="Select Year"
-            isClearable
+            placeholder="Select or type a year"
             className="react-select-container"
             classNamePrefix="react-select"
           />
