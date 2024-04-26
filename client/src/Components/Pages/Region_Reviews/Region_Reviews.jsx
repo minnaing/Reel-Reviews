@@ -308,7 +308,7 @@ const Region_Reviews = () => {
           </button>
         </div>
       </div>
-      <h2 style={{ textAlign: "center" }}>Movie Reviews</h2>
+      <h2 style={{ textAlign: "center" }}>Movie Review By Region</h2>
       <div className="wrapper">
         {movies.length > 0 ? (
           movies.map((movie) => <MovieBox key={movie.id} {...movie} />)

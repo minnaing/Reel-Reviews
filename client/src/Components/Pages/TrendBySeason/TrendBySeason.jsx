@@ -17,8 +17,8 @@ const years = [
 const seasons = [
   { value: "spring", label: "Spring (Mar 1 - May 31)" },
   { value: "summer", label: "Summer (Jun 1 - Aug 31)" },
-  { value: "fall", label: "Fall (Sep 1 - Nov 30)" },
-  { value: "winter", label: "Winter (Dec 1 - Feb 29/28)" },
+  { value: "fall", label: "Fall (Sep 1 - Dec 30)" },
+  { value: "winter", label: "Winter (Jan 1 - Feb 29/28)" },
 ];
 
 const trends = [
@@ -73,7 +73,7 @@ const TrendBySeason = () => {
           />
         </div>
       </div>
-      <h2 style={{ textAlign: "center" }}>Movie Reviews</h2>
+      <h2 style={{ textAlign: "center" }}>Movie Reviews By Trend Of Season</h2>
       <div className="wrapper">
         {movies.length > 0 ? (
           movies.map((movie) => <MovieBox key={movie.id} {...movie} />)
