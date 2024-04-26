@@ -12,7 +12,7 @@ const BASE_URL = "https://api.themoviedb.org/3";
 
 const Region_Reviews = () => {
   const [movies, setMovies] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
+  // const [searchQuery, setSearchQuery] = useState("");
   const [countries, setCountries] = useState([]);
   const [countryFilter, setCountryFilter] = useState("");
   const [nowPlaying, setNowPlaying] = useState(false);
