@@ -13,12 +13,6 @@ import "./TrendBySeason.css";
 const API_KEY = "ff0abd9e4de81e5a3e858b6b617453fa";
 const BASE_URL = "https://api.themoviedb.org/3";
 
-// const years = [
-//   { value: 2022, label: "2022" },
-//   { value: 2023, label: "2023" },
-//   { value: 2024, label: "2024" },
-// ];
-
 // Generate years array dynamically
 const currentYear = new Date().getFullYear();
 const years = Array.from({ length: 10 }, (_, i) => ({
@@ -45,27 +39,36 @@ const TrendBySeason = () => {
   const [selectedTrend, setSelectedTrend] = useState("trending");
 
   useEffect(() => {
-    // let url = `${BASE_URL}/movie/${selectedTrend}?api_key=${API_KEY}&language=en-US&page=1&year=${selectedYear}`;
-
-    // if (selectedTrend === "trending") {
-    //   // Trending might not support year filtering directly, check your API docs.
-    //   url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
-    // }
-
-    let url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${selectedTrend}.desc&include_adult=false&include_video=false&page=1`;
-
-    if (selectedYear) {
-      url += `&primary_release_year=${selectedYear}`;
+    let url;
+    let clientSideFilteringNeeded = false;
+  
+    if (selectedTrend === "trending") {
+      url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
+      clientSideFilteringNeeded = true; // Mark that client-side filtering will be needed
+    } else {
+      url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${selectedTrend}.desc&include_adult=false&include_video=false&page=1`;
+      if (selectedYear) {
+        url += `&primary_release_year=${selectedYear}`;
+      }
     }
-
+  
     fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setMovies(data.results);
+      .then(res => res.json())
+      .then(data => {
+        if (clientSideFilteringNeeded && selectedYear) {
+          // Filter movies by release year after fetching them
+          const filteredMovies = data.results.filter(movie => {
+            const releaseYear = new Date(movie.release_date).getFullYear();
+            return releaseYear === selectedYear;
+          });
+          setMovies(filteredMovies);
+        } else {
+          setMovies(data.results);
+        }
       })
-      .catch((err) => console.error("error:" + err));
+      .catch(err => console.error("Error fetching data: " + err));
   }, [selectedYear, selectedTrend]);
-
+  
   return (
     <div id="review-wrapper">
       <div className="search-wrapper">
@@ -74,9 +77,13 @@ const TrendBySeason = () => {
             isClearable
             components={animatedComponents}
             options={years}
-            onChange={(option) =>
-              setSelectedYear(option ? option.value : new Date().getFullYear())
-            }
+            onChange={(option) => {
+              const year = option
+                ? parseInt(option.value, 10)
+                : new Date().getFullYear();
+              console.log("Selected Year: ", year); // Debug: Check the console for the selected year
+              setSelectedYear(year);
+            }}
             placeholder="Select or type a year"
             className="react-select-container"
             classNamePrefix="react-select"
