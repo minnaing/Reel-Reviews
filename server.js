@@ -40,7 +40,8 @@ app.use(helmet({
         "https://image.tmdb.org",  // For images from TMDb
         "https://maps.googleapis.com",  // Adding Google Maps images source
         "https://maps.gstatic.com",  // Added this for images from Google Maps
-        "https://lh3.googleusercontent.com"  // Allow images from Google user content
+        "https://lh3.googleusercontent.com",  // Allow images from Google user content
+        "https://placehold.co/600x400?text=No Image Available"
       ],
       connectSrc: [
         "'self'", 
