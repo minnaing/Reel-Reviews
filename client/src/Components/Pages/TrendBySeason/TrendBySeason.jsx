@@ -37,7 +37,7 @@ const TrendBySeason = () => {
   const [movies, setMovies] = useState([]);
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const [selectedSeason, setSelectedSeason] = useState(null);
-  const [selectedTrend, setSelectedTrend] = useState("trending");
+  const [selectedTrend, setSelectedTrend] = useState("popular");
 
   useEffect(() => {
     let url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;

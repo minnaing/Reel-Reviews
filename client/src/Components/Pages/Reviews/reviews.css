@@ -14,7 +14,8 @@
   width: 90%;
 }
 
-.review-container {
+.review-container-1 {
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

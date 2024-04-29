@@ -5,11 +5,11 @@ import "./movie-chart.css";
 
 export const data = [
   ["Ages", "percentage"],
-  ["Ages 60+", 19],
-  ["Ages 36 - 59", 12],
-  ["Ages 20 - 35", 32],
-  ["Ages 13 - 19", 23],
-  ["Ages < 13", 17],
+  ["Baby Boomers +", 19],
+  ["Gen X", 17],
+  ["Millennials", 26],
+  ["Gen Z", 17],
+  ["Gen Alpha", 21],
 ];
 
 export const options = {
@@ -46,7 +46,7 @@ const MovieChart = () => {
         <h1> REEL REVIEWS </h1>
         <aside>
           <h3>
-            Children (Under 13): <span style={{ color: "#fd1892" }}>Gen Z</span>
+            Children (Under 11): <span style={{ color: "#fd1892" }}>Gen Alpha</span>
           </h3>
           <p>
             For children, the app would likely focus on movies rated G or PG, emphasizing themes of adventure, fantasy,
@@ -54,7 +54,7 @@ const MovieChart = () => {
             generally considered appropriate and enjoyable for this age group.
           </p>
           <h3>
-            Teenagers (13-19): <span style={{ color: "#2c90fc" }}>Millennials</span>{" "}
+            Teenagers (12 - 29): <span style={{ color: "#2c90fc" }}>Gen Z</span>{" "}
           </h3>
           <p>
             Teenagers often seek movies that resonate with their experiences or aspirations, including genres like young
@@ -62,7 +62,7 @@ const MovieChart = () => {
             themes, first loves, or the challenges of growing up, which are particularly appealing to this demographic.
           </p>
           <h3>
-            Young Adults (20-35); <span style={{ color: "#b8fd33" }}>Gen X</span>{" "}
+            Young Adults (30 - 44); <span style={{ color: "#b8fd33" }}>Millennials</span>{" "}
           </h3>
           <p>
             Young adults might appreciate a wider range of movies, including those that address more mature and complex
@@ -70,7 +70,7 @@ const MovieChart = () => {
             films, and dramas that reflect their own life experiences or societal issues they care about.
           </p>
           <h3>
-            Adults (36-60): <span style={{ color: "#fec837" }}>Baby Boomers</span>{" "}
+            Adults (45 - 59): <span style={{ color: "#fec837" }}>Gen X</span>{" "}
           </h3>
           <p>
             Adults may have more eclectic tastes, ranging from critically acclaimed dramas and documentaries to action
@@ -78,7 +78,10 @@ const MovieChart = () => {
             personal growth, reflecting the broader range of life stages and experiences typical of this age group.
           </p>
           <h3>
-            Seniors (60+): <span style={{ color: "#b827fc" }}>Silent Generation</span>{" "}
+            Seniors (60+): 
+            <span style={{ color: "#b827fc" }}> Baby Boomers,</span>{" "}
+            <span style={{ color: "#fca347" }}> Silent Generation,</span>{" "}
+            <span style={{ color: "#29fc92" }}> Greatest Generation</span>{" "}
           </h3>
           <p>
             Seniors might enjoy movies that offer nostalgia, historical perspectives, or thoughtful reflections on life
