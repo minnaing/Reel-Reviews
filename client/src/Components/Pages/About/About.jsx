@@ -74,7 +74,7 @@ const About = () => {
       {contentSections.map((section) => (
         <div key={section.id} className="contentSection">
           <h4>{section.title}</h4>
-          <p>{section.text}</p>
+          <p className="para">{section.text}</p>
         </div>
       ))}
 

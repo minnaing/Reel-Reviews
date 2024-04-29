@@ -119,7 +119,9 @@ const Reviews = () => {
         {filteredMovies.length > 0 ? (
           filteredMovies.map((movie) => <MovieBox key={movie.id} {...movie} />)
         ) : (
-          <ReelSpinner />
+          <div className="review-container-1">
+            <ReelSpinner />
+          </div>
         )}
       </div>
     </div>

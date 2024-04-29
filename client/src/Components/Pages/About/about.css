@@ -14,6 +14,11 @@ h4 {
   margin: 2em 0 !important;
 }
 
+p.para {
+  width: 90%;
+  margin: auto;
+}
+
 .contentSection,
 .newReleasesSection {
   margin-bottom: 30px;
@@ -37,6 +42,7 @@ h4 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px;
   border-radius: 8px;
+  /* height: 500px; */
   text-align: center;
   background-color: #31525B;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px !important;
@@ -44,7 +50,7 @@ h4 {
 
 .movieCard h3, h4 {
   margin: 1em;
-  color: rgb(232, 17, 17);
+  color: rgb(232, 17, 17) !important;
   text-shadow: 1px 1px black;
   height: 45px !important;
 }
@@ -63,6 +69,11 @@ h4 {
 
 @media (max-width: 768px) {
 
+  p.para {
+    width: 80%;
+    margin: auto;
+  }
+  
   .moviesDisplay {
     flex-wrap: wrap;
   }

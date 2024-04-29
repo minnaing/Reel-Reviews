@@ -14,6 +14,13 @@
   width: 90%;
 }
 
+.review-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
 @media (max-width: 768px) {
   .react-select-container {
     max-width: 100%; /* Allows select to expand to 100% of its container's width */
