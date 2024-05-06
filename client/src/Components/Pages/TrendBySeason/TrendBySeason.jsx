@@ -111,7 +111,7 @@ const TrendBySeason = () => {
       <h2 style={{ textAlign: "center" }}>Movie Reviews By Trend Of Season</h2>
       <div className="wrapper">
         {movies.length > 0 ? (
-          movies.map((movie) => <MovieBox key={movie.id} {...movie} />)
+          movies.map((movie) => <MovieBox key={movie.id} movieUrl={movie.poster_path} {...movie} />)
         ) : (
           <div className="reel-wrapper">
             <ReelSpinner />
@@ -134,7 +134,7 @@ function getSeasonDates(season, year) {
     case "winter":
       // Handle wrapping year for winter
       return {
-        start: `${year}-01-01`,
+        start: `${year}-12-01`,
         end: `${year}-02-${year % 4 === 0 ? 29 : 28}`,
       };
     default:

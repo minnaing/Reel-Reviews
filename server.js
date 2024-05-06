@@ -1,12 +1,12 @@
-// Import necessary modules
-import express from "express";
-import cors from "cors";
-import fs from "fs";
-import path from "path";
-import puppeteer from "puppeteer";
-import nodemailer from "nodemailer";
-import helmet from "helmet";
-import favicon from "serve-favicon";
+// const necessary modules
+const express = require("express");
+const cors = require("cors");
+const fs = require("fs");
+const path = require("path");
+const puppeteer = require("puppeteer");
+const nodemailer = require("nodemailer");
+const helmet = require("helmet");
+const favicon = require("serve-favicon");
 const http = require('http');
 const socketIO = require('socket.io');
 
@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 
-app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+// app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
 // Serve static files (assuming public directory for static files and React build)
 app.use(express.static(path.join(__dirname, 'public')));
@@ -142,11 +142,11 @@ app.use(helmet({
 }));
 
 // CORS configuration to allow requests from allowed origins
-// app.use(cors({
-//   origin: ['http://localhost:3000']
-// }));
+app.use(cors(
+  { origin: ['http://localhost:3000'] }
+));
 
-app.use(cors())
+// app.use(cors())
 
 // Middleware to enforce HTTPS redirect
 app.use((req, res, next) => {
@@ -162,61 +162,68 @@ app.use(cors({
   origin: 'https://reelreviews.info'
 }));
 
+// CORS configuration to allow requests from your client's domain
+app.use(cors({
+  origin: 'http://localhost:3000',  // or use ['http://localhost:3000', 'https://example.com'] for multiple origins
+  credentials: true, // to support session cookies from the client if needed
+}));
+
+
 // Function to scrape Reddit for reviews
-async function scrapeReddit(movieName, releaseDate) {
-  const browser = await puppeteer.launch({
-      headless: true,
-      defaultViewport: null,
-      userDataDir: "./tmp"
-  });
-  const page = await browser.newPage();
-  const query = `site:reddit.com review movie ${movieName} ${releaseDate}`;
-  await page.goto(`https://www.google.com/search?q=${encodeURIComponent(query)}`);
+// async function scrapeReddit(movieName, releaseDate) {
+//   const browser = await puppeteer.launch({
+//       headless: true,
+//       defaultViewport: null,
+//       userDataDir: "./tmp"
+//   });
+//   const page = await browser.newPage();
+//   const query = `site:reddit.com review movie ${movieName} ${releaseDate}`;
+//   await page.goto(`https://www.google.com/search?q=${encodeURIComponent(query)}`);
 
-  let comments = [];
-  let linksVisited = 0;
-  let threadLinks = [];
-  while (comments.length < 50 && linksVisited < 10) {
-      if (threadLinks.length === 0) {
-          threadLinks = await page.evaluate(() => Array.from(document.querySelectorAll("a[href*='reddit.com/r/']")).map(anchor => anchor.href));
-      }
-      if (linksVisited >= threadLinks.length) break;
+//   let comments = [];
+//   let linksVisited = 0;
+//   let threadLinks = [];
+//   while (comments.length < 50 && linksVisited < 10) {
+//       if (threadLinks.length === 0) {
+//           threadLinks = await page.evaluate(() => Array.from(document.querySelectorAll("a[href*='reddit.com/r/']")).map(anchor => anchor.href));
+//       }
+//       if (linksVisited >= threadLinks.length) break;
 
-      const nextLink = threadLinks[linksVisited++];
-      console.log(`Navigating to: ${nextLink}`);
-      try {
-          await page.goto(nextLink);
-          await autoScroll(page);
-          const newComments = await page.evaluate(() => Array.from(document.querySelectorAll('div[id*="-post-rtjson-content"] p'), element => element.textContent.trim()));
-          comments = [...comments, ...newComments.slice(0, 50 - comments.length)];
-          console.log(`Total comments collected: ${comments.length}`);
-      } catch (error) {
-          console.error(`Error navigating to link: ${error}`);
-          continue;
-      }
-  }
-  await browser.close();
-  return comments;
-}
+//       const nextLink = threadLinks[linksVisited++];
+//       console.log(`Navigating to: ${nextLink}`);
+//       try {
+//           await page.goto(nextLink);
+//           await autoScroll(page);
+//           const newComments = await page.evaluate(() => Array.from(document.querySelectorAll('div[id*="-post-rtjson-content"] p'), element => element.textContent.trim()));
+//           comments = [...comments, ...newComments.slice(0, 50 - comments.length)];
+//           console.log(`Total comments collected: ${comments.length}`);
+//       } catch (error) {
+//           console.error(`Error navigating to link: ${error}`);
+//           continue;
+//       }
+//   }
+//   await browser.close();
+//   return comments;
+// }
 
-// Auto-scroll function to load all comments
-async function autoScroll(page) {
-  await page.evaluate(async () => {
-      await new Promise((resolve, reject) => {
-          let totalHeight = 0;
-          let distance = 100;
-          let timer = setInterval(() => {
-              let scrollHeight = document.body.scrollHeight;
-              window.scrollBy(0, distance);
-              totalHeight += distance;
-              if (totalHeight >= scrollHeight) {
-                  clearInterval(timer);
-                  resolve();
-              }
-          }, 100);
-      });
-  });
-}
+// // Auto-scroll function to load all comments
+// async function autoScroll(page) {
+//   await page.evaluate(async () => {
+//       await new Promise((resolve, reject) => {
+//           let totalHeight = 0;
+//           let distance = 100;
+//           let timer = setInterval(() => {
+//               let scrollHeight = document.body.scrollHeight;
+//               window.scrollBy(0, distance);
+//               totalHeight += distance;
+//               if (totalHeight >= scrollHeight) {
+//                   clearInterval(timer);
+//                   resolve();
+//               }
+//           }, 100);
+//       });
+//   });
+// }
 
 // Handle form submission and call the scrape function
 app.post("/get-reviews", async (req, res) => {
@@ -267,5 +274,5 @@ app.get("*", (req, res) => {
 
 
 // Set up the server
-const PORT = process.env.PORT || 9999;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`App running on https://localhost:${PORT}`));

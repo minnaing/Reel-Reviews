@@ -38,7 +38,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start-backend": "./startServer.sh",
-    "dev": "concurrently \"npm run start\" \"npm run start-backend\"",
+    "backend": "./../server.js",
+    "dev": "concurrently \"npm run start\" \"npm run backend\"",
     "deploy": "./deploy.sh"
   },
   "browserslist": {
@@ -66,5 +67,5 @@
   "overrides": {
     "autoprefixer": "10.4.5"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:8080"
 }

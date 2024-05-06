@@ -85,7 +85,6 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
 
-          {/* <Route path="/chatroom" element={<ChatRoom />} /> */}
 					<Route path="/chatroom/:name/:room" element={<ChatRoom />} />
           <Route path="/join" element={<Join />} />
 

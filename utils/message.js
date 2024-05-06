@@ -1,6 +1,6 @@
-var moment = require('moment');
+const moment = require('moment');
 
-var generateMessage = (from, room, text) => {
+const generateMessage = (from, room, text) => {
     return {
         from,
         room,
@@ -9,7 +9,7 @@ var generateMessage = (from, room, text) => {
     }
 };
 
-var generateLocationMessage = (from, room, lat, lon) => {
+const generateLocationMessage = (from, room, lat, lon) => {
     return {
         from,
         room,

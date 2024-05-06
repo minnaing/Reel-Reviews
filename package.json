@@ -2,12 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.mjs",
-  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.mjs",
+    "start": "node server.js",
     "start-frontend": "cd client && npm start",
-    "dev": "concurrently \"nodemon server.mjs\" \"npm run start-frontend\""
+    "dev": "concurrently \"npm start\" \"npm run start-frontend\""
   },
   "keywords": [],
   "author": "",
@@ -27,5 +26,6 @@
   "devDependencies": {
     "concurrently": "^8.2.2",
     "nodemon": "^3.1.0"
-  }
+  },
+  "proxy": "http://localhost:8080"
 }
