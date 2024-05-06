@@ -16,24 +16,45 @@ This integration will filter movies based on their release years corresponding t
 ## Team Members
 
 - Terrell D. Lemons (Developer Role)
-
   - Email: `LemonsTerrell@csu.fullerton.edu`
 
 - Leung Wang Chan (Developer Role)
-
   - Email: `lchan2021@csu.fullerton.edu`
 
 - James D Owens (Developer Role)
-
   - Email: `jamesowens@csu.fullerton.edu`
 
 - Julian V Apparicio (Developer Role)
   - Email: `Jvapparicio@csu.fullerton.edu`
 
-## Screenshots/Images
+## Navigation
 
-![Screenshot 1](./client/src/Components/Placeholders/pl_images/Screenshot-1.png)
-![Screenshot 2](./client/src/Components/Placeholders/pl_images/Screenshot-2.png)
+### Home Page
+Access the Home Page by clicking the "Home" tab in the navigation bar. Here, you can:
+  - **Search for any movie trailers** using the search bar.
+  - **View charts of generational movie gaps** showing trends in movie preferences across different ages.
+  - **Explore the most popular movies currently in theaters or trending online.**
+
+### Review Page
+Access the Review Page by selecting the "Review" tab, which has a dropdown for:
+  - **Searching and reviewing movies** based on generation and popularity.
+  - **Finding movies by region** and popularity to see what's popular globally or locally.
+  - **Discovering trending movies**, getting insights into what’s currently popular.
+
+### Movie Location Page
+Navigate to the "Movie Location" Page by clicking on the "Movie Location" tab. This page allows you to:
+  - **Locate movies by name** and get details like the filming location address.
+  - **View images** from those locations to explore the setting visually.
+
+### About Page
+The "About" Page can be accessed via the "About" tab, offering insights into:
+  - **Our mission** and what drives our app development.
+  - **Who we are**, introducing our team members and their roles.
+
+### Contact Page
+The Contact Page is available under the "Contact" tab, where users can:
+  - **Report inaccuracies** or outdated information.
+  - **Submit news** or suggestions related to movie data or app features.
 
 ## Getting Started
 
@@ -90,7 +111,7 @@ To run the Movie Search App locally, follow these steps:
 
 ### Pushing Changes to the Repository
 
-This section, titled "<span style="color: red">Pushing Changes to the Repository</span>," provides instructions on how to stage, commit, and push changes to your repository. Make sure to replace `'main'` with the appropriate branch name if you're working on a different branch.
+This section, titled "Pushing Changes to the Repository," provides instructions on how to stage, commit, and push changes to your repository. Make sure to replace `'main'` with the appropriate branch name if you're working on a different branch.
 
 To push new changes to the repository, follow these steps:
 
@@ -122,7 +143,7 @@ To implement the `npm run deploy` command, modify the `scripts` section of your 
   "scripts": {
   "deploy": "bash deploy.sh"
   }
-   ```
+  ```
 
 ### License
 
