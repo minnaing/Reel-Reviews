@@ -46,12 +46,10 @@ const Footer = () => {
       <div className="text-center p-3">
         <div>
           © {new Date().getFullYear()} Copyright: 
-          <a className="text-white" href="/">
-            CPSC 335
-          </a>
-          &nbsp;| Powered by&nbsp;
+          <a className="text-white" href="/"> CPSC 491</a>
+          &nbsp;| Powered by &nbsp;
           <a className="text-white" href="https://github.com/LemonmadeDesigns/Reel-Reviews">
-            Digit Coders 2024
+            TLJJ APP 2024
           </a>
         </div>
       </div>
