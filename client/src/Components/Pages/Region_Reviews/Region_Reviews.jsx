@@ -72,7 +72,10 @@ const Region_Reviews = () => {
       <h2 style={{ textAlign: "center" }}>Movie Review By Region</h2>
       <div className="wrapper">
         {movies.length > 0 ? (
-          movies.map((movie) => <MovieBox key={movie.id} {...movie} />)
+          movies.map((movie) => <MovieBox 
+            key={movie.id} 
+            movieUrl={`https://image.tmdb.org/t/p/original${movie.poster_path}`}  // Assuming 'poster_path' is available and correct
+            {...movie} />)
         ) : (
           <div className="reel-wrapper">
             <ReelSpinner />

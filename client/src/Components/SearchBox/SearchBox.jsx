@@ -25,9 +25,11 @@ const SearchBox = ({ onSearch }) => {
       <div className="search-container">
         {/* RENDER AN INPUT FIELD FOR THE SEARCH QUERY */}
         <input
+          id="search-input"
           className="search-input"
           // SET THE INPUT TYPE TO TEXT
           type="text"
+          name="search-input"
           // SET A PLACEHOLDER FOR THE INPUT FIELD
           placeholder="Search for movies..."
           // BIND THE INPUT VALUE TO THE query STATE

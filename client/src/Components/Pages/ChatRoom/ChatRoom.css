@@ -1,0 +1,14 @@
+.fas.fa-circle {
+  color: green;
+  margin-right: 5px;
+}
+
+.activeUsers {
+  position: fixed;
+  top: 8em;
+  left: 3em;
+  background: white;
+  padding: 1em;
+  border-radius: 7px;
+  box-shadow: 1px 1px 3px black;
+}

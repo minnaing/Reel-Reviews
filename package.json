@@ -2,11 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.mjs",
+  "type": "module",
   "scripts": {
-    "start": "node server.js" ,
+    "start": "node server.mjs",
     "start-frontend": "cd client && npm start",
-    "dev": "concurrently \"npm run start\" \"npm run start-frontend\""
+    "dev": "concurrently \"nodemon server.mjs\" \"npm run start-frontend\""
   },
   "keywords": [],
   "author": "",
@@ -14,11 +15,14 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "express": "^4.18.2",
+    "express": "^4.19.2",
     "helmet": "^7.1.0",
+    "moment": "^2.22.2",
     "nodemailer": "^6.9.10",
     "npm": "^10.5.1",
-    "serve-favicon": "^2.5.0"
+    "puppeteer": "^22.7.1",
+    "serve-favicon": "^2.5.0",
+    "socket.io": "^2.1.1"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
