@@ -30,31 +30,48 @@ This integration will filter movies based on their release years corresponding t
 ## Navigation
 
 ### Home Page
+
 Access the Home Page by clicking the "Home" tab in the navigation bar. Here, you can:
-  - **Search for any movie trailers** using the search bar.
-  - **View charts of generational movie gaps** showing trends in movie preferences across different ages.
-  - **Explore the most popular movies currently in theaters or trending online.**
+
+- **Search for any movie trailers** using the search bar.
+
+- **View charts of generational movie gaps** showing trends in movie preferences across different ages.
+
+- **Explore the most popular movies currently in theaters or trending online.**
 
 ### Review Page
+
 Access the Review Page by selecting the "Review" tab, which has a dropdown for:
-  - **Searching and reviewing movies** based on generation and popularity.
-  - **Finding movies by region** and popularity to see what's popular globally or locally.
-  - **Discovering trending movies**, getting insights into what’s currently popular.
+
+- **Searching and reviewing movies** based on generation and popularity.
+
+- **Finding movies by region** and popularity to see what's popular globally or locally.
+
+- **Discovering trending movies**, getting insights into what’s currently popular.
 
 ### Movie Location Page
+
 Navigate to the "Movie Location" Page by clicking on the "Movie Location" tab. This page allows you to:
-  - **Locate movies by name** and get details like the filming location address.
-  - **View images** from those locations to explore the setting visually.
+
+- **Locate movies by name** and get details like the filming location address.
+  
+- **View images** from those locations to explore the setting visually.
 
 ### About Page
+
 The "About" Page can be accessed via the "About" tab, offering insights into:
-  - **Our mission** and what drives our app development.
-  - **Who we are**, introducing our team members and their roles.
+
+- **Our mission** and what drives our app development.
+
+- **Who we are**, introducing our team members and their roles.
 
 ### Contact Page
+
 The Contact Page is available under the "Contact" tab, where users can:
-  - **Report inaccuracies** or outdated information.
-  - **Submit news** or suggestions related to movie data or app features.
+
+- **Report inaccuracies** or outdated information.
+  
+- **Submit news** or suggestions related to movie data or app features.
 
 ## Getting Started
 
