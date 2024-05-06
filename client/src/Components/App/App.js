@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 // IMPORT BROWSERROUTER, ROUTES, AND ROUTE FROM REACT-ROUTER-DOM FOR ROUTING
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import classNames from "classnames";
 
 // IMPORT SEARCHBOX COMPONENT THAT ALLOWS USERS TO SEARCH FOR MOVIES
 import NavbarBar from "../Navbar/NavbarBar"; // Update path as needed
@@ -10,12 +11,15 @@ import NavbarBar from "../Navbar/NavbarBar"; // Update path as needed
 
 import Home from "../Pages/Home/Home";
 import About from "../Pages/About/About";
+import ChatRoom from "../Pages/ChatRoom/ChatRoom";
 import Contact from "../Pages/Contact/Contact";
+import Join from "../Pages/ChatRoom/Messages/Join";
+import MovieChart from "../Partials/MovieChart/MovieChart";
 import MovieLocMap from "../Pages/MovieLocMap/MovieLocMap";
+// import MovieReviewForm from "../Pages/MovieReviewForm/MovieReviewForm";
 import Reviews from "../Pages/Reviews/Reviews";
 import Region_Reviews from "../Pages/Region_Reviews/Region_Reviews";
 import TrendBySeason from "../Pages/TrendBySeason/TrendBySeason";
-import MovieChart from "../Partials/MovieChart/MovieChart";
 
 // IMPORT THE (ReelSpinner) COMPONENT TO DISPLAY FOR NO MOVIES
 import Footer from "../Partials/Footer/Footer";
@@ -33,8 +37,7 @@ import "./App.css";
 const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=ff0abd9e4de81e5a3e858b6b617453fa&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
 
 // FIRST HOOK { searchQuery }
-const API_KEY =
-  "https://api.themoviedb.org/3/search/movie?api_key=ff0abd9e4de81e5a3e858b6b617453fa";
+const API_KEY = "https://api.themoviedb.org/3/search/movie?api_key=ff0abd9e4de81e5a3e858b6b617453fa";
 
 // DEFINE THE MAIN APP COMPONENT
 const App = () => {
@@ -81,11 +84,17 @@ const App = () => {
           <Route path="/" element={<Home movies={movies} />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+
+          {/* <Route path="/chatroom" element={<ChatRoom />} /> */}
+					<Route path="/chatroom/:name/:room" element={<ChatRoom />} />
+          <Route path="/join" element={<Join />} />
+
           <Route path="/geo-loc" element={<MovieLocMap />} />
           <Route path="/chart" element={<MovieChart />} />
           <Route path="/reviews" element={<Reviews movies={movies} />} />
           <Route path="/region_reviews" element={<Region_Reviews />} />
           <Route path="/TrendBySeason" element={<TrendBySeason />} />
+          {/* <Route path="/get-reviews" element={<MovieReviewForm />} /> */}
           {/* Add other routes */}
         </Routes>
       </div>

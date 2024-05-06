@@ -42,6 +42,9 @@ const NavbarBar = () => {
                 <NavDropdown.Item as={Link} to="/reviews" onClick={handleClose}>
                   Reviews
                 </NavDropdown.Item>
+                {/* <NavDropdown.Item as={Link} to="/get-reviews" onClick={handleClose}>
+                  Viewer Reviews
+                </NavDropdown.Item> */}
                 <NavDropdown.Item as={Link} to="/region_reviews" onClick={handleClose}>
                   Region Reviews
                 </NavDropdown.Item>
@@ -49,9 +52,12 @@ const NavbarBar = () => {
                   Trend By Season
                 </NavDropdown.Item>
               </NavDropdown>
-
+        
+              <Nav.Link as={Link} to="/chatroom/:name/:room" onClick={handleClose}>
+                Chat Room
+              </Nav.Link>
               <Nav.Link as={Link} to="/geo-loc" onClick={handleClose}>
-                Movie Location
+                Movie Locations
               </Nav.Link>
               <Nav.Link as={Link} to="/about" onClick={handleClose}>
                 About
