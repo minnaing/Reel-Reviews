@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Nav, Navbar, NavDropdown, Offcanvas } from "react-bootstrap";
 
+import ChatRoomLink from './../Pages/ChatRoom/ChatRoomLink'; // Adjust the import path as necessary
+
 import ReelLogo from "../Partials/ReelLogo/ReelLogo";
 import "./navbar-bar.css";
 
@@ -52,10 +54,11 @@ const NavbarBar = () => {
                   Trend By Season
                 </NavDropdown.Item>
               </NavDropdown>
-        
-              <Nav.Link as={Link} to="/chatroom/:name/:room" onClick={handleClose}>
-                Chat Room
-              </Nav.Link>
+
+                {/* Other Nav.Links or Nav.Items */}
+                <ChatRoomLink handleClose={handleClose} />
+                {/* Other Nav.Links or Nav.Items */}
+
               <Nav.Link as={Link} to="/geo-loc" onClick={handleClose}>
                 Movie Locations
               </Nav.Link>
