@@ -13,7 +13,6 @@ import Home from "../Pages/Home/Home";
 import About from "../Pages/About/About";
 import ChatRoom from "../Pages/ChatRoom/ChatRoom";
 import Contact from "../Pages/Contact/Contact";
-import Join from "../Pages/ChatRoom/Messages/Join";
 import MovieChart from "../Partials/MovieChart/MovieChart";
 import MovieLocMap from "../Pages/MovieLocMap/MovieLocMap";
 // import MovieReviewForm from "../Pages/MovieReviewForm/MovieReviewForm";
@@ -30,7 +29,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // IMPORT CUSTOM CSS FOR STYLING THE APPLICATION
 import "./App.css";
 
-//
 // const API_IMG = "http://image.tmdb.org/t/p/w500";
 
 // FIRST HOOK
@@ -85,8 +83,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
 
-					<Route path="/chatroom/:name/:room" element={<ChatRoom />} />
-          <Route path="/join" element={<Join />} />
+          <Route path="/chatroom" element={<ChatRoom />} />
 
           <Route path="/geo-loc" element={<MovieLocMap />} />
           <Route path="/chart" element={<MovieChart />} />
