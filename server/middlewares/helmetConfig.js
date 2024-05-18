@@ -29,7 +29,9 @@ export const helmetConfig = {
         "https://maps.googleapis.com",
         "https://maps.gstatic.com",
         "https://lh3.googleusercontent.com",
-        "https://placehold.co/600x400?text=No Image Available"
+        "https://placehold.co/600x400?text=No Image Available",
+        // "https://placehold.co"
+
       ],
       connectSrc: [
         "'self'", 

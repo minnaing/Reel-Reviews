@@ -1,4 +1,5 @@
-import { scrapeReddit } from "../utils/scrapeReddit";
+import { scrapeReddit } from '../utils/scrapeReddit.js';
+import { autoScroll } from '../utils/autoScroll.js';
 
 export const getReviews = async (req, res) => {
   console.log(req.body);  // Log the body to debug it

@@ -7,12 +7,12 @@
 // import nodemailer from "nodemailer";
 // import helmet from "helmet";
 // import favicon from "serve-favicon";
-// const http = require('http');
-// const socketIO = require('socket.io');
+// import http from 'http';
+// import socketIO from 'socket.io';
 
-// const { generateMessage, generateLocationMessage } = require('./utils/message.js');
-// const { isRealString } = require('./utils/validation.js');
-// const { Users } = require('./utils/users.js');
+// // import { generateMessage, generateLocationMessage } from './utils/message.js';
+// // import { isRealString } from './utils/validation.js';
+// // import { Users } from './utils/users.js';
 // const publicPath = path.join(__dirname, '../public');
 
 // // Initialize the express application
@@ -271,41 +271,107 @@
 // app.listen(PORT, () => console.log(`App running on https://localhost:${PORT}`));
 
 
-// Import necessary modules
-import express from "express";
-import cors from "cors";
-import helmet from "helmet";
-import favicon from "serve-favicon";
-import path from "path";
-import { createServer } from "http";
-import { Server as SocketIOServer } from "socket.io";
-import { corsConfig, faviconMiddleware, helmetConfig, httpsRedirect, staticFiles } from "./server/middlewares";
-import { getReviews, sendEmail, fallback } from "./server/routes";
-import socketHandlers from "./server/socket";
-import { scrapeReddit, autoScroll } from "./server/utils";
+
+
+
+
+
+
+// // Import necessary modules
+// import express from "express";
+// import cors from "cors";
+// import helmet from "helmet";
+// import favicon from "serve-favicon";
+// import { fileURLToPath } from 'url';
+// import path from "path";
+// import { createServer } from "http";
+// import { corsConfig } from "./server/middlewares/corsConfig.js";
+// // import { faviconMiddleware } from "./server/middlewares/favicon.js";
+
+// import { helmetConfig } from "./server/middlewares/helmetConfig.js";
+// import { httpsRedirect } from "./server/middlewares/httpsRedirect.js";
+// import { staticFiles } from "./server/middlewares/staticFiles.js";
+// import { getReviews } from "./server/routes/getReviews.js";
+// import { sendEmail } from "./server/routes/sendEmail.js";
+// import { fallback } from "./server/routes/fallback.js";
+// import { scrapeReddit } from "./server/utils/scrapeReddit.js";
+// import { autoScroll } from "./server/utils/autoScroll.js";
+
+// // // Convert the file URL to a path and get the directory name
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+
+// // Initialize the express application
+// const app = express();
+// const server = createServer(app);
+
+// // Middleware setup
+// app.use(cors(corsConfig));
+
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+
+// app.use(helmet(helmetConfig));
+// // app.use(faviconMiddleware);
+// app.use(staticFiles);
+// app.use(httpsRedirect);
+
+// // Serve static files from the React app
+// app.use(express.static(path.join(__dirname, 'client/build')));
+
+// // Set up routes
+// app.post("/get-reviews", getReviews);
+// app.post("/send-email", sendEmail);
+// app.get("*", fallback);
+
+// // Set up the server
+// const PORT = process.env.PORT || 9999;
+// server.listen(PORT, () => console.log(`App running on http://localhost:${PORT}`));
+
+
+
+
+
+
+import cors from 'cors';
+
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import helmet from 'helmet';
+import { helmetConfig } from './server/middlewares/helmetConfig.js';
+
+import { httpsRedirect } from "./server/middlewares/httpsRedirect.js";
+import { staticFiles } from "./server/middlewares/staticFiles.js";
+import { getReviews } from "./server/routes/getReviews.js";
+import { sendEmail } from "./server/routes/sendEmail.js";
+import { fallback } from "./server/routes/fallback.js";
+import { scrapeReddit } from "./server/utils/scrapeReddit.js";
+import { autoScroll } from "./server/utils/autoScroll.js";
+
+// Convert the file URL to a path and get the directory name
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Initialize the express application
 const app = express();
-const server = createServer(app);
-const io = new SocketIOServer(server);
 
-// Middleware setup
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cors(corsConfig));
+// Apply CORS middleware
+app.use(cors());
+
+// Apply Helmet middleware for security
 app.use(helmet(helmetConfig));
-app.use(faviconMiddleware);
-app.use(staticFiles);
-app.use(httpsRedirect);
 
-// Set up routes
-app.post("/get-reviews", getReviews);
-app.post("/send-email", sendEmail);
-app.get("*", fallback);
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-// Initialize Socket.IO
-socketHandlers(io);
+// The "catchall" handler: for any request that doesn't match, send back React's index.html file.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build/index.html'));
+});
 
 // Set up the server
 const PORT = process.env.PORT || 9999;
-server.listen(PORT, () => console.log(`App running on https://localhost:${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});

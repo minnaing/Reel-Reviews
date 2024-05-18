@@ -29,7 +29,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // IMPORT CUSTOM CSS FOR STYLING THE APPLICATION
 import "./App.css";
 
-//
 // const API_IMG = "http://image.tmdb.org/t/p/w500";
 
 // FIRST HOOK

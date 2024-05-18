@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-import { autoScroll } from "./autoScroll";
+import { autoScroll } from "./autoScroll.js";
 
 export const scrapeReddit = async (movieName, releaseDate) => {
   const browser = await puppeteer.launch({

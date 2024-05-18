@@ -141,3 +141,13 @@ For inquiries or collaboration opportunities, please contact us:
 - Heroku: [Reel Review](https://reel-reviews-f48354ff4a5a.herokuapp.com/#/Region_Reviews)
 
 Please replace the placeholder `your-username` with your actual GitHub username and `your_api_key` with your API key for TMDb. Additionally, you can further customize the README.md as needed for the project.
+
+## To clear warnings
+
+### Replace onBeforeSetupMiddleware with setupMiddlewares
+
+find ./node_modules/webpack-dev-server -type f -exec sed -i '' 's/onBeforeSetupMiddleware/setupMiddlewares/g' {} +
+
+### Replace onAfterSetupMiddleware with setupMiddlewares
+
+find ./node_modules/webpack-dev-server -type f -exec sed -i '' 's/onAfterSetupMiddleware/setupMiddlewares/g' {} +
