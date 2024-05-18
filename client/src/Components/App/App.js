@@ -13,7 +13,6 @@ import Home from "../Pages/Home/Home";
 import About from "../Pages/About/About";
 import ChatRoom from "../Pages/ChatRoom/ChatRoom";
 import Contact from "../Pages/Contact/Contact";
-import Join from "../Pages/ChatRoom/Messages/Join";
 import MovieChart from "../Partials/MovieChart/MovieChart";
 import MovieLocMap from "../Pages/MovieLocMap/MovieLocMap";
 // import MovieReviewForm from "../Pages/MovieReviewForm/MovieReviewForm";
@@ -85,9 +84,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
 
-          {/* <Route path="/chatroom" element={<ChatRoom />} /> */}
-					<Route path="/chatroom/:name/:room" element={<ChatRoom />} />
-          <Route path="/join" element={<Join />} />
+          <Route path="/chatroom" element={<ChatRoom />} />
 
           <Route path="/geo-loc" element={<MovieLocMap />} />
           <Route path="/chart" element={<MovieChart />} />
