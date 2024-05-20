@@ -1,41 +1,46 @@
-// // Import necessary modules
-// import express from "express";
-// import cors from "cors";
-// import fs from "fs";
-// import path from "path";
-// import puppeteer from "puppeteer";
-// import nodemailer from "nodemailer";
-// import helmet from "helmet";
+// Import necessary modules
+import express from "express";
+import cors from "cors";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url"
+import puppeteer from "puppeteer";
+import nodemailer from "nodemailer";
+import helmet from "helmet";
 // import favicon from "serve-favicon";
-// import http from 'http';
+import http from 'http';
 // import socketIO from 'socket.io';
 
-// // import { generateMessage, generateLocationMessage } from './utils/message.js';
-// // import { isRealString } from './utils/validation.js';
-// // import { Users } from './utils/users.js';
-// const publicPath = path.join(__dirname, '../public');
+// Create __dirname for ES module scope
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// // Initialize the express application
-// const app = express();
-// const server = http.createServer(app);
-// app.use(express.static(publicPath));
+// import { generateMessage, generateLocationMessage } from './utils/message.js';
+// import { isRealString } from './utils/validation.js';
+// import { Users } from './utils/users.js';
+const publicPath = path.join(__dirname, '../public');
+
+// Initialize the express application
+const app = express();
+const server = http.createServer(app);
+app.use(express.static(publicPath));
 
 // let io = socketIO(server);
 // let users = new Users();
 
-// // Middleware setup
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-// app.use(cors());
-// app.use(helmet());
+// Middleware setup
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
+app.use(helmet());
 
 // app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
-// // Serve static files (assuming public directory for static files and React build)
-// app.use(express.static(path.join(__dirname, 'public')));
-// app.use(express.static(path.join(__dirname, 'client/build')));
+// Serve static files (assuming public directory for static files and React build)
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-// // SOCKET IO FOR CHATROOM
+// SOCKET IO FOR CHATROOM
 // io.on('connection', (socket) => {
 
 //   socket.on('leave', (params) => {
@@ -89,186 +94,186 @@
 
 // });
 
-// // Configure Helmet for basic security enhancements
-// app.use(helmet({
-//   contentSecurityPolicy: {
-//     directives: {
-//       defaultSrc: ["'self'"],
-//       scriptSrc: [
-//         "'self'", 
-//         "'unsafe-inline'", 
-//         "https://www.gstatic.com", 
-//         "https://apis.google.com",  // Required for Google API Loader and other Google scripts
-//         "https://www.google.com",  // For Google Charts and potentially Google Maps
-//         "https://maps.googleapis.com"  // To allow Google Maps scripts
-//       ],
-//       styleSrc: [
-//         "'self'", 
-//         "'unsafe-inline'", 
-//         "https://fonts.googleapis.com",
-//         "https://www.gstatic.com",  // For styles loaded by Google Charts
-//       ],
-//       fontSrc: [
-//         "'self'", 
-//         "https://fonts.gstatic.com"
-//       ],
-//       imgSrc: [
-//         "'self'", 
-//         "data:", 
-//         "https://www.gstatic.com",  // For Google Charts or other Google services
-//         "https://api.themoviedb.org", 
-//         "https://image.tmdb.org",  // For images from TMDb
-//         "https://maps.googleapis.com",  // Adding Google Maps images source
-//         "https://maps.gstatic.com",  // Added this for images from Google Maps
-//         "https://lh3.googleusercontent.com",  // Allow images from Google user content
-//         "https://placehold.co/600x400?text=No Image Available"
-//       ],
-//       connectSrc: [
-//         "'self'", 
-//         "https://api.themoviedb.org",
-//         "https://*.googleapis.com",  // Include this for Google Maps and other API services
-//       ],
-//       frameSrc: [
-//         "'self'", 
-//         "https://www.google.com",  // If you are using iframes for Google services
-//         "https://*.youtube.com"
-//       ],
-//       objectSrc: ["'none'"],  // Generally a good idea to lock down object sources
-//       baseUri: ["'self'"]  // Lock down the base URI for document bases
-//     }
-//   },
-//   // This will disable CSP for browsers that still use CSP 1.0
-//   contentSecurityPolicyReportOnly: false
-// }));
+// Configure Helmet for basic security enhancements
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'", 
+        "'unsafe-inline'", 
+        "https://www.gstatic.com", 
+        "https://apis.google.com",  // Required for Google API Loader and other Google scripts
+        "https://www.google.com",  // For Google Charts and potentially Google Maps
+        "https://maps.googleapis.com"  // To allow Google Maps scripts
+      ],
+      styleSrc: [
+        "'self'", 
+        "'unsafe-inline'", 
+        "https://fonts.googleapis.com",
+        "https://www.gstatic.com",  // For styles loaded by Google Charts
+      ],
+      fontSrc: [
+        "'self'", 
+        "https://fonts.gstatic.com"
+      ],
+      imgSrc: [
+        "'self'", 
+        "data:", 
+        "https://www.gstatic.com",  // For Google Charts or other Google services
+        "https://api.themoviedb.org", 
+        "https://image.tmdb.org",  // For images from TMDb
+        "https://maps.googleapis.com",  // Adding Google Maps images source
+        "https://maps.gstatic.com",  // Added this for images from Google Maps
+        "https://lh3.googleusercontent.com",  // Allow images from Google user content
+        "https://placehold.co/600x400?text=No Image Available"
+      ],
+      connectSrc: [
+        "'self'", 
+        "https://api.themoviedb.org",
+        "https://*.googleapis.com",  // Include this for Google Maps and other API services
+      ],
+      frameSrc: [
+        "'self'", 
+        "https://www.google.com",  // If you are using iframes for Google services
+        "https://*.youtube.com"
+      ],
+      objectSrc: ["'none'"],  // Generally a good idea to lock down object sources
+      baseUri: ["'self'"]  // Lock down the base URI for document bases
+    }
+  },
+  // This will disable CSP for browsers that still use CSP 1.0
+  contentSecurityPolicyReportOnly: false
+}));
 
-// // CORS configuration to allow requests from allowed origins
-// // app.use(cors({
-// //   origin: ['http://localhost:3000']
-// // }));
-
-// app.use(cors())
-
-// // Middleware to enforce HTTPS redirect
-// app.use((req, res, next) => {
-//   if (req.header('x-forwarded-proto') !== 'https') {
-//     res.redirect(`https://${req.header('host')}${req.url}`);
-//   } else {
-//     next();
-//   }
-// });
-
-// // CORS configuration to allow requests from your domain
+// CORS configuration to allow requests from allowed origins
 // app.use(cors({
-//   origin: 'https://reelreviews.info'
+//   origin: ['http://localhost:3000']
 // }));
 
-// // Function to scrape Reddit for reviews
-// async function scrapeReddit(movieName, releaseDate) {
-//   const browser = await puppeteer.launch({
-//       headless: true,
-//       defaultViewport: null,
-//       userDataDir: "./tmp"
-//   });
-//   const page = await browser.newPage();
-//   const query = `site:reddit.com review movie ${movieName} ${releaseDate}`;
-//   await page.goto(`https://www.google.com/search?q=${encodeURIComponent(query)}`);
+app.use(cors())
 
-//   let comments = [];
-//   let linksVisited = 0;
-//   let threadLinks = [];
-//   while (comments.length < 50 && linksVisited < 10) {
-//       if (threadLinks.length === 0) {
-//           threadLinks = await page.evaluate(() => Array.from(document.querySelectorAll("a[href*='reddit.com/r/']")).map(anchor => anchor.href));
-//       }
-//       if (linksVisited >= threadLinks.length) break;
+// Middleware to enforce HTTPS redirect
+app.use((req, res, next) => {
+  if (req.header('x-forwarded-proto') !== 'https') {
+    res.redirect(`https://${req.header('host')}${req.url}`);
+  } else {
+    next();
+  }
+});
 
-//       const nextLink = threadLinks[linksVisited++];
-//       console.log(`Navigating to: ${nextLink}`);
-//       try {
-//           await page.goto(nextLink);
-//           await autoScroll(page);
-//           const newComments = await page.evaluate(() => Array.from(document.querySelectorAll('div[id*="-post-rtjson-content"] p'), element => element.textContent.trim()));
-//           comments = [...comments, ...newComments.slice(0, 50 - comments.length)];
-//           console.log(`Total comments collected: ${comments.length}`);
-//       } catch (error) {
-//           console.error(`Error navigating to link: ${error}`);
-//           continue;
-//       }
-//   }
-//   await browser.close();
-//   return comments;
-// }
+// CORS configuration to allow requests from your domain
+app.use(cors({
+  origin: 'https://reelreviews.info'
+}));
 
-// // Auto-scroll function to load all comments
-// async function autoScroll(page) {
-//   await page.evaluate(async () => {
-//       await new Promise((resolve, reject) => {
-//           let totalHeight = 0;
-//           let distance = 100;
-//           let timer = setInterval(() => {
-//               let scrollHeight = document.body.scrollHeight;
-//               window.scrollBy(0, distance);
-//               totalHeight += distance;
-//               if (totalHeight >= scrollHeight) {
-//                   clearInterval(timer);
-//                   resolve();
-//               }
-//           }, 100);
-//       });
-//   });
-// }
+// Function to scrape Reddit for reviews
+async function scrapeReddit(movieName, releaseDate) {
+  const browser = await puppeteer.launch({
+      headless: true,
+      defaultViewport: null,
+      userDataDir: "./tmp"
+  });
+  const page = await browser.newPage();
+  const query = `site:reddit.com review movie ${movieName} ${releaseDate}`;
+  await page.goto(`https://www.google.com/search?q=${encodeURIComponent(query)}`);
 
-// // Handle form submission and call the scrape function
-// app.post("/get-reviews", async (req, res) => {
+  let comments = [];
+  let linksVisited = 0;
+  let threadLinks = [];
+  while (comments.length < 50 && linksVisited < 10) {
+      if (threadLinks.length === 0) {
+          threadLinks = await page.evaluate(() => Array.from(document.querySelectorAll("a[href*='reddit.com/r/']")).map(anchor => anchor.href));
+      }
+      if (linksVisited >= threadLinks.length) break;
 
-//   console.log(req.body);  // Log the body to debug it
-//   res.json({ message: "Data received", data: req.body }); // Echo back the received data for debugging
+      const nextLink = threadLinks[linksVisited++];
+      console.log(`Navigating to: ${nextLink}`);
+      try {
+          await page.goto(nextLink);
+          await autoScroll(page);
+          const newComments = await page.evaluate(() => Array.from(document.querySelectorAll('div[id*="-post-rtjson-content"] p'), element => element.textContent.trim()));
+          comments = [...comments, ...newComments.slice(0, 50 - comments.length)];
+          console.log(`Total comments collected: ${comments.length}`);
+      } catch (error) {
+          console.error(`Error navigating to link: ${error}`);
+          continue;
+      }
+  }
+  await browser.close();
+  return comments;
+}
 
-//   // const { movieName, releaseDate } = req.body;
-//   // try {
-//   //     const comments = await scrapeReddit(movieName, releaseDate);
-//   //     res.json({ comments });
-//   // } catch (error) {
-//   //     res.status(500).send("An error occurred while fetching reviews.");
-//   // }
-// });
+// Auto-scroll function to load all comments
+async function autoScroll(page) {
+  await page.evaluate(async () => {
+      await new Promise((resolve, reject) => {
+          let totalHeight = 0;
+          let distance = 100;
+          let timer = setInterval(() => {
+              let scrollHeight = document.body.scrollHeight;
+              window.scrollBy(0, distance);
+              totalHeight += distance;
+              if (totalHeight >= scrollHeight) {
+                  clearInterval(timer);
+                  resolve();
+              }
+          }, 100);
+      });
+  });
+}
 
-// // Send email endpoint using nodemailer
-// app.post("/send-email", async (req, res) => {
-//   const { name, email, message } = req.body;
-//   const transporter = nodemailer.createTransport({
-//       service: "gmail",
-//       auth: {
-//         user: "reelreviewstest@gmail.com",
-//         pass: "halyoqyczhmgbxrd"
-//       },
-//   });
+// Handle form submission and call the scrape function
+app.post("/get-reviews", async (req, res) => {
 
-//   const mailOptions = {
-//     from: "reelreviewstest@gmail.com",
-//     to: "lchan2021@csu.fullerton.edu",
-//     subject: `Message from ${name} (${email})`,
-//       text: message,
-//   };
+  console.log(req.body);  // Log the body to debug it
+  res.json({ message: "Data received", data: req.body }); // Echo back the received data for debugging
 
-//   try {
-//       await transporter.sendMail(mailOptions);
-//       res.json({ message: "Email sent successfully" });
-//   } catch (error) {
-//       console.error("Error sending email:", error);
-//       res.status(500).send("Failed to send email");
-//   }
-// });
+  // const { movieName, releaseDate } = req.body;
+  // try {
+  //     const comments = await scrapeReddit(movieName, releaseDate);
+  //     res.json({ comments });
+  // } catch (error) {
+  //     res.status(500).send("An error occurred while fetching reviews.");
+  // }
+});
 
-// // Fallback for other GET requests not handled by specific routes
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client/build", "index.html"));
-// });
+// Send email endpoint using nodemailer
+app.post("/send-email", async (req, res) => {
+  const { name, email, message } = req.body;
+  const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "reelreviewstest@gmail.com",
+        pass: "halyoqyczhmgbxrd"
+      },
+  });
+
+  const mailOptions = {
+    from: "reelreviewstest@gmail.com",
+    to: "lchan2021@csu.fullerton.edu",
+    subject: `Message from ${name} (${email})`,
+      text: message,
+  };
+
+  try {
+      await transporter.sendMail(mailOptions);
+      res.json({ message: "Email sent successfully" });
+  } catch (error) {
+      console.error("Error sending email:", error);
+      res.status(500).send("Failed to send email");
+  }
+});
+
+// Fallback for other GET requests not handled by specific routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
 
 
-// // Set up the server
-// const PORT = process.env.PORT || 9999;
-// app.listen(PORT, () => console.log(`App running on https://localhost:${PORT}`));
+// Set up the server
+const PORT = process.env.PORT || 9999;
+app.listen(PORT, () => console.log(`App running on https://localhost:${PORT}`));
 
 
 
@@ -276,19 +281,14 @@
 
 
 
+// import cors from 'cors';
 
-// // Import necessary modules
-// import express from "express";
-// import cors from "cors";
-// import helmet from "helmet";
-// import favicon from "serve-favicon";
+// import express from 'express';
+// import path from 'path';
 // import { fileURLToPath } from 'url';
-// import path from "path";
-// import { createServer } from "http";
-// import { corsConfig } from "./server/middlewares/corsConfig.js";
-// // import { faviconMiddleware } from "./server/middlewares/favicon.js";
+// import helmet from 'helmet';
+// import { helmetConfig } from './server/middlewares/helmetConfig.js';
 
-// import { helmetConfig } from "./server/middlewares/helmetConfig.js";
 // import { httpsRedirect } from "./server/middlewares/httpsRedirect.js";
 // import { staticFiles } from "./server/middlewares/staticFiles.js";
 // import { getReviews } from "./server/routes/getReviews.js";
@@ -297,80 +297,28 @@
 // import { scrapeReddit } from "./server/utils/scrapeReddit.js";
 // import { autoScroll } from "./server/utils/autoScroll.js";
 
-// // // Convert the file URL to a path and get the directory name
+// // Convert the file URL to a path and get the directory name
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
 
 // // Initialize the express application
 // const app = express();
-// const server = createServer(app);
 
-// // Middleware setup
-// app.use(cors(corsConfig));
+// // Apply CORS middleware
+// app.use(cors());
 
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-
-// app.use(helmet(helmetConfig));
-// // app.use(faviconMiddleware);
-// app.use(staticFiles);
-// app.use(httpsRedirect);
+// // app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
 // // Serve static files from the React app
 // app.use(express.static(path.join(__dirname, 'client/build')));
 
-// // Set up routes
-// app.post("/get-reviews", getReviews);
-// app.post("/send-email", sendEmail);
-// app.get("*", fallback);
+// // The "catchall" handler: for any request that doesn't match, send back React's index.html file.
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'client/build/index.html'));
+// });
 
 // // Set up the server
 // const PORT = process.env.PORT || 9999;
-// server.listen(PORT, () => console.log(`App running on http://localhost:${PORT}`));
-
-
-
-
-
-
-import cors from 'cors';
-
-import express from 'express';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import helmet from 'helmet';
-import { helmetConfig } from './server/middlewares/helmetConfig.js';
-
-import { httpsRedirect } from "./server/middlewares/httpsRedirect.js";
-import { staticFiles } from "./server/middlewares/staticFiles.js";
-import { getReviews } from "./server/routes/getReviews.js";
-import { sendEmail } from "./server/routes/sendEmail.js";
-import { fallback } from "./server/routes/fallback.js";
-import { scrapeReddit } from "./server/utils/scrapeReddit.js";
-import { autoScroll } from "./server/utils/autoScroll.js";
-
-// Convert the file URL to a path and get the directory name
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Initialize the express application
-const app = express();
-
-// Apply CORS middleware
-app.use(cors());
-
-// app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
-
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
-
-// The "catchall" handler: for any request that doesn't match, send back React's index.html file.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build/index.html'));
-});
-
-// Set up the server
-const PORT = process.env.PORT || 9999;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+// });
