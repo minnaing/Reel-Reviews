@@ -54,7 +54,7 @@ const Region_Reviews = () => {
     <div id="review-wrapper">
       <div className="search-wrapper">
         {/* <SearchBox onSearch={setSearchQuery} /> */}
-        <div className="filter-container">
+        <div className="region-filter-container">
           <Select
             options={countries}
             value={countries.find((option) => option.value === countryFilter)}
@@ -64,7 +64,7 @@ const Region_Reviews = () => {
             className="react-select-container"
             classNamePrefix="react-select"
           />
-          <button onClick={() => setNowPlaying(!nowPlaying)}>
+          <button id="region-show-all-movies" onClick={() => setNowPlaying(!nowPlaying)}>
             {nowPlaying ? "Show All Movies" : "Show Now Playing"}
           </button>
         </div>
