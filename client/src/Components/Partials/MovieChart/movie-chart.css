@@ -1,3 +1,4 @@
+/* Base styles */
 #chart {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -35,7 +36,6 @@
 #chart-aside-2 {
   background: #31525B;
   border: 5px solid transparent;
-  /* RAINBOW BACKGROUND */
   border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
   border-image-slice: 1;
   margin: 10px 20px;
@@ -53,29 +53,35 @@
   text-shadow: 0 2px 3px black;
 }
 
-
-
-/* ALLMEDIA QUERY FOR SCALING */
+/* Media queries for responsive design */
 @media (max-width: 1200px) {
+  /* Adjust as needed for larger tablet or small desktop screens */
 }
 
 @media (max-width: 768px) {
   #chart {
-    
-    /* Adjust the ratio based on your design preference */
     grid-template-areas:
-    "aside-0"
-    "aside-1"
-    "aside-2";
+      "aside-0"
+      "aside-1"
+      "aside-2";
+    gap: 10px; /* Adjust spacing for smaller screens */
+  }
+
+  .rainbow-box {
+    margin: 10px; /* Reduce margins for better fit on smaller screens */
   }
 }
 
 @media (max-width: 555.56px) {
   #chart {
-    /* Adjust the ratio based on your design preference */
     grid-template-areas:
-    "aside-0"
-    "aside-1"
-    "aside-2";
+      "aside-0"
+      "aside-1"
+      "aside-2";
+    gap: 10px; /* Ensure consistent spacing on very small screens */
+  }
+
+  .rainbow-box {
+    margin: 5px; /* Further reduce margins for very small screens */
   }
 }
