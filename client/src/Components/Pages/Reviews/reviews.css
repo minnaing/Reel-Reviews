@@ -54,4 +54,8 @@
     height: 90px;
     font-size: 0.85rem;
   }
+
+  .modal-content {
+    top: 4em;
+  }
 }
