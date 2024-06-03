@@ -64,7 +64,7 @@ const Region_Reviews = () => {
             className="react-select-container"
             classNamePrefix="react-select"
           />
-          <button id="region-show-all-movies" onClick={() => setNowPlaying(!nowPlaying)}>
+          <button className="region-show-all-movies" onClick={() => setNowPlaying(!nowPlaying)}>
             {nowPlaying ? "Show All Movies" : "Show Now Playing"}
           </button>
         </div>

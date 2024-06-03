@@ -70,7 +70,7 @@ const TrendBySeason = () => {
   return (
     <div id="review-wrapper">
       <div className="search-wrapper">
-        <div className="filter-container">
+        <div className="bySeason-filter-container">
           <Select
             options={seasons}
             onChange={(option) =>
