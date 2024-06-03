@@ -17,8 +17,8 @@
 #search_location {
   box-sizing: border-box;
   border: 1px solid transparent;
-  width: 320px; /* Full width on smaller screens */
-  max-width: 320px; /* Max width to maintain design */
+  width: 100%; /* Full width on smaller screens */
+  min-width:260px; /* Max width to maintain design */
   height: 32px;
   padding: 0 12px;
   border-radius: 3px;
