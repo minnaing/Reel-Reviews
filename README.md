@@ -16,16 +16,16 @@ This integration will filter movies based on their release years corresponding t
 ## Team Members
 
 - Terrell D. Lemons (Developer Role)
-  - Email: `LemonsTerrell@csu.fullerton.edu`
+  - Email: <LemonsTerrell@csu.fullerton.edu>
 
 - Leung Wang Chan (Developer Role)
-  - Email: `lchan2021@csu.fullerton.edu`
+  - Email: <lchan2021@csu.fullerton.edu>
 
 - James D Owens (Developer Role)
-  - Email: `jamesowens@csu.fullerton.edu`
+  - Email: <jamesowens@csu.fullerton.edu>
 
 - Julian V Apparicio (Developer Role)
-  - Email: `Jvapparicio@csu.fullerton.edu`
+  - Email: <Jvapparicio@csu.fullerton.edu>
 
 ## Navigation
 

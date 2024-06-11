@@ -36,6 +36,37 @@ const MovieChart = () => {
     setRandomFact(movieFacts[randomIndex]);
   }, []);
 
+  useEffect(() => {
+    const adjustSVG = () => {
+      const svg = document.querySelector("svg");
+      if (svg) {
+        const rects = svg.querySelectorAll("rect");
+        rects.forEach(rect => {
+          if (
+            rect.getAttribute("x") === "143" &&
+            rect.getAttribute("y") === "71" &&
+            rect.getAttribute("width") === "100" &&
+            rect.getAttribute("height") === "100"
+          ) {
+            rect.setAttribute("x", "200");
+            rect.setAttribute("y", "100");
+            rect.setAttribute("width", "150");
+            rect.setAttribute("height", "150");
+            rect.setAttribute("fill-opacity", "0.5");
+            rect.setAttribute("fill", "rgb(0, 0, 0)");
+          }
+        });
+      }
+    };
+
+    // Call adjustSVG on component mount and when window resizes
+    adjustSVG();
+    window.addEventListener("resize", adjustSVG);
+
+    // Clean up event listener on component unmount
+    return () => window.removeEventListener("resize", adjustSVG);
+  }, []);
+
   return (
     <div id="chart">
       <div id="chart-aside-0" className="rainbow-box">

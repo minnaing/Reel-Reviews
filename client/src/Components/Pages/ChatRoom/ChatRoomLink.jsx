@@ -6,7 +6,7 @@ const ChatRoomLink = ({ handleClose }) => {
   return (
     <Nav.Link
       as="a"
-      href="https://brdg2connect.org"
+      href="https://https://www.brdg2connect.org/login"
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClose}
