@@ -26,6 +26,10 @@ div.icon-wrapper {
   padding: 2em;
 }
 
+#review-wrapper > div.wrapper > div > div > div > div.strap-1 {
+  display: none;
+}
+
 @media (max-width: 1021px) {
 
   #review-wrapper > div.search-wrapper > div {
