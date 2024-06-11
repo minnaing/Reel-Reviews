@@ -22,6 +22,10 @@
   width: 100%;
 }
 
+div.icon-wrapper {
+  padding: 2em;
+}
+
 @media (max-width: 1021px) {
 
   #review-wrapper > div.search-wrapper > div {

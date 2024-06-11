@@ -22,6 +22,10 @@
   margin: 0 auto;
 }
 
+div.icon-wrapper {
+  padding: 2em;
+}
+
 @media (max-width: 768px) {
   .react-select-container {
     max-width: 100%; /* Allows select to expand to 100% of its container's width */
