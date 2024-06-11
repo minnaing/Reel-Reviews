@@ -2,6 +2,13 @@
   padding: 1em;
 }
 
+#review-wrapper > div.search-wrapper > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-around;
+  padding: 2em;
+}
 
 /* Initial styling for react-select containers */
 .react-select-container {
@@ -15,7 +22,12 @@
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1021px) {
+
+  #review-wrapper > div.search-wrapper > div {
+    display: block;
+  }
+
   .react-select-container {
     max-width: 100%; /* Allows select to expand to 100% of its container's width */
     margin-bottom: 10px; /* Adds space between stacked selects */
@@ -27,7 +39,7 @@
 /* @media (max-width: 555.56px) { */
 
   input {
-    width: 40%;
+    width: 80%;
   }
 
   .bySeason-filter-container,
@@ -43,7 +55,7 @@
 
   .react-select-container {
     padding: 0.5em;
-    width: 200px;
+    width: 400px;
     height: 90px;
     font-size: 0.85rem;
   }

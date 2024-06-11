@@ -92,7 +92,7 @@ const TrendBySeason = () => {
               console.log("Selected Year: ", year); // Debug: Check the console for the selected year
               setSelectedYear(year);
             }}
-            placeholder="Select or type a year"
+            placeholder="Select Year"
             className="react-select-container"
             classNamePrefix="react-select"
           />
